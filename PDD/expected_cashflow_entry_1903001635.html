@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Plataforma de Dados : expected_cashflow_entry</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Plataforma de Dados</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Plataforma-de-Dados_1898840277.html">Plataforma de Dados</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Datalake_1982726152.html">Datalake</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="1900216592.html">Dicionário de dados</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Databases_1900216609.html">Databases</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="A55-Prod_1900216788.html">A55-Prod</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="A55-Prod---asset_1900216821.html">A55-Prod - asset</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Plataforma de Dados : expected_cashflow_entry
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Alessandro Oliveira</span>, last modified by <span class='editor'> Gabrielly Ramos</span> on Mar 28, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>Nesta tabela constam as os fluxos de caixa esperados nos contratos da a55. Quando uma operação é creditada, cancelada, alterada, etc, o status do cashflow muda, conforme <a data-card-appearance="inline" href="https://a55tech.atlassian.net/wiki/spaces/PDD/pages/1900216832" rel="nofollow">https://a55tech.atlassian.net/wiki/spaces/PDD/pages/1900216832</a>.</p><div class="table-wrap"><table data-layout="default" data-local-id="b01f3ced-3747-4262-8427-192ca9c04cf6" class="confluenceTable"><colgroup><col style="width: 226.67px;"/><col style="width: 226.67px;"/><col style="width: 226.67px;"/></colgroup><tbody><tr><th class="confluenceTh"><p><strong>Coluna</strong></p></th><th class="confluenceTh"><p><strong>Conteúdo</strong></p></th><th class="confluenceTh"><p><strong>Comentários</strong></p></th></tr><tr><td class="confluenceTd"><p>id</p></td><td class="confluenceTd"><p>Identificador único do cashflow esperado.</p></td><td class="confluenceTd"><p /></td></tr><tr><td class="confluenceTd"><p>active</p></td><td class="confluenceTd"><p>Indica se o cashflow ainda é esperado ou não.</p></td><td class="confluenceTd"><p>Todos os valores são verdadeiros.</p></td></tr><tr><td class="confluenceTd"><p>amount</p></td><td class="confluenceTd"><p>Montante do cashflow esperado (incluindo juros)</p></td><td class="confluenceTd"><p /></td></tr><tr><td class="confluenceTd"><p>date</p></td><td class="confluenceTd"><p>Data esperada do cashflow.</p></td><td class="confluenceTd"><p /></td></tr><tr><td class="confluenceTd"><p>note</p></td><td class="confluenceTd"><p>Comentários sobe o cashflow esperado.</p></td><td class="confluenceTd"><p>Dado inteiramente nulo.</p></td></tr><tr><td class="confluenceTd"><p>operation_id</p></td><td class="confluenceTd"><p>Operação associada ao cashflow esperado. Referência à tabela <a href="1900216887.html" data-linked-resource-id="1900216887" data-linked-resource-version="4" data-linked-resource-type="page">operation</a>.</p></td><td class="confluenceTd"><p /></td></tr><tr><td class="confluenceTd"><p>status_id</p></td><td class="confluenceTd"><p>Identificador do status do cashflow esperado. Referência à tabela <a data-card-appearance="inline" href="https://a55tech.atlassian.net/wiki/spaces/PDD/pages/1900216832" rel="nofollow">https://a55tech.atlassian.net/wiki/spaces/PDD/pages/1900216832</a>.</p></td><td class="confluenceTd"><p /></td></tr><tr><td class="confluenceTd"><p>type_id</p></td><td class="confluenceTd"><p>Identificador do tipo de operação que corresponde o cashflow. Referência à tabela <a data-card-appearance="inline" href="https://a55tech.atlassian.net/wiki/spaces/PDD/pages/1900216843" rel="nofollow">https://a55tech.atlassian.net/wiki/spaces/PDD/pages/1900216843</a>.</p></td><td class="confluenceTd"><p /></td></tr><tr><td class="confluenceTd"><p>vehicle_id</p></td><td class="confluenceTd"><p>Identificador de qual veículo está hospedado o crédito. Referência à tabela <a href="vehicle_1902608393.html" data-linked-resource-id="1902608393" data-linked-resource-version="6" data-linked-resource-type="page">vehicle</a>.</p></td><td class="confluenceTd"><p /></td></tr><tr><td class="confluenceTd"><p>instrument_id</p></td><td class="confluenceTd"><p>Identificador de qual contrato o cashflow esperado pertence. Referência à tabela <a href="instrument_1900216865.html" data-linked-resource-id="1900216865" data-linked-resource-version="16" data-linked-resource-type="page">instrument</a>.</p></td><td class="confluenceTd"><p /></td></tr><tr><td class="confluenceTd"><p>principal</p></td><td class="confluenceTd"><p>Valor inicial do cashflow esperado (sem contar juros e taxas).</p></td><td class="confluenceTd"><p /></td></tr><tr><td class="confluenceTd"><p>installment_id</p></td><td class="confluenceTd"><p>?????????</p></td><td class="confluenceTd"><p>Código da Parcela</p></td></tr><tr><td class="confluenceTd"><p>contract_number</p></td><td class="confluenceTd"><p>Identificação do contrato.</p></td><td class="confluenceTd"><p /></td></tr><tr><td class="confluenceTd"><p>receivable_type</p></td><td class="confluenceTd"><p>?????????</p></td><td class="confluenceTd"><p>Há três tipos nos dados: CCB, CDD e CTN. Tipo de Recebível</p></td></tr></tbody></table></div><p /><p />
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Dec 29, 2022 17:44</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Plataforma de Dados : TAC Total</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Plataforma de Dados</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Plataforma-de-Dados_1898840277.html">Plataforma de Dados</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Datalake_1982726152.html">Datalake</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="1900216592.html">Dicionário de dados</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="KPIs_1903230997.html">KPIs</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Plataforma de Dados : TAC Total
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Alessandro Oliveira (Unlicensed)</span>, last modified on Apr 11, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p><strong>Owner</strong>: Daniella Souza</p><hr/><p>Cada contrato firmado pela a55 inclui três taxas na categoria de TAC (desconsiderando IOF):</p><ul><li><p>Taxa do bancarizador emissor da CCB</p></li><li><p>Taxa CETIP</p></li><li><p>Taxa cobrada pela a55</p></li></ul><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/1924628582/1924989060.png" data-image-src="attachments/1924628582/1924989060.png" data-height="14" data-width="284" data-unresolved-comment-count="0" data-linked-resource-id="1924989060" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220310-131320.png" data-base-url="https://a55tech.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1924628582" data-linked-resource-container-version="6" data-media-id="bd3f7953-b981-4c3a-8f52-d988530f2a20" data-media-type="file"></span><p>A TAC Total é definida como a soma das TACs de cada contrato no intervalo de tempo considerado na análise.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/1924628582/1925677112.png" data-image-src="attachments/1924628582/1925677112.png" data-height="49" data-width="430" data-unresolved-comment-count="0" data-linked-resource-id="1925677112" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220406-002805.png" data-base-url="https://a55tech.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1924628582" data-linked-resource-container-version="6" data-media-id="61d87946-15a5-480b-ad47-3aa2e1d8f807" data-media-type="file"></span><p /><p> <img class="emoticon emoticon-warning" data-emoji-id="atlassian-warning" data-emoji-shortname=":warning:" data-emoji-fallback=":warning:" src="images/icons/emoticons/warning.png" width="16" height="16" data-emoticon-name="warning" alt="(warning)"/>  Para o cômputo da TAC total, é necessário desconsiderar contratos em renegociação!</p><hr/><p><strong>KPI disponível em</strong>: <a class="external-link" href="https://metabase.a55.tech/question/2431-total-tac" rel="nofollow">Total Tac</a></p><div id="expander-1624139986" class="expand-container"><div id="expander-control-1624139986" class="expand-control"><span class="expand-control-icon"><img style="vertical-align:middle;" class="expand-control-image" src="images/icons/grey_arrow_down.png"></span><span class="expand-control-text">SQL</span></div><div id="expander-content-1624139986" class="expand-content"><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: sql; gutter: false; theme: Confluence" data-theme="Confluence">with faturamento_realizado as (
+	select
+		realized.id as realized_id,
+		instrument.id as instrument_id, 
+	    loan_date::date,
+	    client.name,
+	    client.cnpj,
+	    issuer.name as issuer_name,
+	    -sum(realized.amount::float/100) amount_bruto,
+	    sum((instrument.fee_issuer::float + instrument.&quot;fee_CETIP&quot;::float + instrument.fee_a55::float) /100) as tac_total,
+	    sum(instrument.iof::float/100) as iof
+	from asset.realized_cashflow_entry realized
+	    left join asset.instrument instrument 	on instrument.id = realized.instrument_id
+	    left join asset.operation operation 	on operation.id = instrument.operation_id 
+	    left join asset.client client 			on client.cnpj = operation.client_id
+	    left join asset.issuer 					on issuer.id = instrument.issuer_id 
+	where realized.cashflow_type_id = 1
+	    [[and instrument.loan_date::date between {{dt_inicio}} and {{dt_fim}}]]
+	    and instrument.id not in 
+	(
+	    select -- empresas que possuem renegociação
+	        related.destination_instrument
+	    from asset.instrument_related related
+	)  
+	group by realized.id, realized.expected_cashflow_id, loan_date::date, instrument.id , client.name, client.cnpj, issuer.name
+	order by loan_date::date
+)
+, amount_issuer as (
+	select
+		date_trunc(&#39;month&#39;, instrument.loan_date)::date as periodo,
+	    issuer.name as issuer_name,
+	    -sum(realized.amount::float/100) amount_total_issuer
+	from asset.instrument instrument 
+	    join asset.operation operation 	
+	    	on operation.id = instrument.operation_id 
+	    left join asset.realized_cashflow_entry realized
+	    	on instrument.id = realized.instrument_id
+	    left join asset.issuer 					
+	    	on issuer.id = instrument.issuer_id 
+	where realized.cashflow_type_id = 1
+	    [[and instrument.loan_date::date between {{dt_inicio}} and {{dt_fim}}]]
+	    and instrument.id not in 
+	(
+	    select -- empresas que possuem renegociação
+	        related.destination_instrument
+	    from asset.instrument_related related
+	)  
+	group by 
+		date_trunc(&#39;month&#39;, instrument.loan_date)::date,
+	    issuer.name
+	order by date_trunc(&#39;month&#39;, instrument.loan_date)::date
+	)
+, custo_por_issuer as (
+	select 
+		fr.name as empresa,
+	    fr.cnpj,
+	    fr.instrument_id,
+	    fr.loan_date,
+	    fr.issuer_name as bancarizador,
+	    fr.tac_total,
+	    fr.iof,
+	    amount_bruto,
+		amount_bruto - (tac_total + iof) as amount_liquido,
+		case 
+			when fr.issuer_name = &#39;MoneyPlus&#39; 
+				then (amount_bruto - (tac_total + iof))*0.0035
+			when fr.issuer_name = &#39;QI Tech&#39; 
+				and amount_total_issuer &lt;= 1000000
+				then (amount_bruto*0.0045)
+			when fr.issuer_name = &#39;Socinal&#39; 
+				and amount_total_issuer &lt;= 2500000 
+				then (((tac_total - (amount_bruto*0.0080))*0.0965) + (amount_bruto*0.0080)) -- tac total menos o custo do bancarizador menos o imposto que é pago pro governo 
+			when fr.issuer_name = &#39;Socinal&#39; 
+				and amount_total_issuer between 2500000.01 and 5000000 
+				then (((tac_total - (amount_bruto*0.0070))*0.0965) + (amount_bruto*0.0070))
+			when fr.issuer_name = &#39;Socinal&#39; 
+				and amount_total_issuer between 5000000.01 and 7500000 
+				then (((tac_total - (amount_bruto*0.0060))*0.0965) + (amount_bruto*0.0060))
+		end as custo
+	from faturamento_realizado fr
+	left join amount_issuer ai
+		on date_trunc(&#39;month&#39;, fr.loan_date) = ai.periodo
+		and fr.issuer_name = ai.issuer_name
+)
+select
+    sum(tac_total) as tac_total
+from custo_por_issuer
+</pre>
+</div></div></div></div><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1924628582/1924989060.png">image-20220310-131320.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1924628582/1925349442.png">image-20220406-002713.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1924628582/1925677112.png">image-20220406-002805.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Dec 29, 2022 17:45</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

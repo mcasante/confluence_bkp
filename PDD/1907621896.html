@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Plataforma de Dados : KPIs financeiros relatório completo por mês</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Plataforma de Dados</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Plataforma-de-Dados_1898840277.html">Plataforma de Dados</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Datalake_1982726152.html">Datalake</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="1900216592.html">Dicionário de dados</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Metabase_1900216909.html">Metabase</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Squad-Financeiro_1906475145.html">Squad Financeiro</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="1907589121.html">Financeiro - Relatórios</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Plataforma de Dados : KPIs financeiros relatório completo por mês
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Alessandro Oliveira (Unlicensed)</span>, last modified on Mar 07, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p><strong>Responsável</strong>: <a class="confluence-userlink user-mention" data-username="60ca0042b1f93b00691dabb9" data-account-id="60ca0042b1f93b00691dabb9" href="https://a55tech.atlassian.net/wiki/people/60ca0042b1f93b00691dabb9?ref=confluence" target="_blank" data-base-url="https://a55tech.atlassian.net/wiki">Karen Moraes (Unlicensed)</a> </p><p><strong>URL</strong>: <a class="external-link" href="https://metabase.a55.tech/question/2199-kpis-financeiros-relatorio-completo-por-mes" rel="nofollow">https://metabase.a55.tech/question/2199-kpis-financeiros-relatorio-completo-por-mes</a></p><hr/><p><strong>Propósito</strong>: Este relatório visa dar uma visão geral sobre KPI’s financeiros relacionados a cada mês e a cada bancarizador. </p><p>Como a a55 no momento trabalha apenas com dois bancarizadores (MoneyPlus e QI Tech), os meses mais recentes constam apenas registros associados a estes dois.</p><p>Entre as informações presentes no relatório, tem-se:</p><ul><li><p>Total bruto e líquido de desembolsos por mês e bancarizador.</p></li><li><p>IOF total por mês e bancarizador.</p></li><li><p>Valor total TAC (<em>taxa bancarizador + taxa CETIP + taxa a55</em>) por mês e bancarizador.</p></li><li><p>Custo total de cada bancarizador por mês e bancarizador. <em>(custo = valor bruto - (tac total + iof)) </em>por mês e bancarizador.</p></li></ul><p /><hr/><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: sql; gutter: false; theme: Confluence" data-theme="Confluence">with faturamento_realizado as (
+	select
+		realized.id as realized_id,
+		instrument.id as instrument_id, 
+	    loan_date::date,
+	    client.name,
+	    client.cnpj,
+	    issuer.name as issuer_name,
+	    -sum(realized.amount::float/100) amount_bruto,
+	    sum((instrument.fee_issuer::float + instrument.&quot;fee_CETIP&quot;::float + instrument.fee_a55::float) /100) as tac_total,
+	    sum(instrument.iof::float/100) as iof
+	from asset.realized_cashflow_entry realized
+	    left join asset.instrument instrument 	on instrument.id = realized.instrument_id
+	    left join asset.operation operation 	on operation.id = instrument.operation_id 
+	    left join asset.client client 			on client.cnpj = operation.client_id
+	    left join asset.issuer 					on issuer.id = instrument.issuer_id 
+	where realized.cashflow_type_id = 1
+	    [[and instrument.loan_date::date between {{inicio}} and {{fim}}]]
+	    and instrument.id not in 
+	(
+	    select -- empresas que possuem renegociação
+	        related.destination_instrument
+	    from asset.instrument_related related
+	)  
+	group by realized.id, realized.expected_cashflow_id, loan_date::date, instrument.id , client.name, client.cnpj, issuer.name
+	order by loan_date::date
+)
+, amount_issuer as (
+	select
+		date_trunc(&#39;month&#39;, instrument.loan_date)::date as periodo,
+	    issuer.name as issuer_name,
+	    -sum(realized.amount::float/100) amount_total_issuer
+	from asset.instrument instrument 
+	    join asset.operation operation 	
+	    	on operation.id = instrument.operation_id 
+	    left join asset.realized_cashflow_entry realized
+	    	on instrument.id = realized.instrument_id
+	    left join asset.issuer 					
+	    	on issuer.id = instrument.issuer_id 
+	where realized.cashflow_type_id = 1
+	    [[and instrument.loan_date::date between {{inicio}} and {{fim}}]]
+	    and instrument.id not in 
+	(
+	    select -- empresas que possuem renegociação
+	        related.destination_instrument
+	    from asset.instrument_related related
+	)  
+	group by 
+		date_trunc(&#39;month&#39;, instrument.loan_date)::date,
+	    issuer.name
+	order by date_trunc(&#39;month&#39;, instrument.loan_date)::date
+	)
+, custo_por_issuer as (
+	select 
+		fr.name as empresa,
+	    fr.cnpj,
+	    fr.instrument_id,
+	    fr.loan_date,
+	    fr.issuer_name as bancarizador,
+	    fr.tac_total,
+	    fr.iof,
+	    amount_bruto,
+		amount_bruto - (tac_total + iof) as amount_liquido,
+		case 
+			when fr.issuer_name = &#39;MoneyPlus&#39; 
+				then (amount_bruto - (tac_total + iof))*0.0035
+			when fr.issuer_name = &#39;QI Tech&#39; 
+				and amount_total_issuer &lt;= 1000000
+				then (amount_bruto*0.0045)
+			when fr.issuer_name = &#39;Socinal&#39; 
+				and amount_total_issuer &lt;= 2500000 
+				then (((tac_total - (amount_bruto*0.0080))*0.0965) + (amount_bruto*0.0080)) -- tac total menos o custo do bancarizador menos o imposto que é pago pro governo 
+			when fr.issuer_name = &#39;Socinal&#39; 
+				and amount_total_issuer between 2500000.01 and 5000000 
+				then (((tac_total - (amount_bruto*0.0070))*0.0965) + (amount_bruto*0.0070))
+			when fr.issuer_name = &#39;Socinal&#39; 
+				and amount_total_issuer between 5000000.01 and 7500000 
+				then (((tac_total - (amount_bruto*0.0060))*0.0965) + (amount_bruto*0.0060))
+		end as custo
+	from faturamento_realizado fr
+	left join amount_issuer ai
+		on date_trunc(&#39;month&#39;, fr.loan_date) = ai.periodo
+		and fr.issuer_name = ai.issuer_name
+)
+select 
+	date_trunc(&#39;month&#39;,loan_date::date) as periodo,
+	bancarizador,
+	sum(amount_bruto) as amount_bruto,
+	sum(amount_liquido) as amount_liquido,
+	sum(custo) custo,
+	sum(tac_total) tac_total,
+	sum(iof) iof,
+    sum(case when tac_total &gt; 0 
+	    then (tac_total - custo)
+	    else 0
+    end) as tac_a55,
+    sum(iof::float / amount_bruto::float) iof_perc,
+	sum(tac_total::float / amount_bruto::float) as tac_global,
+	sum(case when tac_total &gt; 0
+	    then ((tac_total - custo)::float / amount_bruto::float) 
+	    else 0
+	end) as tac_net
+from custo_por_issuer
+group by 	
+    date_trunc(&#39;month&#39;,loan_date::date),
+	bancarizador
+order by 
+    periodo desc , 
+    bancarizador</pre>
+</div></div>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Dec 29, 2022 17:45</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

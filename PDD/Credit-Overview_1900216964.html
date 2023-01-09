@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Plataforma de Dados : Credit Overview</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Plataforma de Dados</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Plataforma-de-Dados_1898840277.html">Plataforma de Dados</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Datalake_1982726152.html">Datalake</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="1900216592.html">Dicionário de dados</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Metabase_1900216909.html">Metabase</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="1900216953.html">Squad Crédito</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="1908932618.html">Crédito - Dashboards</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Plataforma de Dados : Credit Overview
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Alessandro Oliveira</span>, last modified on Mar 30, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p><strong>Responsável</strong>: Luiz Fernando Beltrame &amp; Karen Moraes</p><p><strong>URL</strong>: <a class="external-link" href="https://metabase.a55.tech/dashboard/529-credit-overview?data_inicial=2021-01-01&amp;data_final=2021-11-30" rel="nofollow">https://metabase.a55.tech/dashboard/529-credit-overview?data_inicial=2021-01-01&amp;data_final=2021-11-30</a></p><hr/><p><strong>Propósito</strong>: Este dashboard tem como objetivo ilustrar os principais indicadores de crédito da a55, como total de desembolsado, total renegociado, recuperado, etc…</p><p>As informações presentes no dashboard são:</p><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1672335900778 {padding: 0px;}
+div.rbtoc1672335900778 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1672335900778 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1672335900778'>
+<ul class='toc-indentation'>
+<li><a href='#CreditOverview-Volume'>Volume</a>
+<ul class='toc-indentation'>
+<li><a href='#CreditOverview-FirstDisbursedLoan'>First Disbursed Loan</a></li>
+<li><a href='#CreditOverview-RenegociatedDisbursedLoans'>Renegociated Disbursed Loans</a></li>
+<li><a href='#CreditOverview-AmountDisbursed'>Amount Disbursed</a></li>
+<li><a href='#CreditOverview-AmountRefinancedValue'>Amount Refinanced Value</a></li>
+<li><a href='#CreditOverview-TotalOutstanding'>Total Outstanding</a></li>
+<li><a href='#CreditOverview-NPL'>NPL</a></li>
+<li><a href='#CreditOverview-Volumnbycohort'>Volumn by cohort</a></li>
+<li><a href='#CreditOverview-Cumulativevolunm'>Cumulative volunm</a></li>
+<li><a href='#CreditOverview-Disbursedloansbycohort'>Disbursed loans by cohort</a></li>
+<li><a href='#CreditOverview-Cumulativedisbursedloans'>Cumulative disbursed loans</a></li>
+</ul>
+</li>
+<li><a href='#CreditOverview-Recovery'>Recovery</a>
+<ul class='toc-indentation'>
+<li><a href='#CreditOverview-Amount:CollectedxScheduled'>Amount: Collected x Scheduled</a></li>
+</ul>
+</li>
+<li><a href='#CreditOverview-Vintageanalysis'>Vintage analysis</a>
+<ul class='toc-indentation'>
+<li><a href='#CreditOverview-VintageAnalysis(Bynumberofloans)'>Vintage Analysis (By number of loans)</a></li>
+<li><a href='#CreditOverview-VintageAnalysis(ByLoanAmount)'>Vintage Analysis (By Loan Amount)</a></li>
+<li><a href='#CreditOverview-DPDPorSafra'>DPD Por Safra</a></li>
+<li><a href='#CreditOverview-FPDPorSafra'>FPD Por Safra</a></li>
+</ul>
+</li>
+</ul>
+</div><hr/><h1 id="CreditOverview-Volume">Volume</h1><h2 id="CreditOverview-FirstDisbursedLoan">First Disbursed Loan</h2><p>Métrica de quantos desembolsos são para novas empresas parceiras da a55. Ou seja, não consta casos de upsell.</p><h2 id="CreditOverview-RenegociatedDisbursedLoans">Renegociated Disbursed Loans</h2><p>Métrica de quantos contratos foram renegociados no período.</p><h2 id="CreditOverview-AmountDisbursed">Amount Disbursed</h2><p>Valor total (em milhões) de desembolsos brutos realizados no período. Definição de desembolso bruto em <a href="Desembolso-Bruto_1912537089.html" data-linked-resource-id="1912537089" data-linked-resource-version="8" data-linked-resource-type="page">Desembolso Bruto</a>.</p><h2 id="CreditOverview-AmountRefinancedValue"> Amount Refinanced Value</h2><p>Valor total (em milhões) de desembolsos brutos refinanciados no período. Definição de desembolso bruto em <a href="Desembolso-Bruto_1912537089.html" data-linked-resource-id="1912537089" data-linked-resource-version="8" data-linked-resource-type="page">Desembolso Bruto</a>.</p><h2 id="CreditOverview-TotalOutstanding">Total Outstanding </h2><p>Valor total (em milhões) pendente a ser recebido (amortizado) para a a55. Definição de desembolso bruto em <a href="Desembolso-Bruto_1912537089.html" data-linked-resource-id="1912537089" data-linked-resource-version="8" data-linked-resource-type="page">Desembolso Bruto</a>.</p><h2 id="CreditOverview-NPL">NPL</h2><p>Valor total (em milhões) pendentes a mais de 90 dias. Definição disponível em <a data-card-appearance="inline" href="https://a55tech.atlassian.net/wiki/pages/resumedraft.action?draftId=1903722523" rel="nofollow">https://a55tech.atlassian.net/wiki/pages/resumedraft.action?draftId=1903722523</a></p><h2 id="CreditOverview-Volumnbycohort">Volumn by cohort</h2><p>Este gráfico tem como objetivo mostrar o volume de operações (desembolsos) por tipo de desembolso (<a data-card-appearance="inline" href="https://a55tech.atlassian.net/wiki/spaces/PDD/pages/1903493127" rel="nofollow">https://a55tech.atlassian.net/wiki/spaces/PDD/pages/1903493127</a> ) numa dada safra.  </p><p>O principal objetivo deste gráfico é apresentar por safra, o comportamento dos tipos de desembolsos que a55 realiza. </p><p>No exemplo abaixo, pode-se notar que há uma predominância de desembolsos do tipo Digital.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/1900216964/1903689964.png" data-image-src="attachments/1900216964/1903689964.png" data-height="342" data-width="1293" data-unresolved-comment-count="0" data-linked-resource-id="1903689964" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220221-003836.png" data-base-url="https://a55tech.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1900216964" data-linked-resource-container-version="12" data-media-id="cff3d6eb-11d2-4794-b1a8-2b69c7ebb305" data-media-type="file"></span><h2 id="CreditOverview-Cumulativevolunm">Cumulative volunm</h2><p>Este gráfico tem como objetivo mostrar o volume acumulado de desembolsos por tipo de desembolso numa dada safra. Dada uma safra, o volume acumulado é simplesmente a soma dos volumes das safras anteriores (gráfico <em>volumn by cohort </em>acima). A diferença do volume acumulado entre duas safras mostra o volume por safra (<em>volumn by cohort </em>acima).</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/1900216964/1903526018.png" data-image-src="attachments/1900216964/1903526018.png" data-height="350" data-width="1328" data-unresolved-comment-count="0" data-linked-resource-id="1903526018" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220221-015949.png" data-base-url="https://a55tech.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1900216964" data-linked-resource-container-version="12" data-media-id="38d7b0c6-a4b0-465e-80e4-b885fa22fc6b" data-media-type="file"></span><p /><h2 id="CreditOverview-Disbursedloansbycohort">Disbursed loans by cohort</h2><p>Este gráfico mostra o montante desembolsado por cada tipo de pagamento numa dada safra.</p><p>Trata-se de um gráfico importante pois, juntamente com os gráficos de volume, permite ter uma visão melhor sobre a média de valores de cada tipo de desembolso. </p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/1900216964/1902116932.png" data-image-src="attachments/1900216964/1902116932.png" data-height="346" data-width="1318" data-unresolved-comment-count="0" data-linked-resource-id="1902116932" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220221-005707.png" data-base-url="https://a55tech.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1900216964" data-linked-resource-container-version="12" data-media-id="377d08bc-3854-47cc-87c7-a00f6b58162a" data-media-type="file"></span><h2 id="CreditOverview-Cumulativedisbursedloans">Cumulative disbursed loans</h2><p>Este gráfico tem como objetivo mostrar o valor acumulado de desembolsos por tipo de desembolso numa dada safra. Dada uma safra, o valor desembolsado acumulado é simplesmente a soma dos valores das safras anteriores (gráfico <em>Disbursed loans by cohort </em>acima). A diferença do valor acumulado entre duas safras mostra o valor por safra (<em>volumn by cohort </em>acima).</p><p /><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/1900216964/1903526024.png" data-image-src="attachments/1900216964/1903526024.png" data-height="351" data-width="1340" data-unresolved-comment-count="0" data-linked-resource-id="1903526024" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220221-020129.png" data-base-url="https://a55tech.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1900216964" data-linked-resource-container-version="12" data-media-id="2d9ad94f-7fec-446c-84b7-736022fdba2e" data-media-type="file"></span><p /><h1 id="CreditOverview-Recovery">Recovery</h1><h2 id="CreditOverview-Amount:CollectedxScheduled">Amount: Collected x Scheduled</h2><p>Este gráfico mostra o pagamento esperado e o pagamento efetivamente realizado numa dada safra. A razão entre os dois (realizado/esperado) indica a taxa de recuperação dos desembolsos numa dada safra. Uma discrepância acentuada entre o tamanho das barras numa mesma safra (indicado também pela queda na curva de <em>recovery rate</em>), indica uma inadimplência acentuada naquele período, conforme exemplo abaixo para o mês quatro.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/1900216964/1903657094.png" data-image-src="attachments/1900216964/1903657094.png" data-height="343" data-width="1338" data-unresolved-comment-count="0" data-linked-resource-id="1903657094" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220221-011914.png" data-base-url="https://a55tech.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1900216964" data-linked-resource-container-version="12" data-media-id="2ea5e0cd-a64d-42d7-8c17-fd37e94f1bac" data-media-type="file"></span><p /><h1 id="CreditOverview-Vintageanalysis">Vintage analysis</h1><h2 id="CreditOverview-VintageAnalysis(Bynumberofloans)">Vintage Analysis (By number of loans)</h2><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/1900216964/1903657130.png" data-image-src="attachments/1900216964/1903657130.png" data-height="356" data-width="1346" data-unresolved-comment-count="0" data-linked-resource-id="1903657130" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220221-165544.png" data-base-url="https://a55tech.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1900216964" data-linked-resource-container-version="12" data-media-id="7dd0d01f-383b-4e5f-9142-985c1d6bf0a7" data-media-type="file"></span><p /><h2 id="CreditOverview-VintageAnalysis(ByLoanAmount)">Vintage Analysis (By Loan Amount)</h2><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/1900216964/1903755272.png" data-image-src="attachments/1900216964/1903755272.png" data-height="351" data-width="1342" data-unresolved-comment-count="0" data-linked-resource-id="1903755272" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220221-165556.png" data-base-url="https://a55tech.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1900216964" data-linked-resource-container-version="12" data-media-id="dab81ddf-43c1-4730-b289-fdf8a5bf23a4" data-media-type="file"></span><p /><h2 id="CreditOverview-DPDPorSafra">DPD Por Safra</h2><p>Este gráfico mostra a porcentagem de dias de atraso por safra entre os valores a serem recebidos pela a55. </p><p>É possível notar no exemplo abaixo que a maior parte dos atrasos de pagamentos da a55 são de apenas 1 dpd, seguido por 15 dpds.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/1900216964/1904476392.png" data-image-src="attachments/1900216964/1904476392.png" data-height="350" data-width="1341" data-unresolved-comment-count="0" data-linked-resource-id="1904476392" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220221-165126.png" data-base-url="https://a55tech.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1900216964" data-linked-resource-container-version="12" data-media-id="3a88ad82-3a03-4630-9953-cee28d20d121" data-media-type="file"></span><p /><h2 id="CreditOverview-FPDPorSafra">FPD Por Safra</h2><p>Este gráfico mostra a porcentagem de dias no qual é efetuado o primeiro pagamento (amortização) após o desembolso dos valores creditados pela a55.</p><p>É possível notar que, na maioria dos desembolsos que a a55 realiza, a primeira parcela é paga em até 15 dias, seguida por até 90 dias.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/1900216964/1904082959.png" data-image-src="attachments/1900216964/1904082959.png" data-height="343" data-width="1337" data-unresolved-comment-count="0" data-linked-resource-id="1904082959" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220221-165139.png" data-base-url="https://a55tech.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1900216964" data-linked-resource-container-version="12" data-media-id="fc8732f9-d16d-4d0b-b0b3-0b4bd3ee71f7" data-media-type="file"></span><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1900216964/1903689964.png">image-20220221-003836.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1900216964/1902116932.png">image-20220221-005707.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1900216964/1903657094.png">image-20220221-011914.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1900216964/1903526018.png">image-20220221-015949.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1900216964/1903526024.png">image-20220221-020129.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1900216964/1904476392.png">image-20220221-165126.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1900216964/1904082959.png">image-20220221-165139.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1900216964/1903657130.png">image-20220221-165544.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1900216964/1903755272.png">image-20220221-165556.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Dec 29, 2022 17:45</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

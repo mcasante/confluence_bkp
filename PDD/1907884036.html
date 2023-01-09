@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Plataforma de Dados : Performance Veículos (BV e Fundo Raízes)</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Plataforma de Dados</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Plataforma-de-Dados_1898840277.html">Plataforma de Dados</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Datalake_1982726152.html">Datalake</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="1900216592.html">Dicionário de dados</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Metabase_1900216909.html">Metabase</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Squad-Financeiro_1906475145.html">Squad Financeiro</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="1907589121.html">Financeiro - Relatórios</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Plataforma de Dados : Performance Veículos (BV e Fundo Raízes)
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Alessandro Oliveira (Unlicensed)</span>, last modified on Mar 07, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>Responsável: <a class="confluence-userlink user-mention" data-username="60ca0042b1f93b00691dabb9" data-account-id="60ca0042b1f93b00691dabb9" href="https://a55tech.atlassian.net/wiki/people/60ca0042b1f93b00691dabb9?ref=confluence" target="_blank" data-base-url="https://a55tech.atlassian.net/wiki">Karen Moraes (Unlicensed)</a> </p><p>URL: <a class="external-link" href="https://metabase.a55.tech/question/2311-performance-veiculos-bv-e-fundo-raizes" rel="nofollow">https://metabase.a55.tech/question/2311-performance-veiculos-bv-e-fundo-raizes</a></p><hr/><p><strong>Propósito</strong>: Este relatório visa dar uma visão geral sobre os valores desembolsados por cada veículo que a a55 opera (BV e Fundo Raízes).</p><p>Entre as informações presentes, tem-se:</p><ul><li><p>Total desembolsado por mês e veículo.</p></li><li><p>Total de juros por mês e veículo.</p></li><li><p>Performance do veículo, calculada como:</p><ul><li><p>BV: 1% do total bruto desembolsado</p></li><li><p>Fundo Raízes: 5% do total de juros</p></li></ul></li></ul><hr/><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: sql; gutter: false; theme: Confluence" data-theme="Confluence">select 
+    
+	date_trunc(&#39;month&#39;, rce.&quot;date&quot;)::date      	as periodo,
+	sum(rce.amount::float)/100 		         	as amount,
+	sum(rce.amount::float/100 - ece.principal::float/100) as interest,
+	vehicle.name            as vehicle,
+	case 
+		when vehicle.name = &#39;BV&#39; 			
+			then (sum(rce.amount::float)/100)*0.01
+		when vehicle.name = &#39;Fundo Raízes&#39; 
+			then sum(rce.amount::float/100 - ece.principal::float/100)*0.05
+		else 0
+	end as performance_vehicle
+from asset.realized_cashflow_entry rce
+join asset.instrument i 
+	on rce.instrument_id = i.id
+left join asset.expected_cashflow_entry ece
+	on ece.id = rce.expected_cashflow_id
+	and rce.instrument_id = i.id
+join asset.operation o 
+	on o.id = i.operation_id 
+left join asset.vehicle
+    on vehicle.id = i.vehicle_id
+where rce.cashflow_type_id = 2
+	and ece.status_id = 2 
+	and ece.type_id = 2
+	and vehicle.name in (&#39;BV&#39;, &#39;Fundo Raízes&#39;)
+	[[and {{vehicle}}]]
+	[[and rce.&quot;date&quot;::date between {{inicio}} and {{fim}}]]
+group by date_trunc(&#39;month&#39;, rce.&quot;date&quot;)::date,
+	vehicle.name
+order by periodo desc </pre>
+</div></div>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Dec 29, 2022 17:45</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

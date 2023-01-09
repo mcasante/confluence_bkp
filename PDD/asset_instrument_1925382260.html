@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Plataforma de Dados : asset_instrument</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Plataforma de Dados</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Plataforma-de-Dados_1898840277.html">Plataforma de Dados</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Datalake_1982726152.html">Datalake</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="1900216592.html">Dicionário de dados</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Databases_1900216609.html">Databases</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Datawarehouse_1924366354.html">Datawarehouse</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Datawarehouse---datalake_1925120013.html">Datawarehouse - datalake</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Plataforma de Dados : asset_instrument
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Bianca Sofia</span> on Apr 06, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>Esta tabela detalha os contratos firmados entre a a55 e seus clientes, com informações de valores, taxas, tipo de operação, impostos, datas dos empréstimos e entre outros.</p><div class="table-wrap"><table data-layout="default" data-local-id="79ba0a59-ad92-4e84-a48d-739f62f6625a" class="confluenceTable"><colgroup><col style="width: 226.67px;"/><col style="width: 226.67px;"/><col style="width: 226.67px;"/></colgroup><tbody><tr><th class="confluenceTh"><p><strong>Coluna</strong></p></th><th class="confluenceTh"><p><strong>Conteúdo</strong></p></th><th class="confluenceTh"><p><strong>Comentários</strong></p></th></tr><tr><td class="confluenceTd"><p>amortization_type_id</p></td><td class="confluenceTd"><p>Identificação única do tipo de amortização contratada. Referência à tabela asset_amortization_type que será criada.</p></td><td class="confluenceTd"><p>Referência em implantação.</p></td></tr><tr><td class="confluenceTd"><p>ccb_vnn_s3</p></td><td class="confluenceTd"><p>Documento CCB em PDF.</p></td><td class="confluenceTd"><p /></td></tr><tr><td class="confluenceTd"><p>ccb_vn_s3</p></td><td class="confluenceTd"><p>Documento CCB em PDF.</p></td><td class="confluenceTd"><p /></td></tr><tr><td class="confluenceTd"><p>commission</p></td><td class="confluenceTd"><p>Comissão que é paga ao parceiro que indicou o cliente para a A55.</p></td><td class="confluenceTd"><p /></td></tr><tr><td class="confluenceTd"><p>contract_number</p></td><td class="confluenceTd"><p>Número do contrato</p></td><td class="confluenceTd"><p /></td></tr><tr><td class="confluenceTd"><p>currency_id</p></td><td class="confluenceTd"><p>Identificador único da moeda utilizada no contrato. Referência à tabela asset_currency que será criada.</p></td><td class="confluenceTd"><p>Referência em implantação.</p></td></tr><tr><td class="confluenceTd"><p>endosso_s3</p></td><td class="confluenceTd"><p>Troca de um veículo para outro veículo.</p></td><td class="confluenceTd"><p>Todos os dados da coluna nulos.</p></td></tr><tr><td class="confluenceTd"><p>fee_a55</p></td><td class="confluenceTd"><p>Taxa referente ao valor cobrado  pelos serviços da A55.</p></td><td class="confluenceTd"><p /></td></tr><tr><td class="confluenceTd"><p>fee_CETIP</p></td><td class="confluenceTd"><p>Taxa CETIP (Central de Custódia e de Liquidação Financeira de Títulos).</p></td><td class="confluenceTd"><p /></td></tr><tr><td class="confluenceTd"><p>fee_issuer</p></td><td class="confluenceTd"><p>Taxa paga ao banco pela emissão da CCB.</p></td><td class="confluenceTd"><p /></td></tr><tr><td class="confluenceTd"><p>gross_amount</p></td><td class="confluenceTd"><p>Valor bruto do contrato sem as taxas.</p></td><td class="confluenceTd"><p /></td></tr><tr><td class="confluenceTd"><p>gross_monthly_rate</p></td><td class="confluenceTd"><p>Taxa bruta do contrato mensal.</p></td><td class="confluenceTd"><p /></td></tr><tr><td class="confluenceTd"><p>id</p></td><td class="confluenceTd"><p>Identificador único do contrato.</p></td><td class="confluenceTd"><p /></td></tr><tr><td class="confluenceTd"><p>iof</p></td><td class="confluenceTd"><p>Imposto federal sobre as Operações Financeiras.</p></td><td class="confluenceTd"><p /></td></tr><tr><td class="confluenceTd"><p>issuer_id</p></td><td class="confluenceTd"><p>Identificação única do bancarizador emissor da CCB. Referência à tabela asset_issuer que será criada.</p></td><td class="confluenceTd"><p>Referência em implantação.</p></td></tr><tr><td class="confluenceTd"><p>liquid_amount</p></td><td class="confluenceTd"><p>Valor líquido do contrato.</p></td><td class="confluenceTd"><p>Para o valor líquido, dê preferência no uso da coluna <em>net_amount</em>.</p></td></tr><tr><td class="confluenceTd"><p>loan_date</p></td><td class="confluenceTd"><p>Data do empréstimo.</p></td><td class="confluenceTd"><p /></td></tr><tr><td class="confluenceTd"><p>nature_operation_id</p></td><td class="confluenceTd"><p>Identificador único da natureza do contrato. Referência à tabela <a href="asset_instrument_nature_operation_1924694039.html" data-linked-resource-id="1924694039" data-linked-resource-version="1" data-linked-resource-type="page">asset_instrument_nature_operation</a> </p></td><td class="confluenceTd"><p /></td></tr><tr><td class="confluenceTd"><p>net_amount</p></td><td class="confluenceTd"><p>Valor líquido do contrato (inclusas as taxas).</p></td><td class="confluenceTd"><p /></td></tr><tr><td class="confluenceTd"><p>net_monthly_rate</p></td><td class="confluenceTd"><p>Taxa líquida mensal do contrato (inclusas as taxas).</p></td><td class="confluenceTd"><p /></td></tr><tr><td class="confluenceTd"><p>operation_id *</p></td><td class="confluenceTd"><p>Identificador único do tipo de operação. Referência à tabela asset_operarion.</p></td><td class="confluenceTd"><p /></td></tr><tr><td class="confluenceTd"><p>status_id</p></td><td class="confluenceTd"><p>Identificador único do status do contrato. Referência à tabela asset_instrument_status.</p></td><td class="confluenceTd"><p /></td></tr><tr><td class="confluenceTd"><p>type_id</p></td><td class="confluenceTd"><p>Identificação única do tipo de instrumento. Referência à tabela asset_instrument_type que será criada.</p></td><td class="confluenceTd"><p>Referência em implantação.</p></td></tr><tr><td class="confluenceTd"><p>vehicle_id</p></td><td class="confluenceTd"><p>Identificação única do veículo utilizado no contrato. Referência à tabela asset_vehicle que será criada.</p></td><td class="confluenceTd"><p>Referência em implantação.</p></td></tr><tr><td class="confluenceTd"><p>ano</p></td><td class="confluenceTd"><p>Ano da última atualização.</p></td><td class="confluenceTd"><p /></td></tr><tr><td class="confluenceTd"><p>mes</p></td><td class="confluenceTd"><p>Mês da última atualização.</p></td><td class="confluenceTd"><p /></td></tr><tr><td class="confluenceTd"><p>dia</p></td><td class="confluenceTd"><p>Dia da última atualização.</p></td><td class="confluenceTd"><p /></td></tr><tr><td class="confluenceTd"><p>op</p></td><td class="confluenceTd"><p>Operação.</p></td><td class="confluenceTd"><p /></td></tr><tr><td class="confluenceTd"><p>anomesdia</p></td><td class="confluenceTd"><p>Data da última atualização.</p></td><td class="confluenceTd"><p /></td></tr></tbody></table></div><p /><p />
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Dec 29, 2022 17:44</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

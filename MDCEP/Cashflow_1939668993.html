@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Marcado de Capitais : Cashflow</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Marcado de Capitais</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Mercado-de-Capitais_1773043858.html">Mercado de Capitais</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Marcado de Capitais : Cashflow
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Guilherme Pettene Dantas</span>, last modified on Jun 20, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p><strong>Resumo executivo:</strong> <br/>Métricas da carteira do nosso portfólio são calculadas a partir da cashflow, entretanto, existem inconsistências nos dados que precisam ser corrigidos. </p><p><strong>Contexto e Problema que queremos resolver:</strong> <br/>Métricas de inteligência da carteira como PDD, inadimplência, maior devedor do portfólio etc. são todas calculadas a partir da cashflow. Além disso, a base serve como source of truth para relatórios para investidores. Portanto, é necessário validar os campos e adicionar variáveis.</p><p style="margin-left: 30.0px;" /><p><strong>O que já foi descoberto:</strong> </p><p>Falhas:</p><ul><li><p><span class="inline-comment-marker" data-ref="c07e394c-b2ff-4029-86f2-1551d20b7377">Expected date: substituição das datas de vencimento. Cliente pede novo boleto, a tabela corrige a data antiga pela data do novo boleto</span></p></li><li><p> <span class="inline-comment-marker" data-ref="c1b0d96a-1b76-4798-af3f-c5a926ce327b">Lidar com pagamentos parciais, inserção de colunas com os residuais de principal e juros </span></p></li><li><p>coluna com o valor presente dos valores esperados</p></li><li><p><span class="inline-comment-marker" data-ref="89c00fe8-3566-4fca-bff0-24c795508fdf">Contrato renegociados não são rastreáveis</span></p></li><li><p>formatação das colunas, taxas e datas vem com formatos difíceis de serem manipulados</p></li><li><p><span class="inline-comment-marker" data-ref="12cb8501-75a5-45b2-bffc-89dbf8d25df3">Não ter PDD </span></p></li><li><p>Não sabemos o que a cashflow caracteriza como upsell</p></li><li><p>Todos os meses o time de alocação faz o download da cashflow, e alguns contratos desaparecem com o tempo.  → Para alguns casos, os contratos possuem seus números alterados por isso desaparecem. </p></li><li><p>Pagamentos realizados estão sendo salvos no banco de dados com uma data futura <br/></p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/1939668993/1960476673.png" data-image-src="attachments/1939668993/1960476673.png" data-height="136" data-width="1093" data-unresolved-comment-count="0" data-linked-resource-id="1960476673" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image (3).png" data-base-url="https://a55tech.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1939668993" data-linked-resource-container-version="16" data-media-id="c08e8d9f-4586-4c2f-b2d7-3251cf2e1269" data-media-type="file"></span><p><span class="inline-comment-marker" data-ref="b81259b4-18fd-408d-981f-bedf52fcb9de">A função que está registrando os pagamentos da parcela no sistema está colocando a data de vencimento como data de pagamento, já coloquei aqui no backlog para fazer um fix desse script e tbm ajustar a base, pq nós temos a data certa de pagamento só está em outra coluna. A data certa tá na tabela “asset.realized_cashflow_entry” a “coluna credit_date”</span></p><p><br/><br/> </p></li></ul><p><strong>O que não sabemos:</strong> <br/><br/><span class="inline-comment-marker" data-ref="eef6030c-2628-43d2-b2a7-517dc43d1276">Como é configurado o upsell na cashflow?</span></p><p>Mudanças dos usuários no midgard alteram os dados nobanco, consequentemente, alterando a cashflow?<br/><br/><strong>Decisões tomadas e justificativas:</strong><br/></p><div class="table-wrap"><table data-layout="default" data-local-id="436733f3-a8eb-42f9-9b9b-07aed8d7d73b" class="confluenceTable"><colgroup><col style="width: 226.67px;"/><col style="width: 226.67px;"/><col style="width: 226.67px;"/></colgroup><tbody><tr><th class="confluenceTh"><p><strong>Semana</strong></p></th><th class="confluenceTh"><p><strong>Pessoas </strong></p></th><th class="confluenceTh"><p><strong>Decisões</strong></p></th></tr><tr><td class="confluenceTd"><p>25-29/04</p></td><td class="confluenceTd"><p>Guilherme Dantas</p></td><td class="confluenceTd"><p>Mapeamento de dores, ideação de solução, entrevista com pessoas chaves</p></td></tr><tr><td class="confluenceTd"><p>02 - 06/05</p></td><td class="confluenceTd"><p>Guilherme Dantas</p></td><td class="confluenceTd"><ul><li><p>Coleta das mudanças requeridas na cashflow para o time de CM</p></li></ul></td></tr><tr><td class="confluenceTd"><p>09 -13/05</p></td><td class="confluenceTd"><p>Guilherme Dantas, Gomes, Beltrame e Alessandro</p></td><td class="confluenceTd"><ul><li><p>Inserir Valor Presente na Cashflow </p></li><li><p>Marcar nova reunião para passar os ajustes a serem feitos ao time de dados</p></li></ul></td></tr><tr><td class="confluenceTd"><p>16 - 20/05</p></td><td class="confluenceTd"><p>Guilherme Dantas, Gomes e Beltrame</p></td><td class="confluenceTd"><ul><li><p>Gomes irá mapear os contratos que sumiram na cashflow </p></li><li><p>Com os contratos mapeados, Beltrame vai checar na cashflow se foi erro de query, caso não tenha sido, Dantas vai alinhar um novo processo com os usuários do midgard</p></li></ul></td></tr><tr><td class="confluenceTd"><p>23 - 27/05</p></td><td class="confluenceTd"><p>Guilherme Dantas, Gomes e Beltrame</p></td><td class="confluenceTd"><ul><li><p>CCB’s estão mudando de número com o passar do tempo, vamos fazer uma reunião com o time de dados para pensar possíveis soluções</p></li></ul></td></tr><tr><td class="confluenceTd"><p>30 - 03/06</p></td><td class="confluenceTd"><p>Guilherme Dantas, Gomes, Beltrame, Alessandro e Daniel</p></td><td class="confluenceTd"><ul><li><p>Foram encontradas mais inconsistências que inibem soluções propostas, terá de ser feita uma nova rodada para pensarmos em soluções</p></li></ul></td></tr><tr><td class="confluenceTd"><p>06 - 10/06</p></td><td class="confluenceTd"><p>Dantas, Gomes, Ruan, Daniel, Alessandro, Mayara, Bahuan</p></td><td class="confluenceTd"><ul><li><p>Time de dados vai ter uma sprint para endereçar os problemas da cashflow a partir do dia 08/06</p></li></ul></td></tr><tr><td class="confluenceTd"><p>13 - 17/06</p></td><td class="confluenceTd"><p>Time de Dados</p></td><td class="confluenceTd"><ul><li><p>Sprint para correção da cashflow</p></li></ul></td></tr></tbody></table></div><p><strong>Próximos passos: </strong><br/></p><ul class="inline-task-list" data-inline-tasks-content-id="1939668993"><li class="checked" data-inline-task-id="2"><span class="placeholder-inline-tasks">Reunião com o time tech para entender como podemos ajustar o cashflow  (17/05)</span></li><li class="checked" data-inline-task-id="3"><span class="placeholder-inline-tasks">Reunião com CM para entender falhas da base (29/04) </span></li><li class="checked" data-inline-task-id="5"><span class="placeholder-inline-tasks">Reunião com dados para pensar em possíveis soluções (26/05)</span></li><li class="checked" data-inline-task-id="6"><span class="placeholder-inline-tasks">Nova reunião com dados para pensar em possíveis soluções (30/05)</span></li><li data-inline-task-id="7"><span class="placeholder-inline-tasks">Sprint de dados para solução dos problemas</span></li></ul><p /><p><br/><br/><br/><strong>Conclusão:</strong></p><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1939668993/1960476673.png">image (3).png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Dec 29, 2022 17:40</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

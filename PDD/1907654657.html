@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Plataforma de Dados : Relatório de Intermediação</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Plataforma de Dados</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Plataforma-de-Dados_1898840277.html">Plataforma de Dados</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Datalake_1982726152.html">Datalake</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="1900216592.html">Dicionário de dados</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Metabase_1900216909.html">Metabase</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Squad-Financeiro_1906475145.html">Squad Financeiro</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="1907589121.html">Financeiro - Relatórios</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Plataforma de Dados : Relatório de Intermediação
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Alessandro Oliveira</span>, last modified on Mar 30, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>Responsável: <a class="confluence-userlink user-mention" data-username="6206794f5d18ad00729aed3d" data-account-id="6206794f5d18ad00729aed3d" href="https://a55tech.atlassian.net/wiki/people/6206794f5d18ad00729aed3d?ref=confluence" target="_blank" data-base-url="https://a55tech.atlassian.net/wiki">Alessandro Oliveira (Unlicensed)</a> </p><p>URL: <a class="external-link" href="https://metabase.a55.tech/question/2339-relatorio-de-intermediacao" rel="nofollow">https://metabase.a55.tech/question/2339-relatorio-de-intermediacao</a></p><hr/><p><strong>Propósito</strong>: Este relatório visa descrever as taxas pagas pela a55 para os seus parceiros conforme o o desembolso acertado. </p><p>Nem todos os parceiros da a55 estão mapeados nos bancos de dados, de modo que o relatório pode estar incompleto a depender do mês de referência (meses mais antigos, antes de Dezembro de 2021, estão propensos a erros e estão sendo corrigidos manualmente). Os parceiros são inseridos manualmente na planilha <a class="external-link" data-card-appearance="inline" href="https://docs.google.com/spreadsheets/d/1UCQePb7PdPSh1XJOW0_WFLSDWXAzsvsf12e0ZDhTHiU/edit?usp=sharing" rel="nofollow">https://docs.google.com/spreadsheets/d/1UCQePb7PdPSh1XJOW0_WFLSDWXAzsvsf12e0ZDhTHiU/edit?usp=sharing</a> e então inseridos no banco de dados.</p><p>É importante frisar que nem sempre a taxa paga aos parceiros é calculada da mesma maneira. Existem taxas aplicadas sobre o valor líquido, sobre a TAC, etc…</p><p /><div id="expander-1326103464" class="expand-container"><div id="expander-control-1326103464" class="expand-control"><span class="expand-control-icon"><img style="vertical-align:middle;" class="expand-control-image" src="images/icons/grey_arrow_down.png"></span><span class="expand-control-text">SQL</span></div><div id="expander-content-1326103464" class="expand-content"><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: sql; gutter: false; theme: Confluence" data-theme="Confluence">-- https://a55tech.atlassian.net/l/c/Y6eDwA1h
+
+-- Esta query serve para correlacionar os parceiros da a55, 
+-- calculando as taxas que os parceiros devem receber por cada deal originado.
+
+-- Como um parceiro pode ter mais de um email (ou seja, varios emails pra um mesmo CNPJ),
+-- esse group_email nada mais é do que uma tabela de CNPJ por emails concatenados.
+with group_email as (
+select 
+    dpc.nu_cnpj_partner,
+    string_agg(dpc.ds_partner_email , &#39; | &#39;) as &quot;email&quot;
+from
+    datascience.dl_partner_contact dpc
+group by
+    dpc.nu_cnpj_partner
+),
+calc_liquid as (
+select 
+    i.id as &quot;instrument_id&quot;,
+    i.gross_amount::float / 100 as &quot;gross_amount&quot;,
+    (i.fee_issuer::float + i.&quot;fee_CETIP&quot;::float + i.fee_a55::float) / 100 as &quot;tac_total&quot;,
+    (i.gross_amount::float - (i.iof::float + (i.fee_issuer::float + i.&quot;fee_CETIP&quot;::float + i.fee_a55::float)))/ 100 as &quot;liquid_amount&quot;
+from
+    asset.instrument i
+)
+select
+        client.&quot;name&quot; as &quot;deal&quot;,
+        client.cnpj as &quot;cnpj&quot;,
+        i.contract_number as &quot;contract_number&quot;,
+        i.loan_date::date as &quot;loan_date&quot;,
+        i.iof::float / 100 as &quot;iof&quot;,
+        cl.tac_total::float,
+        cl.gross_amount as &quot;gross_amount&quot;,
+        cl.liquid_amount as &quot;liquid_amount&quot;,
+        dl_partner.ds_partner as &quot;empresa&quot;,
+        dl_partner.pc_partner_fee as &quot;porcentagem&quot;,
+        case 
+        when dl_partner.ds_partner = &#39;Harpia Investimentos&#39;
+        then cl.tac_total::float * dl_partner.pc_partner_fee::float
+        else cl.liquid_amount * dl_partner.pc_partner_fee::float
+        end as &quot;fee_intermediacao&quot;,
+        dl_partner.ds_cost_center as &quot;centro_de_custo&quot;,
+        group_email.email as &quot;email&quot;,
+        case 
+        when substring(o.operation_code, LENGTH(o.operation_code) - 1) ~ &#39;\d&#39;
+        then true
+        else false
+    end as upsell
+from
+    asset.instrument i
+inner join asset.operation o 
+    on
+    o.id = i.operation_id
+inner join calc_liquid cl
+    on
+    cl.instrument_id = i.id
+inner join asset.client
+    on
+    client.cnpj = o.client_id
+left join datascience.dl_user_origination duo
+    -- dl_user_origination é uma materialized view contendo o cnpj do cliente e sua forma de origem
+    on
+    duo.nu_cnpj = o.client_id
+inner join datascience.dl_partner
+    -- dl_partner é uma tabela com os parceiros ativos da a55
+    on
+    dl_partner.ds_partner = duo.ds_origination_partner
+left join group_email 
+        on
+        group_email.nu_cnpj_partner = dl_partner.nu_cnpj_partner
+where
+    -- Aqui tem-se a exclusão de contratos em renegociação
+    i.id not in (
+    select
+        related.destination_instrument
+    from
+        asset.instrument_related related)
+    [[and loan_date between {{inicio}} and {{fim}}]]
+    [[and {{partner}}]]
+    [[and {{cnpj}}]]
+
+</pre>
+</div></div></div></div><p />
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Dec 29, 2022 17:45</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

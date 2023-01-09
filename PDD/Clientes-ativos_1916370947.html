@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Plataforma de Dados : Clientes ativos</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Plataforma de Dados</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Plataforma-de-Dados_1898840277.html">Plataforma de Dados</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Datalake_1982726152.html">Datalake</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="1900216592.html">Dicionário de dados</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="KPIs_1903230997.html">KPIs</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Plataforma de Dados : Clientes ativos
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Alessandro Oliveira (Unlicensed)</span>, last modified on Jun 20, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>Entende-se por cliente ativo todo CNPJ que possui um contrato em aberto, podendo ser categorizado de três maneiras:</p><ul><li><p><strong>Em dia</strong>: neste caso, o cliente não possui nenhuma parcela em atraso.</p></li><li><p><strong>Em atraso</strong>: neste caso, o cliente possui ao menos uma parcela atrasada. Nesta faixa, o tempo de atraso é de 1 até 89 dias.</p></li><li><p><strong>NPL</strong>: neste caso, o cliente possui ao menos uma parcela atrasada a mais de 90 dias, entrando na categoria de perda(<a href="1903722523.html" data-linked-resource-id="1903722523" data-linked-resource-version="11" data-linked-resource-type="page">Non Performing Loan (NPL)</a>).</p></li></ul><hr/><p><strong>KPI disponível em</strong>: <a class="external-link" href="https://metabase.a55.tech/question/2367-current-clients-status" rel="nofollow">Current Clients Status</a></p><div id="expander-1060204121" class="expand-container"><div id="expander-control-1060204121" class="expand-control"><span class="expand-control-icon"><img style="vertical-align:middle;" class="expand-control-image" src="images/icons/grey_arrow_down.png"></span><span class="expand-control-text">SQL Code</span></div><div id="expander-content-1060204121" class="expand-content"><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: sql; gutter: false; theme: Confluence" data-theme="Confluence">with first_default as (
+	-- por cliente primeira parcela que nao foi paga 
+	select 
+		o.client_id,
+		min(ece.&quot;date&quot;) first_default,
+		(current_date - min(ece.&quot;date&quot;)::date) days_past_due
+	from asset.expected_cashflow_entry ece 
+	join asset.instrument i 
+		on i.id = ece.instrument_id 
+	join asset.operation o 
+		on o.id = ece.operation_id 
+	join asset.operation_type ot 
+		on o.operation_type_id = ot.id
+	where ece.status_id = 1
+	group by 
+		o.client_id
+)
+select
+	count(distinct operation.client_id) clientes,
+	case 
+		when first_default.client_id is null 
+			then &#39;Inativo&#39;
+		when first_default.days_past_due &lt;= 0
+			then &#39;Em dia&#39;
+		when first_default.days_past_due between 1 and 89
+			then &#39;Em atraso&#39;
+		when first_default.days_past_due &gt;= 90
+			then &#39;NPL&#39;
+	end as status_loan
+from asset.instrument 
+join asset.operation 
+	on operation.id = instrument.operation_id 
+left join first_default
+	on first_default.client_id 		= operation.client_id 
+group by 	
+	case 
+		when first_default.client_id is null 
+			then &#39;Inativo&#39;
+		when first_default.days_past_due &lt;= 0
+			then &#39;Em dia&#39;
+		when first_default.days_past_due between 1 and 89
+			then &#39;Em atraso&#39;
+		when first_default.days_past_due &gt;= 90
+			then &#39;NPL&#39;
+	end
+order by clientes</pre>
+</div></div></div></div>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Dec 29, 2022 17:45</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

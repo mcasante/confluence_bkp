@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Plataforma de Dados : Receita total</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Plataforma de Dados</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Plataforma-de-Dados_1898840277.html">Plataforma de Dados</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Datalake_1982726152.html">Datalake</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="1900216592.html">Dicionário de dados</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="KPIs_1903230997.html">KPIs</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Plataforma de Dados : Receita total
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Alessandro Oliveira (Unlicensed)</span>, last modified on Apr 13, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p><strong>Owner</strong>: Daniella Souza</p><hr/><p>Por receita total, entende-se tudo o que a a55 recebe de dinheiro. O cálculo base é feito considerando o valor da TAC a55 (checar <a href="TAC-A55_1924628497.html" data-linked-resource-id="1924628497" data-linked-resource-version="8" data-linked-resource-type="page">TAC A55</a>), somado ao valor dos juros referentes as parcelas pagas. </p><p>Para o cômputo do juros (JS), é feito a subtração do valor esperado a se receber, disposto na tabela <a data-card-appearance="inline" href="https://a55tech.atlassian.net/wiki/spaces/PDD/pages/1903001635" rel="nofollow">https://a55tech.atlassian.net/wiki/spaces/PDD/pages/1903001635</a> (ece), com o valor efetivamente pago, disposto na tabela <a href="1900216898.html" data-linked-resource-id="1900216898" data-linked-resource-version="6" data-linked-resource-type="page">realized_cashflow_entry *</a> (rce), de acordo com o seguinte fluxo:</p><p /><ul><li><p>Se o valor pago (rce.amount) for maior do que o valor esperado (ece.amount), então:</p><ul><li><p><strong>JS = ece.amount - ece.principal</strong>. (Por principal, entende-se o valor original da parcela, sem juros).</p></li></ul></li><li><p>Se o valor pago (rce.amount) for menor do que o valor esperado (ece.amount), então:</p><ul><li><p>Se o valor pago (rce.amount) for menor do que o juros esperado (ece.amount - ece.principal), então:</p><ul><li><p><strong>JS = rce.amount</strong></p></li></ul></li><li><p>Se o valor pago (rce.amount) for maior do que o juros esperado (ece.amount - ece.principal), então:</p><ul><li><p><strong>JS = ece.amount - ece.principal</strong></p></li></ul></li></ul></li></ul><p /><p>Graficamente:</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="566" loading="lazy" src="attachments/1924661257/1931051009.jpg?width=566" data-image-src="attachments/1924661257/1931051009.jpg" data-height="677" data-width="1476" data-unresolved-comment-count="0" data-linked-resource-id="1931051009" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="calculo_juros.jpg" data-base-url="https://a55tech.atlassian.net/wiki" data-linked-resource-content-type="image/jpeg" data-linked-resource-container-id="1924661257" data-linked-resource-container-version="6" data-media-id="9dc982da-9404-44ef-8bad-8cfd9f084c8b" data-media-type="file"></span><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1924661257/1930362887.pdf">calculo_juros.pdf</a> (application/pdf)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1924661257/1931051009.jpg">calculo_juros.jpg</a> (image/jpeg)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Dec 29, 2022 17:45</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

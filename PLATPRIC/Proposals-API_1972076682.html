@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Platform Credit e Pricing : Proposals API</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Platform Credit e Pricing</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Platform-Credit-e-Pricing-Home_1878655104.html">Platform Credit e Pricing Home</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="1963294734.html">Documentações</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Tech_1963982870.html">Tech</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Platform Credit e Pricing : Proposals API
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Renan Ferreira Marcílio</span>, last modified on Jun 20, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h2 id="ProposalsAPI-Sobre"><img class="emoticon emoticon-blue-star" data-emoji-id="1f4dc" data-emoji-shortname=":scroll:" data-emoji-fallback="📜" src="images/icons/emoticons/72/1f4dc.png" width="16" height="16" data-emoticon-name="blue-star" alt="(blue star)"/> Sobre</h2><p>Proposals é um microsserviço responsável pelo registro de propostas na plataforma e pedidos de cálculos de oferta. Este serviço pode ser solicitado de diversas fontes e com diferentes modalidades de políticas de crédito, referente a cada pedido.</p><h2 id="ProposalsAPI-Responsabilidades"><img class="emoticon emoticon-blue-star" data-emoji-id="1f4cb" data-emoji-shortname=":clipboard:" data-emoji-fallback="📋" src="images/icons/emoticons/72/1f4cb.png" width="16" height="16" data-emoticon-name="blue-star" alt="(blue star)"/> Responsabilidades</h2><p>É importante destacarmos que o Proposals não executa cálculos de propostas, ele apenas registra novas propostas e pedidos de cálculos de oferta com base nas políticas solicitadas para cada uma. Cabe a ele requisitar outros serviços para geração dos cálculos de oferta.</p><p>Através do serviço nós podemos também listar as propostas criadas, canceladas, recusadas e pendentes no sistema, capaz assim de guardar todo o histórico de geração de propostas. Em caso de propostas aprovadas, o Proposals é capaz de gerar  uma simulação de dívida.</p><p>Seu escopo se estende até o aceite de cada proposta, acompanhando a transição de status até que o processo seja concluído.</p><h2 id="ProposalsAPI-Relacionamentos"><img class="emoticon emoticon-blue-star" data-emoji-id="1f9e9" data-emoji-shortname=":jigsaw:" data-emoji-fallback="🧩" src="images/icons/emoticons/72/1f9e9.png" width="16" height="16" data-emoticon-name="blue-star" alt="(blue star)"/> Relacionamentos</h2><ul><li><p>Serve ao Midgard - Disponibilizando as propostas</p></li><li><p>Plataforma - Apresentando simulação de dívida</p></li><li><p>Underwriting - Encaminhando os dados de aceite da proposta</p></li><li><p>Oferta Maker - Solicitando cálculo de oferta</p></li></ul><h2 id="ProposalsAPI-ObjetosTransitados"><img class="emoticon emoticon-blue-star" data-emoji-id="1f5c3" data-emoji-shortname=":card_box:" data-emoji-fallback="🗃" src="images/icons/emoticons/72/1f5c3.png" width="16" height="16" data-emoticon-name="blue-star" alt="(blue star)"/> Objetos Transitados</h2><h3 id="ProposalsAPI-RequestInput">Request Input</h3><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+    &quot;cnpj&quot;: &quot;22153470000128&quot;,
+    &quot;product_id&quot;: 5,
+    &quot;status&quot;: &quot;pending_approval&quot;,
+    &quot;risks_policy&quot;: &quot;ALTERNATIVE_CREDIT&quot;,
+    &quot;partner&quot; : &quot;1234567890&quot;,
+    &quot;rates&quot;: [
+        {
+            &quot;tac&quot;: &quot;2.9&quot;,
+            &quot;grace&quot;: &quot;0&quot;,
+            &quot;rate&quot;: &quot;2.31&quot;,
+            &quot;prepayment_fee&quot;: &quot;0&quot;,
+            &quot;amount&quot;: &quot;500000&quot;,
+            &quot;number_installments&quot;: &quot;6&quot;
+        }
+    ]
+}</pre>
+</div></div><h3 id="ProposalsAPI-ResponseOutput">Response Output</h3><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+    &quot;id&quot;: 698,
+    &quot;cnpj&quot;: &quot;22153470000128&quot;,
+    &quot;product_id&quot;: 5,
+    &quot;status&quot;: &quot;pending_approval&quot;,
+    &quot;created_at&quot;: &quot;2022-06-20T13:31:03.429316Z&quot;,
+    &quot;rates&quot;: [
+        {
+            &quot;id&quot;: 495,
+            &quot;tac&quot;: 2.9,
+            &quot;grace&quot;: 0.0,
+            &quot;rate&quot;: 2.31,
+            &quot;prepayment_fee&quot;: 0.0,
+            &quot;amount&quot;: 500000.0,
+            &quot;number_installments&quot;: 6
+        }
+    ],
+    &quot;partner&quot;: &quot;1234567890&quot;,
+    &quot;observation&quot;: null,
+    &quot;partner_type&quot;: null,
+    &quot;desired_amount&quot;: null,
+    &quot;risks_policy&quot;: &quot;ALTERNATIVE_CREDIT&quot;
+}</pre>
+</div></div><h2 id="ProposalsAPI-CronogramaOperacional"><img class="emoticon emoticon-blue-star" data-emoji-id="1f5d3" data-emoji-shortname=":calendar_spiral:" data-emoji-fallback="🗓" src="images/icons/emoticons/72/1f5d3.png" width="16" height="16" data-emoticon-name="blue-star" alt="(blue star)"/> Cronograma Operacional</h2><p>Segue abaixo quadro de tarefas periódicas, executadas para manutenção dos serviços disponibilizados:</p><div class="table-wrap"><table data-layout="default" data-local-id="31222ad6-2ada-4b22-bc47-55b6134e12d7" class="confluenceTable"><colgroup><col style="width: 48.0px;"/><col style="width: 248.0px;"/><col style="width: 111.0px;"/></colgroup><tbody><tr><th class="confluenceTh"><p><strong>ID</strong></p></th><th class="confluenceTh"><p><strong>Tarefa</strong></p></th><th class="confluenceTh"><p><strong>Ocorrência</strong></p></th></tr><tr><td class="confluenceTd"><p>1</p><p>2</p><p>9</p><p>11</p><p>12</p><p>13</p></td><td class="confluenceTd"><p>Celery Backend Cleanup</p><p>Health Check</p><p>Expiration Proposal Check</p><p>Check For Alternative Credit Pricing Request</p><p>Check For Cerc Pricing Request</p><p>Expiration Proposal Check For Pending Approval</p></td><td class="confluenceTd"><p>Diário a cada 4 horas</p><p>Diário a cada 10 minutos</p><p>Diário a cada 10 minutos</p><p>Diário a cada 5 minutos</p><p>Diário a cada 5 minutos</p><p>Diário a cada 10 minutos</p></td></tr></tbody></table></div><h2 id="ProposalsAPI-DocumentaçõesComplementares"><img class="emoticon emoticon-blue-star" data-emoji-id="1f517" data-emoji-shortname=":link:" data-emoji-fallback="🔗" src="images/icons/emoticons/72/1f517.png" width="16" height="16" data-emoticon-name="blue-star" alt="(blue star)"/> Documentações Complementares</h2><ul><li><p><a href="Pricing-Flowchart_1980596227.html" data-linked-resource-id="1980596227" data-linked-resource-version="2" data-linked-resource-type="page">Pricing Flowchart</a></p></li><li><p><a href="Classificador-API_1972797476.html" data-linked-resource-id="1972797476" data-linked-resource-version="3" data-linked-resource-type="page">Classificador API</a> </p></li><li><p><a href="Oferta-Maker-API_1972076710.html" data-linked-resource-id="1972076710" data-linked-resource-version="2" data-linked-resource-type="page">Oferta Maker API</a></p></li><li><p><a href="Transactional-Risk-API_1972273342.html" data-linked-resource-id="1972273342" data-linked-resource-version="3" data-linked-resource-type="page">Transactional Risk API</a></p></li><li><p><a href="Client-Validator_1975484463.html" data-linked-resource-id="1975484463" data-linked-resource-version="2" data-linked-resource-type="page">Client Validator</a></p></li><li><p><a href="Behavior-Score-API_1972895745.html" data-linked-resource-id="1972895745" data-linked-resource-version="3" data-linked-resource-type="page">Behavior Score API</a></p></li></ul>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1972076682/1972076689.png">pricing_digital_flowchart.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1972076682/1972273320.png">pricing_partnership_flowchart.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1972076682/1972371635.png">pricing_upsell_flowchart.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1972076682/1972797573.png">pricing_upsell_flowchart.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1972076682/1977450497.png">pricing_alternative_credit_flowchart.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Dec 29, 2022 19:13</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

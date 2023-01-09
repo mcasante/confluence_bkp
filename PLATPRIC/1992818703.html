@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Platform Credit e Pricing : Adiantamento de recebíveis</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Platform Credit e Pricing</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Platform-Credit-e-Pricing-Home_1878655104.html">Platform Credit e Pricing Home</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Modelos-de-ofertas_1955692585.html">Modelos de ofertas</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Platform Credit e Pricing : Adiantamento de recebíveis
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Eduardo Cavalcanti</span>, last modified on Aug 05, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h2 id="Adiantamentoderecebíveis-Problemframing">Problem framing</h2><p /><div id="expander-582517624" class="expand-container"><div id="expander-control-582517624" class="expand-control"><span class="expand-control-icon"><img style="vertical-align:middle;" class="expand-control-image" src="images/icons/grey_arrow_down.png"></span><span class="expand-control-text">07/22</span></div><div id="expander-content-582517624" class="expand-content"><p>Tive uma primeira conversa com o Chen e entendi que temos a intenção de adiantar 100% dos recebíveis das agendas futuras que recebermos via PayHop.<br/>Em relação a isso, surgiram alguns pontos que ia começar a discutir com ela. São eles:</p><h4 id="Adiantamentoderecebíveis-Paraocálculodevolume"><strong>Para o cálculo de volume</strong></h4><p>Um recebível performado ainda é passível de charge back ou cancelamento por algum motivo?</p><p>[Edu] Entendo que haja um período em que esse chargeback é possível - aqueles 7 dias garantidos pelo direito do consumidor -, nesse caso poderíamos olhar a agenda futura menos os últimos 7 dias de cada mês. Faz sentido?</p><p>[Carneiro] sim, confirmar com Payhop , em geral calculamos um percentual de chargeback ( risco )</p><p>[Chen ]Sim é passível de charge-back, no retorno da payhop a gente tem os dados históricos, então é possível estimar o charge-back médio mensal e considerar isso na analise</p><p /><p>Pelo que entendi, estamos pensando em travar o recebível no momento do desembolso, mas dado que temos um tempo de esteira entre a precificação e o desembolso, teremos uma variação entre as agendas futuras. Como podemos tratar isso?</p><p>[Edu] Aqui, pra mim o fluxo ideal seria travarmos primeiro e adiantar 100% do recebível travado. Mas entendo que esse fluxo pode ser mais complicado de implementarmos. Nesse sentido, poderíamos pegar o tempo médio da esteira tirar esses dias de cada mês da agenda. Sendo menos de 7 dias, seguiríamos com a regra do chargeback; sendo mais, ela sobreporia a regra do chargeback.</p><p>[Carneiro] Reveja com <a class="confluence-userlink user-mention" data-username="5dfb8ce39a14250cb69f1596" data-account-id="5dfb8ce39a14250cb69f1596" href="https://a55tech.atlassian.net/wiki/people/5dfb8ce39a14250cb69f1596?ref=confluence" target="_blank" data-base-url="https://a55tech.atlassian.net/wiki">Leonardo Chen (Unlicensed)</a>, mas a cadeia de recebiveis e esteira automática , devemos travar antes , e fazer a liberação dentro de um SLA curto ( sem mesa manual de crédito por exemplo ); Não e são os 7 dias a ser considerado , este parâmetro muda de cliente para cliente  / segmento / etc</p><p>[Carneiro] Sobre trava, sim, este e fluxo: trava primeiro libera depois. Este processo deve ser simples alguns minutos (exemplo consulto agenda - recebo proposta , cliente aceitou a proposta , trava e segue para formalização)<br/>Valide com <a class="confluence-userlink user-mention" data-username="5dfb8ce39a14250cb69f1596" data-account-id="5dfb8ce39a14250cb69f1596" href="https://a55tech.atlassian.net/wiki/people/5dfb8ce39a14250cb69f1596?ref=confluence" target="_blank" data-base-url="https://a55tech.atlassian.net/wiki">Leonardo Chen (Unlicensed)</a>  mas acredito que vc (motor de crédito tenha alguma consulta que permita entender o chargback  validar);</p><p>[Chen] Não vejo problemas na gente usar o aceite da proposta como trigger pra já realizar a trava, aí durante o período de formalização temos a garantia q o recebível já foi travado. Se o cliente desistir do processo, nós acionamos a PayHop para destravar as URs analisadas</p><p><strong>Links de referência</strong></p><ul><li><p><a class="external-link" data-card-appearance="inline" href="https://www.concil.com.br/blog/como-calcular-antecipacao-de-parcelas-do-cartao-de-credito/#:~:text=A%20f%C3%B3rmula%20usada%20como%20base,dias%20a%20antecipar%20%2F%2030)." rel="nofollow">https://www.concil.com.br/blog/como-calcular-antecipacao-de-parcelas-do-cartao-de-credito/#:~:text=A%20f%C3%B3rmula%20usada%20como%20base,dias%20a%20antecipar%20%2F%2030).</a> </p></li></ul><p /><h4 id="Adiantamentoderecebíveis-Paraocálculodosjuros"><strong>Para o cálculo dos juros</strong></h4><p>Qual faixa de taxa de juros poderíamos usar para esse produto?</p><p>[Edu] Entendo que o rating é pouco relevante para essa operação. Poderíamos pensar junto à capital markets uma taxa fixa que variaria mensalmente (nos padrões atuais, até termos as curvas de juros).</p><p>[Carneiro] Veja com a Tamires a média de mercado (apenas para seu conhecimento) . Este valor deve ser dado pela mesa de crédito (todavia devemos garantir o pgto da funding e demais despesas). Reforçar dar crédito e não dinheiro.</p><p>[Chen] Pensando em encaixar na Credix III, precisamos cobrar uma taxa média de juros de 2,38%</p><p /><h4 id="Adiantamentoderecebíveis-Enquadramento"><strong>Enquadramento</strong></h4><p>Já que a trava é um colateral mais forte, cheguei a ouvir sobre pular a análise de crédito. Minhas dores aqui são:</p><ol><li><p>Dado que a política de crédito atual não prevê esse produto, o que precisamos cumprir dela?</p></li><li><p>Depois tenho que confirmar com o Chen qual é o funding desse produto, para entender os critérios de elegibilidade.</p></li></ol><p>[Edu] Acredito que deveríamos verificar <strong>apenas</strong> as restrições de Compliance e garantir os critérios de elegibilidade do funding.</p><p>[Carneiro] O contexto e que se vc trava o recebível o Risco de Crédito , fator e condição apurado e baixo todavia a politica deve ser respeitada. <a class="confluence-userlink user-mention" data-username="70121:64519b5c-388e-4996-aaed-4698b0716392" data-account-id="70121:64519b5c-388e-4996-aaed-4698b0716392" href="https://a55tech.atlassian.net/wiki/people/70121:64519b5c-388e-4996-aaed-4698b0716392?ref=confluence" target="_blank" data-base-url="https://a55tech.atlassian.net/wiki">Jong Jun Lee (Unlicensed)</a>, no lugar da Cris deve adequar o necessário. O rating é relevante, cliente com Rating ruim mesmo com garantia são grande originadores de fraude e podem/devem receber uma taxa menos atrativa.</p><p>[Carneiro] Sobre funding, valide com ele mas deve varias entre Credix+MB;</p><p>[Chen] Vamos começar com a Credix III, que precisa ter uma taxa média de 2,38%. Validei com o Dantas e esse modelo de operação cabe bem lá.</p><p /><h4 id="Adiantamentoderecebíveis-Upsell">Upsell</h4><p>Como é um volume que pode ser grande, entendo que poderíamos seguir as mesmas regras inicialmente (já vi na política que vamos precisar atualizar algumas regras no motor que estamos testando):</p><ol><li><p>Pagamento de 33% de todas as linhas conosco</p></li><li><p>Pagamento de 33% da última linha conosco</p></li><li><p>Adimplentes na a55</p></li></ol><p>[Carneiro] Para este produto talvez não caiba este contexto.</p></div></div><h2 id="Adiantamentoderecebíveis-Solution">Solution</h2><p>Vamos fazer dois modelos de adiantamento de recebíveis:</p><ol><li><p>Crédito através de desconto da agenda livre total</p></li><li><p>Crédito desejado pelo cliente, somando custos da a55</p></li></ol><h3 id="Adiantamentoderecebíveis-Créditoviadescontodaagendalivretotal">Crédito via desconto da agenda livre total</h3><p>No crédito através de desconto, a partir de um teto de agenda livre, nós calculamos o volume a ser desembolsado para o cliente.</p><p>A partir desse teto, nós retiramos os seguintes valores:</p><ol><li><p>Chargeback previsto</p></li><li><p>Custo de estruturação (custos e taxas cobradas na cabeça)</p></li><li><p>Valores compostos (juros + custo de capital + prêmio de risco)</p></li></ol><h4 id="Adiantamentoderecebíveis-Descontodochargeback">Desconto do chargeback</h4><p>Inicialmente, enquanto não conseguimos calcular chargeback das empresas via PayHop, usaremos uma taxa de chargeback fixa, igual a <strong>5%</strong>. Entendemos que este valor já leva em consideração uma chance muito baixa de acontecimento, uma vez que o Visa Dispute Monitoring Program notifica como excessiva uma taxa de 1,8% mensal e o Mastercard Excessive Chargeback Program notifica como excessiva uma taxa de 3% ou mais.</p><p>Ref. <a class="external-link" data-card-appearance="inline" href="https://blog.konduto.com/pt/2019/09/limites-chargebacks-fraudes-bandeiras-cartoes/" rel="nofollow">https://blog.konduto.com/pt/2019/09/limites-chargebacks-fraudes-bandeiras-cartoes/</a> </p><p>A agenda endereçável é dada pela fórmula:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">Valor de Chargeback = Agenda total * (1 - Taxa Chargeback)
+Agenda endereçável = Agenda total - Valor de Chargeback</pre>
+</div></div><h4 id="Adiantamentoderecebíveis-Descontodoscustosdeestruturaçãoevalorescompostos">Desconto dos custos de estruturação e valores compostos</h4><p>Os cálculos de custos de estruturação e dos valores compostos da linha padrões para todas as precificações da a55, e estão especificados em <span class="status-macro aui-lozenge">CRIAR DOCUMENTA&Ccedil;&Atilde;O PARA A PRECIFICA&Ccedil;&Atilde;O.</span> <a class="external-link" data-card-appearance="inline" href="https://docs.google.com/spreadsheets/d/1LtaBjFZidhx3pVM-HPFiaSjhuCpzbydLlIV_tnRUo1k/edit#gid=1861990029" rel="nofollow">https://docs.google.com/spreadsheets/d/1LtaBjFZidhx3pVM-HPFiaSjhuCpzbydLlIV_tnRUo1k/edit#gid=1861990029</a> </p><p>A partir dos resultados dos cálculos das variáveis acima, chegaremos a dois montantes: o volume com custos descontados e o volume de adiantamento. Eles são encontrados de acordo com as seguintes fórmulas:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">Volume descontando custos = Agenda endereçável - Somatório dos custos
+Volume adiantamento = Volume descontando custos / ((1 + Taxa de juros) ^ Prazo)</pre>
+</div></div><p><span class="status-macro aui-lozenge">ATUALIZA&Ccedil;&Atilde;O 08/22</span> </p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">Volume descontando custos = Agenda endereçável - Somatório dos custos
+Volume adiantamento = Volume descontando custos * ((1 - Taxa de juros) ^ Prazo)</pre>
+</div></div><p /><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1992818703/1994293253.png">image-20220707-213231.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Dec 29, 2022 19:13</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

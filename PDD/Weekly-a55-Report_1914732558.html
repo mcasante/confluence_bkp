@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Plataforma de Dados : Weekly a55 Report</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Plataforma de Dados</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Plataforma-de-Dados_1898840277.html">Plataforma de Dados</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Datalake_1982726152.html">Datalake</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="1900216592.html">Dicionário de dados</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Metabase_1900216909.html">Metabase</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Plataforma de Dados : Weekly a55 Report
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Alessandro Oliveira (Unlicensed)</span>, last modified on Apr 14, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p><strong>Responsável</strong>: <a class="confluence-userlink user-mention" data-username="612005dc9fd388006a8d38f3" data-account-id="612005dc9fd388006a8d38f3" href="https://a55tech.atlassian.net/wiki/people/612005dc9fd388006a8d38f3?ref=confluence" target="_blank" data-base-url="https://a55tech.atlassian.net/wiki">Luiz Fernando Fernandes (Unlicensed)</a>  &amp; <a class="confluence-userlink user-mention" data-username="60ca0042b1f93b00691dabb9" data-account-id="60ca0042b1f93b00691dabb9" href="https://a55tech.atlassian.net/wiki/people/60ca0042b1f93b00691dabb9?ref=confluence" target="_blank" data-base-url="https://a55tech.atlassian.net/wiki">Karen Moraes (Unlicensed)</a> </p><p><strong>URL</strong>: <a class="external-link" href="https://metabase.a55.tech/dashboard/551-weekly-a55-report?inicio=&amp;fim=" rel="nofollow">https://metabase.a55.tech/dashboard/551-weekly-a55-report?inicio=&amp;fim=</a></p><hr/><p><strong>Propósito</strong>: Este dashboard tem como objetivo ilustrar os principais indicadores utilizados nos reports semanais da a55.  Toda informação presente neste dashboard foi valida pelo time de BI com o auxílio do respectivo líder da área de qual o KPI pertence, e deve ser utilizado como fonte primária de consulta.</p><hr/><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1672335907000 {padding: 0px;}
+div.rbtoc1672335907000 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1672335907000 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1672335907000'>
+<ul class='toc-indentation'>
+<li><a href='#Weeklya55Report-DisbursementandRenevues'>Disbursement and Renevues</a>
+<ul class='toc-indentation'>
+<li><a href='#Weeklya55Report-GrossDisbursement'>Gross Disbursement</a></li>
+<li><a href='#Weeklya55Report-TotalLoansQuantity'>Total Loans Quantity</a></li>
+<li><a href='#Weeklya55Report-AverageTicket'>Average Ticket</a></li>
+<li><a href='#Weeklya55Report-AverageTerm'>Average Term</a></li>
+<li><a href='#Weeklya55Report-LiquidDisbursement'>Liquid Disbursement</a></li>
+<li><a href='#Weeklya55Report-TotalTAC'>Total TAC</a></li>
+<li><a href='#Weeklya55Report-SpredRevenue'>Spred Revenue</a></li>
+<li><a href='#Weeklya55Report-A55Fee'>A55 Fee</a></li>
+<li><a href='#Weeklya55Report-TotalRevenue'>Total Revenue</a></li>
+</ul>
+</li>
+<li><a href='#Weeklya55Report-Views'>Views</a>
+<ul class='toc-indentation'>
+<li><a href='#Weeklya55Report-DisbursementbyChannel'>Disbursement by Channel</a></li>
+<li><a href='#Weeklya55Report-NPLEvolutionbyChannel'>NPL Evolution by Channel</a></li>
+<li><a href='#Weeklya55Report-AverageDisbursementTicketbyChannel'>Average Disbursement Ticket by Channel</a></li>
+<li><a href='#Weeklya55Report-CurrentClientStatus'>Current Client Status</a></li>
+<li><a href='#Weeklya55Report-DisbursementxUpsell'>Disbursement x Upsell</a></li>
+<li><a href='#Weeklya55Report-OvertimeFPD'>Overtime FPD</a></li>
+</ul>
+</li>
+</ul>
+</div><h1 id="Weeklya55Report-DisbursementandRenevues"><strong>Disbursement and Renevues</strong></h1><h2 id="Weeklya55Report-GrossDisbursement">Gross Disbursement</h2><p>O volume bruto desembolsado corresponde ao valor líquido ofertado ao cliente (principal) somado as taxas e impostos pertinentes, conforme detalhado em <a href="Desembolso-Bruto_1912537089.html" data-linked-resource-id="1912537089" data-linked-resource-version="8" data-linked-resource-type="page">Desembolso Bruto</a>.</p><p><img class="emoticon emoticon-warning" data-emoji-id="atlassian-warning" data-emoji-shortname=":warning:" data-emoji-fallback=":warning:" src="images/icons/emoticons/warning.png" width="16" height="16" data-emoticon-name="warning" alt="(warning)"/> No valor do desembolso bruto, não são considerados contratos renegociados.</p><div id="expander-553455263" class="expand-container"><div id="expander-control-553455263" class="expand-control"><span class="expand-control-icon"><img style="vertical-align:middle;" class="expand-control-image" src="images/icons/grey_arrow_down.png"></span><span class="expand-control-text">SQL Code</span></div><div id="expander-content-553455263" class="expand-content"><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: sql; gutter: false; theme: Confluence" data-theme="Confluence">with disbursment_values as (	
+	select 
+		distinct i.id
+			   , i.gross_amount
+			   , i.liquid_amount 
+			   , i.net_amount
+			   , i.gross_amount - i.iof - i.fee_a55 - i.fee_issuer - i.&quot;fee_CETIP&quot; as calc_amount
+			   , i.iof
+			   , i.fee_a55  
+			   , i.fee_issuer			  
+			   , i.&quot;fee_CETIP&quot; as fee_CETIP			   			   
+	from asset.instrument i
+	join asset.operation o 
+		on i.operation_id = o.id
+	left join asset.realized_cashflow_entry rce
+		on i.id = rce.instrument_id
+	join asset.cashflow_type ct 
+		on ct.id = rce.cashflow_type_id 
+	left join asset.instrument_related irD
+		on i.id = irD.destination_instrument
+	where 1=1	    
+		and irD.origin_instrument is null -- retirando contratos renegociados 
+		[[and i.loan_date between {{dt_inicio}} and {{dt_fim}}]]
+		--and i.id = 1365		
+		--and i.id = 2447
+)
+select sum(gross_amount::float)/100
+from disbursment_values 
+</pre>
+</div></div></div></div><hr/><h2 id="Weeklya55Report-TotalLoansQuantity">Total Loans Quantity</h2><p>A quantidade de contratos, como o nome sugere, é a contagem de contratos distintos realizados no período considerado. É importante lembrar que, em determinados desembolsos muito grandes, uma mesma operação pode ser fatiada em mais de um contrato, conforme <a href="Loans-Quantity_1929641985.html" data-linked-resource-id="1929641985" data-linked-resource-version="3" data-linked-resource-type="page">Loans Quantity</a>.</p><hr/><h2 id="Weeklya55Report-AverageTicket">Average Ticket</h2><p>O average ticket corresponde ao valor médio desembolsado (<a href="Desembolso-Bruto_1912537089.html" data-linked-resource-id="1912537089" data-linked-resource-version="8" data-linked-resource-type="page">Desembolso Bruto</a>) para os clientes da a55 no período considerado, conforme definição em <a href="1922760707.html" data-linked-resource-id="1922760707" data-linked-resource-version="6" data-linked-resource-type="page">Ticket médio</a>.</p><hr/><h2 id="Weeklya55Report-AverageTerm">Average Term </h2><p>O average term corresponde ao número médio de parcelas dos contratos firmados pela a55 no período considerado, conforme <a href="1927020584.html" data-linked-resource-id="1927020584" data-linked-resource-version="6" data-linked-resource-type="page">Average Term (Parcelas)</a>.</p><hr/><h2 id="Weeklya55Report-LiquidDisbursement">Liquid Disbursement</h2><p>O desembolso líquido corresponde ao valor bruto descontado de taxas e impostos. Trata-se do valor efetivo que o cliente recebe, conforme detalhado em <a href="1912569896.html" data-linked-resource-id="1912569896" data-linked-resource-version="8" data-linked-resource-type="page">Desembolso Líquido</a>.</p><p><img class="emoticon emoticon-warning" data-emoji-id="atlassian-warning" data-emoji-shortname=":warning:" data-emoji-fallback=":warning:" src="images/icons/emoticons/warning.png" width="16" height="16" data-emoticon-name="warning" alt="(warning)"/> No valor do desembolso líquido, não são considerados contratos renegociados.</p><p /><div id="expander-677249188" class="expand-container"><div id="expander-control-677249188" class="expand-control"><span class="expand-control-icon"><img style="vertical-align:middle;" class="expand-control-image" src="images/icons/grey_arrow_down.png"></span><span class="expand-control-text">SQL Code</span></div><div id="expander-content-677249188" class="expand-content"><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: sql; gutter: false; theme: Confluence" data-theme="Confluence">with disbursment_values as (	
+	select 
+		distinct i.id
+			   , i.gross_amount
+			   , i.liquid_amount 
+			   , i.net_amount
+			   , i.gross_amount - i.iof - i.fee_a55 - i.fee_issuer - i.&quot;fee_CETIP&quot; - i.commission as calc_amount
+			   , i.iof
+			   , i.fee_a55  
+			   , i.fee_issuer			  
+			   , i.&quot;fee_CETIP&quot; as fee_CETIP			   			   
+	from asset.instrument i
+	join asset.operation o 
+		on i.operation_id = o.id
+	left join asset.realized_cashflow_entry rce
+		on i.id = rce.instrument_id
+	join asset.cashflow_type ct 
+		on ct.id = rce.cashflow_type_id 
+	left join asset.instrument_related irD
+		on i.id = irD.destination_instrument
+	where 1=1	    
+		and irD.origin_instrument is null -- retirando contratos renegociados 
+		[[and loan_date between {{dt_inicio}} and {{dt_fim}}]]
+		--and i.id = 1365		
+		--and i.id = 2447
+)
+select sum(net_amount::float)/100
+from disbursment_values 
+</pre>
+</div></div></div></div><hr/><h2 id="Weeklya55Report-TotalTAC">Total TAC</h2><p>A TAC total corresponde soma de todas as taxas incidentes num contrato da a55 (CETIP + bancarizador + a55), conforme definição em <a href="TAC-Total_1924628582.html" data-linked-resource-id="1924628582" data-linked-resource-version="6" data-linked-resource-type="page">TAC Total</a>.</p><hr/><h2 id="Weeklya55Report-SpredRevenue">Spred Revenue</h2><p>O spread revenue corresponde a soma da diferença entre o valor líquido de uma parcela, com o valor efetivo que o cliente pagou, considerando taxas, juros mensais e taxas de atraso, conforme definição e exemplos em <a href="Spread-Revenue_1927217172.html" data-linked-resource-id="1927217172" data-linked-resource-version="1" data-linked-resource-type="page">Spread Revenue</a>.</p><hr/><h2 id="Weeklya55Report-A55Fee">A55 Fee</h2><p>A taxa a55 corresponde a taxa que a a55 cobra sob o valor do contrato firmado com a empresa recebedora do crédito, conforme definição em <a href="TAC-A55_1924628497.html" data-linked-resource-id="1924628497" data-linked-resource-version="8" data-linked-resource-type="page">TAC A55</a>.</p><hr/><h2 id="Weeklya55Report-TotalRevenue">Total Revenue</h2><hr/><h1 id="Weeklya55Report-Views"><strong>Views</strong></h1><p /><h2 id="Weeklya55Report-DisbursementbyChannel">Disbursement by Channel</h2><p>Trata-se do somatório do desembolso (checar <a href="Desembolso-Bruto_1912537089.html" data-linked-resource-id="1912537089" data-linked-resource-version="8" data-linked-resource-type="page">Desembolso Bruto</a>) de todos os contratos, agrupados por canal de originação,</p><hr/><h2 id="Weeklya55Report-NPLEvolutionbyChannel">NPL Evolution by  Channel</h2><p>Trata-se do valor em NPL (checar <a href="1903722523.html" data-linked-resource-id="1903722523" data-linked-resource-version="11" data-linked-resource-type="page">Non Performing Loan (NPL)</a>) de todos os contratos com ao menos uma parcela em atraso, agrupados por canal de originação.</p><hr/><h2 id="Weeklya55Report-AverageDisbursementTicketbyChannel">Average Disbursement Ticket by Channel</h2><p>Trata-se do ticket médio (checar <a href="1922760707.html" data-linked-resource-id="1922760707" data-linked-resource-version="6" data-linked-resource-type="page">Ticket médio</a>) de todos os contratos, agrupados por canal de originação.</p><hr/><h2 id="Weeklya55Report-CurrentClientStatus">Current Client Status</h2><p>Um cliente na a55 pode ser categorizado de duas maneiras:</p><ul><li><p><strong>Inativo</strong>: entende-se por cliente inativo todo CNPJ que houve algum desembolso, porém que já está inteiramente quitado e que não há nenhuma nova linha de crédito em andamento.</p></li><li><p><strong>Ativo</strong>: entende-se por cliente ativo todo CNPJ que possui um contrato em aberto, podendo ser categorizado de três maneiras:</p><ul><li><p>Em dia: neste caso, o cliente está sem nenhuma parcela em atraso.</p></li><li><p>Em atraso: neste caso, o cliente possui ao menos uma parcela atrasada com vencimento anterior a data de hoje. Nesta faixa, o tempo de atraso é de 1 até 89 dias.</p></li><li><p>NPL: neste caso, o cliente possui ao menos uma parcela atrasada a mais de 90 dias a partir da data de hoje.</p></li></ul></li></ul><p>Checar definições em <a href="Clientes-ativos_1916370947.html" data-linked-resource-id="1916370947" data-linked-resource-version="6" data-linked-resource-type="page">Clientes ativos</a> e <a href="Clientes-Inativos_1915387924.html" data-linked-resource-id="1915387924" data-linked-resource-version="6" data-linked-resource-type="page">Clientes inativos</a>.</p><div id="expander-483408472" class="expand-container"><div id="expander-control-483408472" class="expand-control"><span class="expand-control-icon"><img style="vertical-align:middle;" class="expand-control-image" src="images/icons/grey_arrow_down.png"></span><span class="expand-control-text">SQL Code</span></div><div id="expander-content-483408472" class="expand-content"><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: sql; gutter: false; theme: Confluence" data-theme="Confluence">with first_default as (
+	-- por cliente primeira parcela que nao foi paga 
+	select 
+		o.client_id,
+		min(ece.&quot;date&quot;) first_default,
+		(current_date - min(ece.&quot;date&quot;)::date) days_past_due
+	from asset.expected_cashflow_entry ece 
+	join asset.instrument i 
+		on i.id = ece.instrument_id 
+	join asset.operation o 
+		on o.id = ece.operation_id 
+	join asset.operation_type ot 
+		on o.operation_type_id = ot.id
+	where ece.status_id = 1
+	group by 
+		o.client_id
+)
+select
+	count(distinct operation.client_id),
+	case 
+		when first_default.client_id is null 
+			then &#39;Inativo&#39;
+		when first_default.days_past_due &lt;= 0
+			then &#39;Em dia&#39;
+		when first_default.days_past_due between 1 and 89
+			then &#39;Em atraso&#39;
+		when first_default.days_past_due &gt;= 90
+			then &#39;NPL&#39;
+	end as status_loan
+from asset.instrument 
+join asset.operation 
+	on operation.id = instrument.operation_id 
+left join first_default
+	on first_default.client_id 		= operation.client_id 
+group by 	
+	case 
+		when first_default.client_id is null 
+			then &#39;Inativo&#39;
+		when first_default.days_past_due &lt;= 0
+			then &#39;Em dia&#39;
+		when first_default.days_past_due between 1 and 89
+			then &#39;Em atraso&#39;
+		when first_default.days_past_due &gt;= 90
+			then &#39;NPL&#39;
+	end</pre>
+</div></div></div></div><p /><hr/><h2 id="Weeklya55Report-DisbursementxUpsell">Disbursement x Upsell</h2><p>Um mesmo cliente pode vir a realizar diversos negócios com a a55. Este tipo de cliente é chamado de upsell (<a href="Upsell_1925349505.html" data-linked-resource-id="1925349505" data-linked-resource-version="2" data-linked-resource-type="page">Upsell</a>), em contraste com os novos clientes que nunca fizeram uma operação com a a55.</p><p>Neste KPI, tem-se a quantidade de contratos (e não de CNPJ!) categorizados da seguinte maneira:</p><ul><li><p><strong>New deal</strong>: primeiro contrato de um CNPJ com a a55.</p></li><li><p><strong>Upsell</strong>: nova linha de crédito para um CNPJ já cliente da a55.</p></li></ul><p /><div id="expander-1076798270" class="expand-container"><div id="expander-control-1076798270" class="expand-control"><span class="expand-control-icon"><img style="vertical-align:middle;" class="expand-control-image" src="images/icons/grey_arrow_down.png"></span><span class="expand-control-text">SQL Code</span></div><div id="expander-content-1076798270" class="expand-content"><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: sql; gutter: false; theme: Confluence" data-theme="Confluence">select 	
+	count(distinct operation.client_id) as clientes,
+	case 
+		-- se o ultimo caracter da string for um digito
+		when substring(operation_code, LENGTH(operation_code) - 1) ~ &#39;\d&#39;
+		then &#39;Upsell&#39;
+		else &#39;New deal&#39;
+	end as upsell 
+from asset.instrument 
+join asset.operation 
+	on operation.id = instrument.operation_id 
+where instrument.loan_date between :dt_inicio and :dt_fim
+group by 
+	case
+		when substring(operation_code, LENGTH(operation_code) - 1) ~ &#39;\d&#39;
+		then &#39;Upsell&#39; 
+		else &#39;New deal&#39;
+	end</pre>
+</div></div></div></div><hr/><h2 id="Weeklya55Report-OvertimeFPD">Overtime FPD</h2><p>Overtime FDP corresponde ao intervalo médio de atraso da primeira parcela de um contrato, onde a média considerada é a mensal. Há 5 categorias de FDP, conforme definição em <a href="1905524764.html" data-linked-resource-id="1905524764" data-linked-resource-version="7" data-linked-resource-type="page">First Payment Default (FPD)</a>.</p><div id="expander-529151107" class="expand-container"><div id="expander-control-529151107" class="expand-control"><span class="expand-control-icon"><img style="vertical-align:middle;" class="expand-control-image" src="images/icons/grey_arrow_down.png"></span><span class="expand-control-text">SQL Code</span></div><div id="expander-content-529151107" class="expand-content"><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: sql; gutter: false; theme: Confluence" data-theme="Confluence">with base as (
+
+select distinct
+	   o.operation_code 			as cod_operacao		 
+	 , is2.status					as st_instrumento 
+	 , os.status 					as st_operacao
+	 , i.loan_date 					as dt_desembolso
+	 , i.net_amount/100	 		 	as vl_desembolso	 
+	 , ece.amount/100 				as vl_parcela	 
+	 , ece.principal/100			as vl_principal	 	 
+	 --, c.name          			 	as nm_empresa   
+	 , c.cnpj 		     		 	as nu_cnpj_empresa     
+     --, ot.description    			as ds_tipo_operacao     
+     , ece.date 					as dt_vencimento_parcela          
+     , ece.status_id
+     , cs.status 
+     , case 
+     		when ece.status_id = 2 then 1 else 0 
+     		end as fl_pago
+     , case 
+     		when rce.date is not null then 1 else 0 
+     		end as fl_pago_reneg
+     , case 
+     		when ece.status_id = 2 and ece.&quot;date&quot; &lt; current_date then 1 else 0 
+     		end as fl_pago_parcelas_nao_expiradas
+   	 , rce.date						as dt_pagamento_parcela
+   	 , rce.amount/100				as vl_pago_parcela
+   	 , cast(ece.date as date) as dt_vencimento
+     , case 
+     		when current_date &lt;= ece.&quot;date&quot; or cast(irO.related_date as date) &lt;= ece.date 
+     		then 0  
+     		else coalesce(rce.&quot;date&quot;, current_date) - ece.date
+     		end nu_dias_atraso	
+     , case when (case 
+     				when current_date &lt;= ece.&quot;date&quot; or cast(irO.related_date as date) &lt;= ece.date 
+		     		then 0  
+		     		else coalesce(rce.&quot;date&quot;, current_date) - ece.date
+		     		end
+		     	  ) &lt; 5 and 
+		     	  (case 
+		     	  	when ece.date &gt; current_date 
+		     	  	then 0 
+		     	  	else 1 
+		     	  	end
+		     	   ) = 1 then 1
+		     	   else 0 end as fl_pago_em_dia		     	          
+     , case 
+     		when ece.date &gt; current_date then 0 else 1  -- Trazer apenas datas expiradas de parcelas validas
+       end fl_expirada
+     , case when irO.destination_instrument is null and irD.origin_instrument is not null then 1 else 0 end fl_renegociacao
+     , i.nature_operation_id
+     , i.id				 		 	as id_contrato     
+     , i.contract_number 
+     , irD.origin_instrument  		as id_contrato_origem
+     , irO.destination_instrument   as id_contrato_destino
+     , cast(coalesce(irO.related_date,irD.related_date) as date) as dt_contrato_relacionado     
+     , case 
+     		when cast(coalesce(irO.related_date,irD.related_date) as date) is null then 1
+     		when ((cast(ece.date as date) &lt;= cast(coalesce(irO.related_date,irD.related_date) as date)) and irD.origin_instrument is null) or 
+     			 ((cast(ece.date as date) &gt;= cast(coalesce(irO.related_date,irD.related_date) as date)) and irO.destination_instrument is null)
+     		then 1 else 0 end as fl_parcela_valida
+from asset.client c 
+inner join asset.operation o 
+        on 1=1
+        and c.cnpj = o.client_id 
+inner join asset.operation_type ot 
+        on 1=1
+        and ot.id = o.operation_type_id 
+inner join asset.instrument i
+        on 1=1
+        and i.operation_id = o.id
+inner join asset.vehicle v 
+        on 1=1
+        and v.id = i.vehicle_id
+inner join asset.expected_cashflow_entry ece
+    	on 1=1
+    	and ece.instrument_id = i.id  
+left join asset.realized_cashflow_entry rce 
+ 		on 1=1
+ 		and ece.id = rce.expected_cashflow_id 
+left join asset.operation_status os 
+		on 1=1
+		and os.id = o.status_id 
+left join asset.instrument_status is2 
+		on 1=1
+		and is2.id = i.status_id 
+left join asset.cashflow_status cs
+		on 1=1
+		and cs.id = ece.status_id 
+left join asset.instrument_related irD
+		on 1=1
+		and i.id = irD.destination_instrument 		
+left join asset.instrument_related irO
+		on 1=1
+		and i.id = irO.origin_instrument 
+where 1=1
+     and o.status_id in (3 , 5)
+     and ece.status_id &gt; 0     
+     --and o.operation_type_id = 5
+     and irD.origin_instrument is null
+     [[ and i.loan_date between {{inicio}} and {{fim}} ]]
+ order by 	
+ 	   i.loan_date 
+ 	 , ece.date    
+  
+)
+, regra_fpd as (
+
+
+select 
+	   cod_operacao
+	 , rank() over(partition by nu_cnpj_empresa order by cod_operacao) as nu_desembolso
+	 , concat(left(dt_desembolso::varchar,4),&#39;/&#39;,right(left(dt_desembolso::varchar,7),2)) as ds_safra
+	 , nu_cnpj_empresa
+	 , dt_vencimento
+	 , dt_pagamento_parcela
+	 , nu_dias_atraso	 	
+	 , rank() over(partition by cod_operacao, nu_cnpj_empresa order by dt_vencimento) as nu_parcela
+	 , (current_date - dt_vencimento) as maturacao
+	 /*, case 
+	 		when current_date - dt_vencimento &lt;= 1 then null
+	 		when nu_dias_atraso &gt;= 1 then 1 else 0 
+	   end as fpd_1
+	 */
+	 , case 
+	 		when current_date - dt_vencimento &lt;= 15 then null
+	 		when nu_dias_atraso &gt;= 15 then 1 else 0 
+	   end as fpd_15
+	 , case 
+	 		when current_date - dt_vencimento &lt;= 30 then null
+	 		when nu_dias_atraso &gt;= 30 then 1 else 0 
+	   end as fpd_30
+	 , case 
+	 		when current_date - dt_vencimento &lt;= 60 then null
+	 		when nu_dias_atraso &gt;= 60 then 1 else 0 
+	   end as fpd_60
+	 , case 
+	 		when current_date - dt_vencimento &lt;= 90 then null
+	 		when nu_dias_atraso &gt;= 90 then 1 else 0 
+	   end as fpd_90
+	 , case 
+	 		when current_date - dt_vencimento &lt;= 180 then null
+	 		when nu_dias_atraso &gt;= 180 then 1 else 0 
+	   end as fpd_180
+from BASE 
+where 1=1
+	and fl_parcela_valida = 1
+
+)
+
+select ds_safra
+	 --, nu_parcela
+	 --, avg(fpd_1) as fpd1
+	 , avg(fpd_15) as fpd15
+	 , avg(fpd_30) as fpd30
+	 , avg(fpd_60) as fpd60
+	 , avg(fpd_90) as fpd90
+	 , avg(fpd_180) as fpd180
+from regra_fpd
+where 1=1
+and nu_desembolso = 1
+and nu_parcela = 1
+group by ds_safra
+	 --, nu_parcela
+order by 
+	   ds_safra
+	 --, nu_parcela	 
+</pre>
+</div></div></div></div>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1914732558/1914732572.png">image-20220310-131557.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1914732558/1915027467.png">image-20220310-131320.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1914732558/1915453445.png">image-20220310-132543.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Dec 29, 2022 17:45</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

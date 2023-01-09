@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Platform Credit e Pricing : Backtest Client Validator</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Platform Credit e Pricing</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Platform-Credit-e-Pricing-Home_1878655104.html">Platform Credit e Pricing Home</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="1963294734.html">Documentações</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Tech_1963982870.html">Tech</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Platform Credit e Pricing : Backtest Client Validator
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Renan Ferreira Marcílio</span> on Jun 03, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>Serviço desenvolvido para análise e validação de clientes à partir de consulta utilizando “<strong>tax_id</strong>” (CNPJ). Este recurso é provido pelo client_validator_api, que executa as seguintes validações:</p><p><strong>Legal Validators</strong>:</p><ul><li><p>Pep</p></li><li><p>Ibama</p></li><li><p>Cnep</p></li><li><p>Ceis</p></li></ul><p><strong>PJ Validators</strong>:</p><ul><li><p>Cnae</p></li><li><p>Simples Nacional</p></li><li><p>Legal Nature</p></li><li><p>Lifetime</p></li></ul><p><strong>Serasa Validators</strong>:</p><ul><li><p>Inactive Tax Id</p></li></ul><h2 id="BacktestClientValidator-ConfiguraçãodeAmbiente"><img class="emoticon emoticon-blue-star" data-emoji-id="1f4d8" data-emoji-shortname=":blue_book:" data-emoji-fallback="\uD83D\uDCD8" src="images/icons/emoticons/72/1f4d8.png" width="16" height="16" data-emoticon-name="blue-star" alt="(blue star)"/> Configuração de Ambiente</h2><p>Para começarmos será necessário logar na plataforma do Postman, serviço que permitirá realizar as requisições http para diferentes aplicações do ecossistema a55. Siga o passo a passo abaixo:</p><ol><li><p>Acesse <a class="external-link" data-card-appearance="inline" href="https://www.postman.com/" rel="nofollow">https://www.postman.com/</a>.</p></li><li><p>A seguinte página será exibida:</p></li><li><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/1966112769/1966505989.png" data-image-src="attachments/1966112769/1966505989.png" data-height="545" data-width="1835" data-unresolved-comment-count="0" data-linked-resource-id="1966505989" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="Screenshot from 2022-06-03 12-08-46.png" data-base-url="https://a55tech.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1966112769" data-linked-resource-container-version="1" data-media-id="2969bc3c-0fa7-4623-a5e7-4f292f748969" data-media-type="file"></span><p>Caso ainda não tenha cadastro, no canto superior direito da tela, clique no botão com a opção “<strong>Sign Up For Free</strong>”, e a seguinte tela será exibida para que seja feito o cadastro de uma nova conta:</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/1966112769/1966669825.png" data-image-src="attachments/1966112769/1966669825.png" data-height="677" data-width="783" data-unresolved-comment-count="0" data-linked-resource-id="1966669825" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="Screenshot from 2022-06-03 12-19-27.png" data-base-url="https://a55tech.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1966112769" data-linked-resource-container-version="1" data-media-id="fa9f7504-e2a9-4018-9214-e68aaea8305c" data-media-type="file"></span></li><li><p>Caso já tenha realizado o cadastro na plataforma do Postman, no canto superior direito da tela, clique no botão com a opção “<strong>Sign In</strong>”, e a seguinte tela será exibida para que seja feito o login na plataforma:</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/1966112769/1966112778.png" data-image-src="attachments/1966112769/1966112778.png" data-height="656" data-width="900" data-unresolved-comment-count="0" data-linked-resource-id="1966112778" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="Screenshot from 2022-06-03 12-29-09.png" data-base-url="https://a55tech.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1966112769" data-linked-resource-container-version="1" data-media-id="9e60a15b-71bb-4c3b-a04c-911ae134721b" data-media-type="file"></span><p /></li></ol><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>O serviço Postman também se encontra disponível para download no link <a class="external-link" data-card-appearance="inline" href="https://www.postman.com/downloads/" rel="nofollow">https://www.postman.com/downloads/</a>, nos sistemas Windows (x64), Mac (Intel Chip / Apple Chip) e Linux 64-bit.</p></div></div><h2 id="BacktestClientValidator-UtilizandooServiço"><img class="emoticon emoticon-blue-star" data-emoji-id="1f4d7" data-emoji-shortname=":green_book:" data-emoji-fallback="📗" src="images/icons/emoticons/72/1f4d7.png" width="16" height="16" data-emoticon-name="blue-star" alt="(blue star)"/> Utilizando o Serviço</h2><p>Agora com nosso cadastro realizado na plataforma do Postman, seremos capazes de utilizar os serviços disponibilizados no “<strong>Workspace</strong>” da A55. Siga o passo a passo abaixo:</p><ol><li><p>Feito o login no Postman, a seguinte tela será exibida:</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/1966112769/1966669833.png" data-image-src="attachments/1966112769/1966669833.png" data-height="691" data-width="1839" data-unresolved-comment-count="0" data-linked-resource-id="1966669833" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="Screenshot from 2022-06-03 13-09-30.png" data-base-url="https://a55tech.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1966112769" data-linked-resource-container-version="1" data-media-id="44b7dceb-15fd-4cca-8f87-4ca95d1e72e4" data-media-type="file"></span><p /></li><li><p>Na tela inicial, no canto superior esquerdo, clique na opção “<strong>Workspaces</strong>”, um dropdown será acionado com opções de workspaces disponíveis na sua conta. Pesquise pela <strong>A55</strong>, em seguida a selecione, conforme demonstrado abaixo:</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/1966112769/1966407691.png" data-image-src="attachments/1966112769/1966407691.png" data-height="674" data-width="1248" data-unresolved-comment-count="0" data-linked-resource-id="1966407691" data-linked-resource-version="2" data-linked-resource-type="attachment" data-linked-resource-default-alias="Screenshot from 2022-06-03 13-14-27.png" data-base-url="https://a55tech.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1966112769" data-linked-resource-container-version="1" data-media-id="c46bf03c-4197-4fc9-819d-6f875b7f48a9" data-media-type="file"></span><p /></li><li><p>A seguinte tela de overview é exibida:</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/1966112769/1966243853.png" data-image-src="attachments/1966112769/1966243853.png" data-height="692" data-width="1846" data-unresolved-comment-count="0" data-linked-resource-id="1966243853" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="Screenshot from 2022-06-03 13-19-04.png" data-base-url="https://a55tech.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1966112769" data-linked-resource-container-version="1" data-media-id="2a07a244-a42f-4713-aa6f-ab4f423da7fa" data-media-type="file"></span><p /></li><li><p>Note ao lado esquerdo da tela, uma série de coleções é exibido, nesse quadrante buscaremos pela coleção “Client Validator”, siga abaixo:</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/1966112769/1966407699.png" data-image-src="attachments/1966112769/1966407699.png" data-height="620" data-width="636" data-unresolved-comment-count="0" data-linked-resource-id="1966407699" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="Screenshot from 2022-06-03 13-28-36.png" data-base-url="https://a55tech.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1966112769" data-linked-resource-container-version="1" data-media-id="b2dd63b4-43d1-4ff5-9494-5f736cb85dc2" data-media-type="file"></span><p /></li><li><p>Selecionaremos a opção “<strong>ask for client validation</strong>” com a tag “<strong>POST</strong>”, e a seguinte tela será exibida:</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/1966112769/1966407705.png" data-image-src="attachments/1966112769/1966407705.png" data-height="521" data-width="1468" data-unresolved-comment-count="0" data-linked-resource-id="1966407705" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="Screenshot from 2022-06-03 13-41-28.png" data-base-url="https://a55tech.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1966112769" data-linked-resource-container-version="1" data-media-id="bea452b1-3a4a-433f-80b8-cd135c6ea352" data-media-type="file"></span><p /></li><li><p>Note a barra com as seguintes opções como [Params | Authorization | Headers | Body | …] abaixo do campo textual da URL. Selecionaremos a opção “<strong>Body</strong>” para que seja exibida a seguinte tela:</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/1966112769/1966211087.png" data-image-src="attachments/1966112769/1966211087.png" data-height="517" data-width="1467" data-unresolved-comment-count="0" data-linked-resource-id="1966211087" data-linked-resource-version="2" data-linked-resource-type="attachment" data-linked-resource-default-alias="Screenshot from 2022-06-03 13-44-49.png" data-base-url="https://a55tech.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1966112769" data-linked-resource-container-version="1" data-media-id="d0a344cb-4389-40e1-8d33-f1e655362ac4" data-media-type="file"></span><ol><li><p>Dentro do campo raw, haverá preenchido de forma automática uma nomenclatura modelo para nossa requisição, que espera receber um “<strong>tax_id</strong>” para consulta.<br/></p></li></ol></li><li><p>No canto superior direito da tela, temos uma opção descrita como “<strong>No Enviroment</strong>”, que trata para qual ambiente nós queremos enviar esta requisição. <strong>O ambiente para o qual utilizaremos para esta operação é o</strong> “<strong>develop</strong>”.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/1966112769/1966440469.png" data-image-src="attachments/1966112769/1966440469.png" data-height="517" data-width="1467" data-unresolved-comment-count="0" data-linked-resource-id="1966440469" data-linked-resource-version="2" data-linked-resource-type="attachment" data-linked-resource-default-alias="Screenshot from 2022-06-03 14-31-50.png" data-base-url="https://a55tech.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1966112769" data-linked-resource-container-version="1" data-media-id="a4d52332-23b9-4300-af18-045707183a8b" data-media-type="file"></span><p /></li><li><p>Após inserirmos um “<strong>tax_id</strong>” (CNPJ) para consulta, para que a consulta de fato seja realizada, no canto superior direito selecionaremos o botão com a opção “<strong>Send</strong>”, que confirma o envio da requisição para o serviço do Client Validator. O seguinte retorno será exibido na tela:</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/1966112769/1966309395.png" data-image-src="attachments/1966112769/1966309395.png" data-height="698" data-width="1420" data-unresolved-comment-count="0" data-linked-resource-id="1966309395" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="Screenshot from 2022-06-03 14-41-52.png" data-base-url="https://a55tech.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1966112769" data-linked-resource-container-version="1" data-media-id="e1c7b3f2-d82e-4a72-a23c-f63387c20b1a" data-media-type="file"></span><p /></li><li><p>Feita a requisição, um “<strong>request_id</strong>” é retornado, e será utilizado na URL da nossa próxima requisição. Para isso, voltaremos ao nosso menu lateral de coleções, e dentro do Client Validator, selecionaremos a opção “<strong>retrieve client validaton</strong>” com a tag “<strong>GET</strong>”.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/1966112769/1966735397.png" data-image-src="attachments/1966112769/1966735397.png" data-height="531" data-width="1468" data-unresolved-comment-count="0" data-linked-resource-id="1966735397" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="Screenshot from 2022-06-03 14-46-27.png" data-base-url="https://a55tech.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1966112769" data-linked-resource-container-version="1" data-media-id="a0923521-215f-4105-a93e-fce8314bb295" data-media-type="file"></span></li><li><p>Note na barra de URL, onde contém o endereço para a requisição. O “<strong>request_id</strong>” retornado na primeira consulta será inserido ao final do endereço. Como exemplo abaixo:</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/1966112769/1966669849.png" data-image-src="attachments/1966112769/1966669849.png" data-height="36" data-width="659" data-unresolved-comment-count="0" data-linked-resource-id="1966669849" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="Screenshot from 2022-06-03 14-50-45.png" data-base-url="https://a55tech.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1966112769" data-linked-resource-container-version="1" data-media-id="0bba7c29-6edb-45b8-be23-e1ab5cd039f1" data-media-type="file"></span><p /><ol><li><p>Feita essa inserção, no canto superior direito selecionaremos o botão com a opção “<strong>Send</strong>”, que confirma o envio da requisição para o serviço do Client Validator. O seguinte retorno será exibido na tela:</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/1966112769/1966178328.png" data-image-src="attachments/1966112769/1966178328.png" data-height="852" data-width="1422" data-unresolved-comment-count="0" data-linked-resource-id="1966178328" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="Screenshot from 2022-06-03 14-53-19.png" data-base-url="https://a55tech.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1966112769" data-linked-resource-container-version="1" data-media-id="8038469d-4f06-483e-99f4-e22feb7cedc0" data-media-type="file"></span></li></ol></li></ol><div class="confluence-information-macro confluence-information-macro-note"><span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>Importante certificar-se de que este ambiente está configurado da forma correta, pois caso contrário a requisição não será enviada ou retornará um erro de execução.</p></div></div><h2 id="BacktestClientValidator-Conclusão"><img class="emoticon emoticon-blue-star" data-emoji-id="1f4d5" data-emoji-shortname=":closed_book:" data-emoji-fallback="📕" src="images/icons/emoticons/72/1f4d5.png" width="16" height="16" data-emoticon-name="blue-star" alt="(blue star)"/>  Conclusão</h2><p>Realizamos aqui o processo de configuração de ambiente e também a requisição para o serviço Client Validator. </p><p>Esta iniciativa de documentação está em processo de implementação e gostaria de receber feedbacks se a documentação foi útil e se correspondem as expectativas. </p><p>Desenvolvedor responsável pela documentação: Renan Ferreira Marcílio</p><p>Email: renan.marcilio@a55.tech</p><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1966112769/1966505989.png">Screenshot from 2022-06-03 12-08-46.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1966112769/1966669825.png">Screenshot from 2022-06-03 12-19-27.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1966112769/1966735361.png">Screenshot from 2022-06-03 12-22-26.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1966112769/1966800897.png">Screenshot from 2022-06-03 12-22-26.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1966112769/1966702593.png">Screenshot from 2022-06-03 12-22-26.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1966112769/1966112778.png">Screenshot from 2022-06-03 12-29-09.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1966112769/1966342153.png">Screenshot from 2022-06-03 13-07-53.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1966112769/1966669833.png">Screenshot from 2022-06-03 13-09-30.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1966112769/1966637071.png">Screenshot from 2022-06-03 13-14-27.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1966112769/1966407691.png">Screenshot from 2022-06-03 13-14-27.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1966112769/1966243853.png">Screenshot from 2022-06-03 13-19-04.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1966112769/1966407699.png">Screenshot from 2022-06-03 13-28-36.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1966112769/1966407705.png">Screenshot from 2022-06-03 13-41-28.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1966112769/1966866437.png">Screenshot from 2022-06-03 13-44-49.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1966112769/1966211087.png">Screenshot from 2022-06-03 13-44-49.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1966112769/1966473226.png">Screenshot from 2022-06-03 14-31-50.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1966112769/1966800914.png">Screenshot from 2022-06-03 14-33-01.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1966112769/1966440469.png">Screenshot from 2022-06-03 14-31-50.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1966112769/1966309395.png">Screenshot from 2022-06-03 14-41-52.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1966112769/1966735397.png">Screenshot from 2022-06-03 14-46-27.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1966112769/1966669849.png">Screenshot from 2022-06-03 14-50-45.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1966112769/1966604302.png">Screenshot from 2022-06-03 14-52-26.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1966112769/1966178328.png">Screenshot from 2022-06-03 14-53-19.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Dec 29, 2022 19:13</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

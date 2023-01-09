@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Plataforma de Dados : KPIs financeiros relatório completo</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Plataforma de Dados</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Plataforma-de-Dados_1898840277.html">Plataforma de Dados</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Datalake_1982726152.html">Datalake</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="1900216592.html">Dicionário de dados</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Metabase_1900216909.html">Metabase</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Squad-Financeiro_1906475145.html">Squad Financeiro</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="1907589121.html">Financeiro - Relatórios</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Plataforma de Dados : KPIs financeiros relatório completo
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Alessandro Oliveira (Unlicensed)</span>, last modified on Mar 07, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p><strong>Responsável</strong>: <a class="confluence-userlink user-mention" data-username="60ca0042b1f93b00691dabb9" data-account-id="60ca0042b1f93b00691dabb9" href="https://a55tech.atlassian.net/wiki/people/60ca0042b1f93b00691dabb9?ref=confluence" target="_blank" data-base-url="https://a55tech.atlassian.net/wiki">Karen Moraes (Unlicensed)</a> </p><p><strong>URL</strong>: <a class="external-link" href="https://metabase.a55.tech/question/2118-kpis-financeiros-relatorio-completo" rel="nofollow">https://metabase.a55.tech/question/2118-kpis-financeiros-relatorio-completo</a></p><hr/><p><strong>Propósito</strong>: Este relatório visa dar uma visão geral sobre KPI’s financeiros relacionados a cada operação de desembolso, tais como:</p><ul><li><p>Informações do cliente, como nome, CNPJ, originação, se é upsell ou não, etc..</p></li><li><p>CCB associada à operação.</p></li><li><p>Bancarizador emissor da CCB, assim como seu custo associado.</p></li><li><p>Valores do desembolso, tanto bruto quanto líquido, assim como a taxa de juros associada.</p></li><li><p>Data do desembolso.</p></li><li><p>Impostos relevantes sobre a operação, tais como IOF e TAC.</p></li><li><p>Porcentagem de tais impostos em relação ao valor bruto.</p></li></ul><p>Tal relatório serve para fundamentar decisões ou consultas a serem realizadas pelo time de finanças da a55.</p><hr/><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: sql; gutter: false; theme: Confluence" data-theme="Confluence">with faturamento_realizado as (
+    select
+        realized.id as realized_id,
+        instrument.id, 
+        instrument.contract_number as ccb,
+        loan_date::date,
+        client.name,
+        client.cnpj,
+        dl.ds_partner as &quot;origination_partner&quot;,
+        duo.ds_origination as &quot;origination&quot;,
+        issuer.name as issuer_name,
+        -sum(realized.amount::float/100) amount_bruto,
+        sum((instrument.fee_issuer::float + instrument.&quot;fee_CETIP&quot;::float + instrument.fee_a55::float) /100) as tac_total,
+        sum(instrument.iof::float/100) as iof
+    from asset.realized_cashflow_entry realized
+        left join asset.instrument instrument         on instrument.id = realized.instrument_id
+        left join asset.operation operation           on operation.id = instrument.operation_id 
+        left join asset.client client                 on client.cnpj = operation.client_id
+        left join asset.issuer                        on issuer.id = instrument.issuer_id
+        left join datascience.dl_user_origination duo on duo.nu_cnpj = operation.client_id
+        left join datascience.dl_partner dl           on dl.ds_partner = duo.ds_origination_partner
+--      left join instrument.contract_number
+    where realized.cashflow_type_id = 1
+        [[and instrument.loan_date::date between {{inicio}} and {{fim}}]]
+        and instrument.id not in 
+    (
+        select -- empresas que possuem renegociação
+            related.destination_instrument
+        from asset.instrument_related related
+    )  
+    group by realized.id, realized.expected_cashflow_id, loan_date::date, instrument.id , client.name, client.cnpj, issuer.name, instrument.contract_number, dl.ds_partner, duo.ds_origination
+    order by loan_date::date
+)
+, custo as (
+    select *,
+        amount_bruto - (tac_total + iof) as amount_liquido,
+        case 
+            when issuer_name = &#39;MoneyPlus&#39; then (amount_bruto - (tac_total + iof))*0.0035
+            when issuer_name = &#39;QI Tech&#39; then (amount_bruto - (tac_total + iof))*0.0045
+        end as custo
+    from faturamento_realizado
+)
+select 
+    loan_date::date,
+    name,
+    cnpj,
+    ccb,
+    origination_partner,
+    origination,
+    issuer_name,
+    amount_bruto,
+    amount_liquido,
+    tac_total,
+    iof,
+    iof::float / amount_bruto::float iof_perc,
+    custo,
+    case when tac_total &gt; 0 
+        then (tac_total - custo)
+        else 0
+     end as tac_a55, 
+    (tac_total::float / amount_bruto::float) as tac_global,
+    case when tac_total &gt; 0
+        then ((tac_total - custo)::float / amount_bruto::float) 
+        else 0
+    end as tac_net
+from custo
+order by loan_date::date desc </pre>
+</div></div>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Dec 29, 2022 17:45</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

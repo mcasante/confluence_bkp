@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Plataforma de Dados : Desembolso Líquido</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Plataforma de Dados</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Plataforma-de-Dados_1898840277.html">Plataforma de Dados</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Datalake_1982726152.html">Datalake</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="1900216592.html">Dicionário de dados</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="KPIs_1903230997.html">KPIs</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Plataforma de Dados : Desembolso Líquido
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Alessandro Oliveira (Unlicensed)</span>, last modified on Apr 11, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p><strong>Owner</strong>: Cristiana Inês</p><hr/><p>Desembolso líquido é, por definição, o valor bruto descontado de taxas e impostos. Trata-se do valor efetivo que o cliente recebe.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/1912569896/1913028609.png" data-image-src="attachments/1912569896/1913028609.png" data-height="16" data-width="469" data-unresolved-comment-count="0" data-linked-resource-id="1913028609" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220310-132543.png" data-base-url="https://a55tech.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1912569896" data-linked-resource-container-version="8" data-media-id="687b43e9-e46f-4239-8024-4de87f066334" data-media-type="file"></span><p>O valor da TAC é dado como a soma de três TACs (checar <a href="TAC-Total_1924628582.html" data-linked-resource-id="1924628582" data-linked-resource-version="6" data-linked-resource-type="page">TAC Total</a>): </p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/1912569896/1912766492.png" data-image-src="attachments/1912569896/1912766492.png" data-height="14" data-width="284" data-unresolved-comment-count="0" data-linked-resource-id="1912766492" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20220310-131320.png" data-base-url="https://a55tech.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1912569896" data-linked-resource-container-version="8" data-media-id="becd3740-4cdc-429e-baa6-7365ee615608" data-media-type="file"></span><p>Enquanto que o imposto considerado é apenas o IOF.</p><p><img class="emoticon emoticon-warning" data-emoji-id="atlassian-warning" data-emoji-shortname=":warning:" data-emoji-fallback=":warning:" src="images/icons/emoticons/warning.png" width="16" height="16" data-emoticon-name="warning" alt="(warning)"/> No valor do desembolso líquido, não são considerados contratos renegociados.</p><hr/><p><strong>KPI disponível em</strong>: <a class="external-link" href="https://metabase.a55.tech/question/2342-net-disbursement" rel="nofollow">https://metabase.a55.tech/question/2342-net-disbursement</a></p><div id="expander-2053466520" class="expand-container"><div id="expander-control-2053466520" class="expand-control"><span class="expand-control-icon"><img style="vertical-align:middle;" class="expand-control-image" src="images/icons/grey_arrow_down.png"></span><span class="expand-control-text">SQL Code</span></div><div id="expander-content-2053466520" class="expand-content"><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: sql; gutter: false; theme: Confluence" data-theme="Confluence">with disbursment_values as (	
+	select 
+		distinct i.id
+			   , i.gross_amount
+			   , i.liquid_amount 
+			   , i.net_amount
+			   , i.gross_amount - i.iof - i.fee_a55 - i.fee_issuer - i.&quot;fee_CETIP&quot; - i.commission as calc_amount
+			   , i.iof
+			   , i.fee_a55  
+			   , i.fee_issuer			  
+			   , i.&quot;fee_CETIP&quot; as fee_CETIP			   			   
+	from asset.instrument i
+	join asset.operation o 
+		on i.operation_id = o.id
+	left join asset.realized_cashflow_entry rce
+		on i.id = rce.instrument_id
+	join asset.cashflow_type ct 
+		on ct.id = rce.cashflow_type_id 
+	left join asset.instrument_related irD
+		on i.id = irD.destination_instrument
+	where 1=1	    
+		and irD.origin_instrument is null -- retirando contratos renegociados 
+		[[and loan_date between {{dt_inicio}} and {{dt_fim}}]]
+		--and i.id = 1365		
+		--and i.id = 2447
+)
+select sum(net_amount::float)/100
+from disbursment_values 
+</pre>
+</div></div></div></div><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1912569896/1913028609.png">image-20220310-132543.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1912569896/1912766492.png">image-20220310-131320.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Dec 29, 2022 17:45</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

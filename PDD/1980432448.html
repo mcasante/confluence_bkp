@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Plataforma de Dados : (Em construção) Modelo de documentação - EMR</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Plataforma de Dados</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Plataforma-de-Dados_1898840277.html">Plataforma de Dados</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Datalake_1982726152.html">Datalake</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Plataforma de Dados : (Em construção) Modelo de documentação - EMR
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Mayara Prado de Oliveira</span>, last modified on Jun 22, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>Faça uma cópia deste documento para editar.</p><div class="table-wrap"><table data-layout="default" data-local-id="f88fb6f0-05d1-459f-8839-5cdd1d199bca" class="confluenceTable"><colgroup><col style="width: 148.0px;"/><col style="width: 343.0px;"/></colgroup><tbody><tr><th class="confluenceTh"><p><strong>Camada</strong></p></th><td class="confluenceTd"><p>Standard → Cleaned</p></td></tr><tr><th class="confluenceTh"><p><strong>Nome do código</strong></p></th><td class="confluenceTd"><p>sta_cle_vehicle_emr.py</p></td></tr><tr><th class="confluenceTh"><p><strong>Desenvolvimento</strong></p></th><td class="confluenceTd"><p><a class="confluence-userlink user-mention" data-username="629e0a854e1a640070c263ec" data-account-id="629e0a854e1a640070c263ec" href="https://a55tech.atlassian.net/wiki/people/629e0a854e1a640070c263ec?ref=confluence" target="_blank" data-linked-resource-id="1967751171" data-linked-resource-version="1" data-linked-resource-type="userinfo" data-base-url="https://a55tech.atlassian.net/wiki">Andr&eacute; Martins</a> </p></td></tr><tr><th class="confluenceTh"><p><strong>Data de desenvolvimento</strong></p></th><td class="confluenceTd"><p><time datetime="2022-06-15" class="date-past">15 Jun 2022</time> </p></td></tr><tr><th class="confluenceTh"><p><strong>Data da ultima atualização</strong></p></th><td class="confluenceTd"><p><time datetime="2022-06-20" class="date-past">20 Jun 2022</time> </p></td></tr><tr><th class="confluenceTh"><p><strong>Contato em caso de dúvidas</strong></p></th><td class="confluenceTd"><p>Channel <strong>help-me-tech</strong> no slack - preencher formulário</p></td></tr><tr><th class="confluenceTh"><p><strong>Status</strong></p></th><td class="confluenceTd"><p><span class="status-macro aui-lozenge aui-lozenge-complete">DRAFT</span> / <span class="status-macro aui-lozenge aui-lozenge-current">IN REVIEW</span> / <span class="status-macro aui-lozenge aui-lozenge-success">APPROVED</span> / <span class="status-macro aui-lozenge aui-lozenge-progress">IN PRODUCTION</span></p></td></tr><tr><th class="confluenceTh"><p><strong>On this page</strong></p></th><td class="confluenceTd"><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1672335893531 {padding: 0px;}
+div.rbtoc1672335893531 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1672335893531 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1672335893531'>
+<ul class='toc-indentation'>
+<li><a href='#id-(Emconstrução)Modelodedocumentação-EMR-Goals'>Goals</a></li>
+<li><a href='#id-(Emconstrução)Modelodedocumentação-EMR-Origens'>Origens</a></li>
+<li><a href='#id-(Emconstrução)Modelodedocumentação-EMR-Destino'>Destino</a></li>
+<li><a href='#id-(Emconstrução)Modelodedocumentação-EMR-Transformações'>Transformações</a></li>
+<li><a href='#id-(Emconstrução)Modelodedocumentação-EMR-RegrasdeNegócios:'>Regras de Negócios:</a></li>
+<li><a href='#id-(Emconstrução)Modelodedocumentação-EMR-Atualizações'>Atualizações</a></li>
+<li><a href='#id-(Emconstrução)Modelodedocumentação-EMR-Referencesanddocumentation'>References and documentation</a></li>
+</ul>
+</div></td></tr></tbody></table></div><p /><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><h2 id="id-(Emconstrução)Modelodedocumentação-EMR-Goals">Goals</h2><ul><li><p>Breve descrição do objetivo do código</p></li></ul></div></div><p /><h2 id="id-(Emconstrução)Modelodedocumentação-EMR-Origens"><img class="emoticon emoticon-blue-star" data-emoji-id="1f6a9" data-emoji-shortname=":triangular_flag_on_post:" data-emoji-fallback="🚩" src="images/icons/emoticons/72/1f6a9.png" width="16" height="16" data-emoticon-name="blue-star" alt="(blue star)"/> Origens</h2><hr/><ul><li><p>s3://a55-raw-useast1-12345-dev/cashflow/br/vehicles.csv</p></li></ul><hr/><h2 id="id-(Emconstrução)Modelodedocumentação-EMR-Destino"><img class="emoticon emoticon-blue-star" data-emoji-id="1f3c1" data-emoji-shortname=":checkered_flag:" data-emoji-fallback="🏁" src="images/icons/emoticons/72/1f3c1.png" width="16" height="16" data-emoticon-name="blue-star" alt="(blue star)"/>  Destino</h2><hr/><ul><li><p>s3://a55-standard-useast1-12345-dev/cashflow/br/vehicles/year=YYYY/month=MM/day=DD</p></li></ul><hr/><h2 id="id-(Emconstrução)Modelodedocumentação-EMR-Transformações"><img class="emoticon emoticon-blue-star" data-emoji-id="1f5b1" data-emoji-shortname=":mouse_three_button:" data-emoji-fallback="🖱" src="images/icons/emoticons/72/1f5b1.png" width="16" height="16" data-emoticon-name="blue-star" alt="(blue star)"/> Transformações</h2><hr/><ol><li><p>Campo X formatado para integer</p></li><li><p>Campo Y formatado para data</p></li><li><p>Campo Z formatado para varchar (20)</p></li></ol><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+  &quot;samplecode: string&quot;
+}</pre>
+</div></div><hr/><h2 id="id-(Emconstrução)Modelodedocumentação-EMR-RegrasdeNegócios:"><img class="emoticon emoticon-blue-star" data-emoji-id="1f680" data-emoji-shortname=":rocket:" data-emoji-fallback="🚀" src="images/icons/emoticons/72/1f680.png" width="16" height="16" data-emoticon-name="blue-star" alt="(blue star)"/> Regras de Negócios:</h2><hr/><ol><li><p>Campo W calculado utilizando a seguinte regra: X / P * 0,02</p></li></ol><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+  &quot;samplecode: string&quot;
+}</pre>
+</div></div><hr/><h2 id="id-(Emconstrução)Modelodedocumentação-EMR-Atualizações"><img class="emoticon emoticon-blue-star" data-emoji-id="2705" data-emoji-shortname=":white_check_mark:" data-emoji-fallback="✅" src="images/icons/emoticons/72/2705.png" width="16" height="16" data-emoticon-name="blue-star" alt="(blue star)"/> Atualizações</h2><div class="table-wrap"><table data-layout="wide" data-local-id="4913b87c-6b01-4fd2-a37e-afc34ba561d2" class="confluenceTable"><colgroup><col/><col style="width: 170.0px;"/><col style="width: 170.0px;"/><col style="width: 170.0px;"/><col style="width: 170.0px;"/></colgroup><tbody><tr><th class="numberingColumn confluenceTh" /><th data-highlight-colour="#e3fcef" class="confluenceTh"><p><strong>Data</strong></p></th><th data-highlight-colour="#e3fcef" class="confluenceTh"><p><strong>Responsável</strong></p></th><th data-highlight-colour="#e3fcef" class="confluenceTh"><p><strong>Descrição</strong></p></th><th data-highlight-colour="#e3fcef" class="confluenceTh"><p><strong>Validado por</strong></p></th></tr><tr><td class="numberingColumn confluenceTd">1</td><td class="confluenceTd"><p><time datetime="2022-06-21" class="date-past">21 Jun 2022</time> </p></td><td class="confluenceTd"><p><a class="confluence-userlink user-mention" data-username="629e741dd442e6006840a1a8" data-account-id="629e741dd442e6006840a1a8" href="https://a55tech.atlassian.net/wiki/people/629e741dd442e6006840a1a8?ref=confluence" target="_blank" data-linked-resource-id="1967390756" data-linked-resource-version="1" data-linked-resource-type="userinfo" data-base-url="https://a55tech.atlassian.net/wiki">Mayara Prado de Oliveira</a> </p></td><td class="confluenceTd"><p>Alteração…</p></td><td class="confluenceTd"><p><a class="confluence-userlink user-mention" data-username="629e0a854e1a640070c263ec" data-account-id="629e0a854e1a640070c263ec" href="https://a55tech.atlassian.net/wiki/people/629e0a854e1a640070c263ec?ref=confluence" target="_blank" data-linked-resource-id="1967751171" data-linked-resource-version="1" data-linked-resource-type="userinfo" data-base-url="https://a55tech.atlassian.net/wiki">Andr&eacute; Martins</a> </p></td></tr><tr><td class="numberingColumn confluenceTd">2</td><td class="confluenceTd"><p /></td><td class="confluenceTd"><p /></td><td class="confluenceTd"><p>{\Sigma}</p></td><td class="confluenceTd"><p /></td></tr></tbody></table></div><h2 id="id-(Emconstrução)Modelodedocumentação-EMR-Referencesanddocumentation"><img class="emoticon emoticon-blue-star" data-emoji-id="1f5c2" data-emoji-shortname=":dividers:" data-emoji-fallback="🗂" src="images/icons/emoticons/72/1f5c2.png" width="16" height="16" data-emoticon-name="blue-star" alt="(blue star)"/> References and documentation</h2><ul><li><p></p></li></ul><p />
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Dec 29, 2022 17:44</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

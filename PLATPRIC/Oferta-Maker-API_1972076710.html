@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Platform Credit e Pricing : Oferta Maker API</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Platform Credit e Pricing</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Platform-Credit-e-Pricing-Home_1878655104.html">Platform Credit e Pricing Home</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="1963294734.html">Documentações</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Tech_1963982870.html">Tech</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Platform Credit e Pricing : Oferta Maker API
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Renan Ferreira Marcílio</span>, last modified on Jun 20, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h2 id="OfertaMakerAPI-Sobre"><img class="emoticon emoticon-blue-star" data-emoji-id="1f4dc" data-emoji-shortname=":scroll:" data-emoji-fallback="📜" src="images/icons/emoticons/72/1f4dc.png" width="16" height="16" data-emoticon-name="blue-star" alt="(blue star)"/> Sobre</h2><p>Oferta Maker é um microsserviço responsável pelo cálculo de oferta para as propostas da plataforma. Este serviço é sempre requisitado pelo Proposals na confecção de uma nova proposta para uma determinada política de crédito.</p><h2 id="OfertaMakerAPI-Responsabilidades"><img class="emoticon emoticon-blue-star" data-emoji-id="1f4cb" data-emoji-shortname=":clipboard:" data-emoji-fallback="📋" src="images/icons/emoticons/72/1f4cb.png" width="16" height="16" data-emoticon-name="blue-star" alt="(blue star)"/> Responsabilidades</h2><p>Oferta Maker é o serviço central de Pricing, a engrenagem fundamental para execução dos cálculos e valor de desembolso para cada proposta requisitada na plataforma. Visto isso, é importante saber que o Oferta Maker solicita a outros serviço uma parcial de cálculos específicos e validações necessárias para cada proposta e política de risco. Esses serviços são Transactional Risk API e Client Validator. Ambos tratam diferentes aspectos e métricas que serão vinculadas ao serviço para geração de métricas para nova proposta.</p><h2 id="OfertaMakerAPI-Relacionamentos"><img class="emoticon emoticon-blue-star" data-emoji-id="1f9e9" data-emoji-shortname=":jigsaw:" data-emoji-fallback="🧩" src="images/icons/emoticons/72/1f9e9.png" width="16" height="16" data-emoticon-name="blue-star" alt="(blue star)"/> Relacionamentos</h2><ul><li><p>Client Manager - Registrar CNPJ</p></li><li><p>Client Validator - Valida CNPJ</p></li><li><p>Proposals - Busca dados de uma proposta</p></li><li><p>Transactional Risk - Solicita cálculo de risco financeiro</p></li></ul><h2 id="OfertaMakerAPI-ObjetosTransitados"><img class="emoticon emoticon-blue-star" data-emoji-id="1f5c3" data-emoji-shortname=":card_box:" data-emoji-fallback="🗃" src="images/icons/emoticons/72/1f5c3.png" width="16" height="16" data-emoticon-name="blue-star" alt="(blue star)"/> Objetos Transitados</h2><h3 id="OfertaMakerAPI-RequestInput">Request Input</h3><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+    &quot;proposal_id&quot;: 1,
+    &quot;tax_id&quot;:&quot;22153470000128&quot;,
+    &quot;risks_policy&quot;: &quot;ALTERNATIVE_CREDIT&quot;
+}</pre>
+</div></div><h3 id="OfertaMakerAPI-ResponseOutput">Response Output</h3><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+    &quot;status&quot;: &quot;OK&quot;,
+    &quot;offer_id&quot;: &quot;763&quot;
+}</pre>
+</div></div><h2 id="OfertaMakerAPI-CronogramaOperacional"><img class="emoticon emoticon-blue-star" data-emoji-id="1f5d3" data-emoji-shortname=":calendar_spiral:" data-emoji-fallback="🗓" src="images/icons/emoticons/72/1f5d3.png" width="16" height="16" data-emoticon-name="blue-star" alt="(blue star)"/> Cronograma Operacional</h2><p>Segue abaixo quadro de tarefas periódicas, executadas para manutenção dos serviços disponibilizados:</p><div class="table-wrap"><table data-layout="default" data-local-id="31222ad6-2ada-4b22-bc47-55b6134e12d7" class="confluenceTable"><colgroup><col style="width: 48.0px;"/><col style="width: 251.0px;"/><col style="width: 109.0px;"/></colgroup><tbody><tr><th class="confluenceTh"><p><strong>ID</strong></p></th><th class="confluenceTh"><p><strong>Tarefa</strong></p></th><th class="confluenceTh"><p><strong>Ocorrência</strong></p></th></tr><tr><td class="confluenceTd"><p>1</p><p>2</p></td><td class="confluenceTd"><p>Celery Backend Cleanup</p><p>Health Check</p></td><td class="confluenceTd"><p>Diário a cada 4 horas</p><p>Diário a cada 10 minutos</p></td></tr></tbody></table></div><h2 id="OfertaMakerAPI-DocumentaçõesComplementares"><img class="emoticon emoticon-blue-star" data-emoji-id="1f517" data-emoji-shortname=":link:" data-emoji-fallback="🔗" src="images/icons/emoticons/72/1f517.png" width="16" height="16" data-emoticon-name="blue-star" alt="(blue star)"/> Documentações Complementares</h2><ul><li><p><a href="Pricing-Flowchart_1980596227.html" data-linked-resource-id="1980596227" data-linked-resource-version="2" data-linked-resource-type="page">Pricing Flowchart</a></p></li><li><p><a href="Classificador-API_1972797476.html" data-linked-resource-id="1972797476" data-linked-resource-version="3" data-linked-resource-type="page">Classificador API</a></p></li><li><p><a href="Proposals-API_1972076682.html" data-linked-resource-id="1972076682" data-linked-resource-version="2" data-linked-resource-type="page">Proposals API</a> </p></li><li><p><a href="Transactional-Risk-API_1972273342.html" data-linked-resource-id="1972273342" data-linked-resource-version="3" data-linked-resource-type="page">Transactional Risk API</a></p></li><li><p><a href="Client-Validator_1975484463.html" data-linked-resource-id="1975484463" data-linked-resource-version="2" data-linked-resource-type="page">Client Validator</a></p></li><li><p><a href="Behavior-Score-API_1972895745.html" data-linked-resource-id="1972895745" data-linked-resource-version="3" data-linked-resource-type="page">Behavior Score API</a></p></li></ul>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1972076710/1972076720.png">pricing_digital_flowchart.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1972076710/1972076727.png">pricing_partnership_flowchart.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1972076710/1972404405.png">pricing_upsell_flowchart.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1972076710/1972076733.png">pricing_upsell_flowchart.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1972076710/1977516033.png">pricing_alternative_credit_flowchart.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Dec 29, 2022 19:13</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>
