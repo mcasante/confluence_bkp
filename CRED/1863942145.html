@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Credito : Precificação de UPSELL</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Credito</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Pricerias_1787166845.html">Pricerias</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Produtos_1847754753.html">Produtos</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Adiantamento-de-Assinaturas_1791328261.html">Adiantamento de Assinaturas</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Credito : Precificação de UPSELL
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Tamila Hohlenverger</span>, last modified on Dec 15, 2021
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p /><p><strong>Upsell ou upselling tem como significado “vendas adicionais” e é uma <u>técnica de venda</u> </strong>usada por vendedores para oferecer aos clientes um produto superior ao que ele deseja adquirir ou que já adquiriu anteriormente. <strong>O upsell serve principalmente para aumentar o ticket médio da empresa</strong>, já que estimula o cliente a comprar um produto melhor — e, por consequência, mais caro também.</p><p>No contexto da A55, o UPSELL tem como objetivo aumentar as linhas de crédito com o cliente, ou seja, fazer com que após o primeiro desembolso, esse cliente adquira mais linhas de crédito e tenha novos desembolsos. </p><p><strong>Para garantir essa operação para Pago Livre e Galax Pay, vamos realizar a precificação da seguinte forma:</strong></p><p><strong><u>UPSELL</u>:</strong> O Volume exposto é o valor da exposição máxima de apetite a risco com o cliente. É elegível a um upsell qualquer cliente que apresente:</p><ol><li><p>Agenda Livre mínima de R$16.000,00;</p></li><li><p>Não possua saldo devedor em aberto (atraso máximo deve ser menor ou igual a zero);</p></li><li><p>Tenha tido aumento de vendas nos últimos 3 meses - histórico;</p></li><li><p>Não ter apresentado queda nas vendas no último mês maior que 30% em relação ao mês anterior, últimos 3 meses - histórico;</p></li><li><p>Tenha apresentado aumento de agenda do último desembolso/upsell suficiente para que volume de upsell seja no mínimo de R$10.000,00.</p></li></ol><p><strong><span style="color: rgb(255,86,48);">Assim, o volume disponível upsell para Pago Livre é:</span></strong></p><p><strong>Volume UPSELL = Mínimo(“Agenda Livre (12m)” x “Taxa de Sucesso” x “Multiplicador de Risco” ; 720.000- Exposição atual)</strong></p><p>Em que:</p><ul><li><p><strong>Exposição atual = Soma do valor bruto dos desembolsos efetuados - Amortizações (esse valor deverá ser verificado na base de cobrança). </strong></p></li></ul><p>OBS¹: Se o volume for menor que 10k, deverá ser classificado como NoGo.</p><p>OBS²: Os cálculos de Taxa de Sucesso (1-probabilidade de inadimplência) e Multiplicador de Risco seguem o formato já criado ( <a class="external-link" data-card-appearance="inline" href="https://a55tech.atlassian.net/browse/CREDDEL-978" rel="nofollow">https://a55tech.atlassian.net/browse/CREDDEL-978</a>)</p><p /><p><strong><span style="color: rgb(255,86,48);">Já o volume disponível upsell para Galax Pay é:</span></strong></p><p>Como a agenda recebida de Galax Pay não é travada referente às operações anteriores, precisamos diminuir da agenda atual, os desembolsos realizados anteriormente. Nesse sentido, precisaremos calcular a agenda disponível atual menos a exposição atual, para então calcular o volume de UPSELL.</p><ul><li><p><strong>Exposição atual = Soma do valor bruto dos desembolsos efetuados - Amortizações (esses valores deverão ser verificados na base de cobrança). </strong></p></li><li><p><strong>Volume de Agenda Livre para UPSELL = Agenda Livre - Exposição atual</strong></p></li><li><p><strong>Volume UPSELL = Mínimo(“Agenda Livre UPSELL(12m)” x “Taxa de Sucesso” x “Multiplicador de Risco” ; 450.000- Exposição atual)</strong></p></li></ul><p>OBS¹: Se o volume for menor que 10k, deverá ser classificado como NoGo.</p><p>OBS²: Os cálculos de Taxa de Sucesso (1-probabilidade de inadimplência) e Multiplicador de Risco seguem o formato já criado ( <a class="external-link" data-card-appearance="inline" href="https://a55tech.atlassian.net/browse/CREDDEL-978" rel="nofollow">https://a55tech.atlassian.net/browse/CREDDEL-978</a>)</p><p /><p>Obs: as datas de vencimento dos upsells devem ser as mesmas da data do primeiro desembolso.</p><p /><p>VALIDADE DOS INPUTS: </p><ul><li><p>O relatório Serasa possui validade de 30 dias. Se a última data de consulta foi realizada há mais de 30 dias, deve-se realizar uma nova consulta para avaliação de upsell.</p></li><li><p>O cálculo da probabilidade de inadimplência baseado na agenda passada deve ser recalculado a cada 30 dias.</p></li></ul><p /><p><strong><u>Alocação</u>: </strong>o time de Asset Management recebe os termos sugeridos e faz a aprovação final da proposta de crédito, onde ele garante o compliance com os Critérios de Elegibilidade, faz a alocação nos veículos de funding, e pode realizar possíveis ajustes nos termos devido a necessidades e características dos veículos. Caso a empresa não possa ser alocada em nenhum veículo da a55, classificamos o <u>motivo de perda</u> nas seguintes categorias:</p><ul><li><p>Alocação - falta de liquidez (adicionar campo de detalhamento obrigatório)</p></li><li><p>Alocação - risco de portfólio (devido a alto risco e/ou termos aprovados)</p></li></ul><p /><p><strong><u>Pricing</u>: </strong>De acordo com o score SERASA é aplicada uma taxa líquida à operação. Além da taxa líquida também aplicamos TAC e Impostos, gerando a CET final.</p><ul><li><p><strong>PRAZO:</strong> As propostas da PAGO LIVRE E GALAX PAY são padronizadas em 12 meses.</p></li><li><p><strong>TAC: </strong>o valor padrão definido é de 5% (em Outubro/21).</p></li><li><p><strong>Taxa Líquida:</strong></p><ul><li><p>SAUDÁVEIS: Tabela R40;</p></li><li><p>NÃO SAUDÁVEIS: Tabela R75 D-;</p></li><li><p>LASER FAST: Rating B+ da Tabela R40.</p></li><li><p>Casos esporádicos sobre demanda da área de parcerias: Tabela R5 ou R0.</p></li></ul></li></ul><p><br/></p>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Dec 29, 2022 19:10</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

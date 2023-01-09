@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Plataforma a55 : Verificação de celular via SMS</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Plataforma a55</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Plataforma-a55_208765064.html">Plataforma a55</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Iniciativas_543522817.html">Iniciativas</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Oportunidade_543555592.html">Oportunidade</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Plataforma a55 : Verificação de celular via SMS
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Tech A55</span>, last modified on Aug 31, 2021
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h2 id="VerificaçãodecelularviaSMS-Históricodainiciativa">Histórico da iniciativa</h2><div class="table-wrap"><table data-layout="wide" class="confluenceTable"><colgroup><col style="width: 170.0px;"/><col style="width: 170.0px;"/><col style="width: 170.0px;"/><col style="width: 170.0px;"/></colgroup><tbody><tr><th class="confluenceTh"><p><strong>Data</strong></p></th><th class="confluenceTh"><p><strong>Modificação</strong></p></th><th class="confluenceTh"><p><strong>Por quem?</strong></p></th><th class="confluenceTh"><p><strong>Status</strong></p></th></tr><tr><td class="confluenceTd"><p><time datetime="2021-09-24" class="date-past">24 Sep 2021</time> </p></td><td class="confluenceTd"><p /></td><td class="confluenceTd"><p /></td><td class="confluenceTd"><p><span class="status-macro aui-lozenge aui-lozenge-current">N&Atilde;O INICIADA</span> </p></td></tr><tr><td class="confluenceTd"><p /></td><td class="confluenceTd"><p /></td><td class="confluenceTd"><p /></td><td class="confluenceTd"><p><span class="status-macro aui-lozenge aui-lozenge-complete">EM ANDAMENTO</span> </p></td></tr><tr><td class="confluenceTd"><p /></td><td class="confluenceTd"><p /></td><td class="confluenceTd"><p /></td><td class="confluenceTd"><p><span class="status-macro aui-lozenge aui-lozenge-error">DESPRIORIZADA</span> </p></td></tr><tr><td class="confluenceTd"><p /></td><td class="confluenceTd"><p /></td><td class="confluenceTd"><p /></td><td class="confluenceTd"><p><span class="status-macro aui-lozenge aui-lozenge-success">CONCLU&Iacute;DA</span> </p></td></tr><tr><td class="confluenceTd"><p /></td><td class="confluenceTd"><p /></td><td class="confluenceTd"><p /></td><td class="confluenceTd"><p><span class="status-macro aui-lozenge aui-lozenge-current">BLOQUEADA</span> </p></td></tr></tbody></table></div><h2 id="VerificaçãodecelularviaSMS-LeanProductCanvas">Lean Product Canvas</h2><div class="table-wrap"><table data-layout="wide" class="confluenceTable"><colgroup><col style="width: 318.0px;"/><col style="width: 313.0px;"/><col style="width: 267.0px;"/><col style="width: 48.0px;"/><col style="width: 48.0px;"/></colgroup><tbody><tr><td rowspan="2" class="confluenceTd"><h5 id="VerificaçãodecelularviaSMS-Problemática"><strong>Problemática</strong></h5><p><strong>Contexto passado:</strong></p><p>A a55 surgiu como uma empresa que oferecia linhas de crédito para empresas de médio-grande porte, escolhidas a dedo e que passavam por um processo extenso (e manual) de analise de crédito e verificação da dados para cobrança.</p><p>Com todo esse processo manual de checagens em vingencia, nosso indice de inadimplancia era extremamente baixo, o que nos garantia receita e rentabilidade para os investidores das debentures.</p><p><strong>Contexto atual:</strong></p><p>A partir do segundo semestre de 2020, passamos a ofertar crédito para um leque mais amplo de empresas, desde que estivessem dentro do nosso ICP e faturamento ao menos 20k/mes.</p><p>Em decorrencia desse volume maior de empresas no funil de crédito, passamos a realizar um processo de analise de crédito mais rápido (com menos controles) a fim de garantir escalabilidade.</p><p><strong>Problema</strong>:</p><p>Ao implementarmos nossa esteira de crédito digital, com menos checagens, deixamos de validar manualmente se os dados de cadastro são de fato reais. Um desses dados é justamente o número de telefone.</p><p>Trata-se de um dado extremamente importante para auxiliar na cobrança dos clientes inadimplentes, e que hoje não é checado, simplesmente assumimos que o número informado é real</p><p>Na prática, nossa idadimplencia aumentou muito em 2021, e de acordo com a Aline (responsável por toda essa cobrança), os números de telefone desses clientes inadimplentes muitas vezes não existe, ou foram registrados de forma incorreta.</p><p /></td><td class="confluenceTd"><h5 id="VerificaçãodecelularviaSMS-Solução"><strong>Solução</strong></h5><p>Implementar um fluxo de verificação do telefone de contato enviado no momento do cadastro inicial, conforme abaixo:</p><p>-Cliente inputa o dado do seu celular de contato e submete formulário de inscrição na plataforma</p><p>-Ao finalizar formulário cliente será direcionado para uma tela de sucesso, com um campo para receber o token enviado via SMS para verificação do telefone</p><p>-Cliente receberá um SMS contendo um código de ativação no telefone cadastrado assim que inscrição for submetida (ele deve ser avisado disso na própria dela de sucesso do cadastro)</p><p>-Tela de sucesso deve conter botão, logo abaixo do campo para input do token recebido, para reenvio do SMS com um token atualizado</p><p><strong>Pontos importantes:</strong></p><p>-Token enviado via SMS tem prazo de expiração de 180 segundos</p><p>-Ao  inputar um token expirado, cliente deverá receber alerta informando da expieração e que contenha botão para que ele solicite o envio de um token atualizado (envio ocorrerá de forma imediata)</p><p>-Confirmação do telefone não deverá ser condição para cliente logar na plataforma. Contudo, deverá ser uma condição para que cliente receba um desembolso. Sendo assim, para os casos em que o cliente não confirmou o telefone no início do funil, podemos reinterar essa necessidade nos seguintes momentos (deixando claro que trata-se de uma condição para recebimento do empréstimo):</p><ol><li><p>Na tela de aceite de proposta (como condição para aceitar ? &gt; pode ser uma etapa sensível para travar o cliente)</p></li><li><p>Na esteira de formalização, no momento em que cliente confirma dados da empresa (dentre eles está o telefone), condicionar o andamento do fluxo a confirmação do telefone)</p></li></ol><p>Referencia abaixo:</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/1768161288/1768980492.png" data-image-src="attachments/1768161288/1768980492.png" data-height="384" data-width="254" data-unresolved-comment-count="0" data-linked-resource-id="1768980492" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20210824-195507.png" data-base-url="https://a55tech.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1768161288" data-linked-resource-container-version="7" data-media-id="a1f458c2-d3ea-442f-af53-fce06213460c" data-media-type="file"></span><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/1768161288/1768554501.png" data-image-src="attachments/1768161288/1768554501.png" data-height="487" data-width="352" data-unresolved-comment-count="0" data-linked-resource-id="1768554501" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20210824-195522.png" data-base-url="https://a55tech.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1768161288" data-linked-resource-container-version="7" data-media-id="72260011-4681-43d2-bfe2-a37d30a82366" data-media-type="file"></span><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/1768161288/1768980498.png" data-image-src="attachments/1768161288/1768980498.png" data-height="402" data-width="455" data-unresolved-comment-count="0" data-linked-resource-id="1768980498" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20210824-195635.png" data-base-url="https://a55tech.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1768161288" data-linked-resource-container-version="7" data-media-id="367a2bbb-537a-4e80-b107-6ca36b34c5b7" data-media-type="file"></span><p /></td><td rowspan="2" class="confluenceTd"><h5 id="VerificaçãodecelularviaSMS-Propostadevalorúnica"><strong>Proposta de valor única</strong></h5><p>A proposta de valor a ser atingida com a implementação do fluxo de verificação de telefones via SMS é:</p><p>Garantir que time de securitização tem os dados mínimos necessarios (já confirmados) para cobrar clientes que receberam empréstimos da a55, e estão inadimplentes</p><p /></td><td class="confluenceTd"><p /></td><td rowspan="2" class="confluenceTd"><p /></td></tr><tr><td class="confluenceTd"><h5 id="VerificaçãodecelularviaSMS-Métricas-chave"><strong>Métricas-chave</strong></h5><p>-Atingir 100% dos telefones confirmados dos clientes que receberam desembolso, a partir de Q4 (Outubro em diante)</p></td><td class="confluenceTd"><p /></td></tr><tr><td colspan="3" class="confluenceTd"><p /></td><td colspan="2" class="confluenceTd"><p /></td></tr></tbody></table></div>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1768161288/1768980492.png">image-20210824-195507.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1768161288/1768554501.png">image-20210824-195522.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1768161288/1768980498.png">image-20210824-195635.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Dec 29, 2022 17:43</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Plataforma a55 : Integração Bling (ERP)</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Plataforma a55</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Plataforma-a55_208765064.html">Plataforma a55</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="1788084225.html">Estudo de expansão na captação de dados digitais (Monitoramento + Price)</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Plataforma a55 : Integração Bling (ERP)
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Tech A55</span> on Oct 04, 2021
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p><strong>O que é a bling?</strong></p><p>O Bling é um sistema de gestão empresarial (ERP) para micro e pequenas empresas. </p><p>As funcionalidades da ferramentas possibilitam o controle sobre as vendas, finanças, estoque, produtos, clientes, pedidos, comissões de vendedores e serviços,</p><p>O sistema permite também a emissão de notas fiscais eletrônicas, a geração de boletos bancários, cobranças e propostas comerciais.</p><p>Além disso, é integrado com SIGEP Web dos Correios e com as principais plataformas de e-commerce.</p><p><strong>Credencias de acesso plataforma Bling</strong></p><p>Usuário: leonardochenf@gmail.com</p><p>Senha: re@e$eza</p><p>CNPJ: 35.149.694/0001-08</p><p><strong>Documentação para integração</strong></p><p>O Bling possui API aberta para integrações:</p><p><a class="external-link" href="https://ajuda.bling.com.br/hc/pt-br/categories/360002186394-API-para-Desenvolvedores" rel="nofollow">https://ajuda.bling.com.br/hc/pt-br/categories/360002186394-API-para-Desenvolvedores</a></p><p><strong>Escopo de integração:</strong></p><p><u>Gestão de Produtos:</u></p><p>Recupera detalhes sobre todos os produtos / serviços oferecidos pelo nosso cliente, cadastrados no sistema ERP:</p><p>-ID identificação do produto</p><p>-Identificar se é serviço ou produto (P / S)</p><p>-Preço (para cliente final)</p><p>-Custo do produto (para nosso cliente)</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/1813053443/1812922373.png" data-image-src="attachments/1813053443/1812922373.png" data-height="135" data-width="657" data-unresolved-comment-count="0" data-linked-resource-id="1812922373" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20211004-210311.png" data-base-url="https://a55tech.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1813053443" data-linked-resource-container-version="1" data-media-id="0c19abfc-5a87-418e-8710-361b90af164b" data-media-type="file"></span><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{  
+   &quot;retorno&quot;:{  
+      &quot;produtos&quot;:[  
+         {  
+            &quot;produto&quot;:{  
+               &quot;codigo&quot;:&quot;CAD00011&quot;,
+               &quot;tipo&quot;:&quot;P&quot;,
+               &quot;descricao&quot;:&quot;CADEIRA XYZ F5&quot;,
+               &quot;unidade&quot;:&quot;&quot;,
+               &quot;preco&quot;:&quot;100.0000000000&quot;,
+               &quot;precoCusto&quot;:&quot;85.0000000000&quot;,
+               &quot;pesoLiq&quot;:&quot;1.000&quot;,
+               &quot;pesoBruto&quot;:&quot;1.000&quot;,
+               &quot;estoqueMinimo&quot;:&quot;0.00&quot;,
+               &quot;estoqueMaximo&quot;:null,
+               &quot;gtin&quot;:&quot;&quot;,
+               &quot;gtinEmbalagem&quot;:&quot;&quot;,
+               &quot;descricaoCurta&quot;:&quot;CADEIRA XYZ&quot;,
+               &quot;descricaoComplementar&quot;:&quot;CADEIRA em detalhes&quot;,
+               &quot;larguraProduto&quot;:&quot;10&quot;,
+               &quot;alturaProduto&quot;:&quot;89&quot;,
+               &quot;profundidadeProduto&quot;:&quot;67&quot;,
+               &quot;unidadeMedida&quot;:&quot;Centímetros&quot;,
+               &quot;dataInclusao&quot;:&quot;2016-08-17&quot;,
+               &quot;dataAlteracao&quot;:&quot;2016-08-17&quot;,
+               &quot;imageThumbnail&quot;:null,
+               &quot;nomeFornecedor&quot;:&quot;Bling&quot;,
+               &quot;marca&quot;:&quot;Marca de teste&quot;,
+               &quot;class_fiscal&quot;:&quot;1234.56.78&quot;,
+               &quot;cest&quot;:&quot;28.040.00&quot;,
+               &quot;origem&quot;:&quot;1&quot;,
+               &quot;idGrupoProduto&quot;: &quot;12345&quot;,
+               &quot;linkExterno&quot;: &quot;https://minhaloja.com.br/cadeira-xyz-f5&quot;,
+               &quot;observacoes&quot;: &quot;Observações da CADEIRA XYZ F5&quot;,
+               &quot;grupoProduto&quot;: &quot;Móveis&quot;,
+               &quot;itensPorCaixa&quot;: 2,
+               &quot;volumes&quot;: 2,
+               &quot;urlVideo&quot;: &quot;https://www.youtube.com/watch?v=zKKL-SgC5lY&quot;,
+               &quot;localizacao&quot;:&quot;Prateleira B&quot;,
+               &quot;crossdocking&quot;: &quot;2&quot;,
+               &quot;garantia&quot;: 4,
+               &quot;condicao&quot;: &quot;Novo&quot;,
+               &quot;freteGratis&quot;: &quot;S&quot;,
+               &quot;producao&quot;: &quot;P&quot;,
+               &quot;dataValidade&quot;: &quot;2019-11-20&quot;,
+               &quot;descricaoFornecedor&quot;: &quot;Descrição do fornecedor&quot;,
+               &quot;imagem&quot;:[
+                  {
+                    &quot;link&quot;: &quot;http://teste05.s3.amazonaws.com/10b19a1b6dfd022cfaa65172dab740ba/184c75cb44203396e7c281cd7892576c?AWSAccessKeyId=AKIAIRKPH2R4VDLL422A&amp;Expires=1506023235&amp;Signature=ayQ0dzsFwBLqREsvcdDVrTTVGIg%3D&quot;,
+                    &quot;validade&quot;: &quot;10/09/2017&quot;,
+                    &quot;tipoArmazenamento&quot;: &quot;interno&quot;
+                  },{
+                    &quot;link&quot;: &quot;http://teste05.s3.amazonaws.com/10b19a1b6dfd022cfaa65172dab740ba/58f39bca9d794571bae24ac1fd29ae67?AWSAccessKeyId=AKIAIRKPH2R4VDLL422A&amp;Expires=1506023235&amp;Signature=URYAB1fZFLjrlKQQKPsYf2WLFFc%3D&quot;,
+                    &quot;validade&quot;: &quot;10/09/2017&quot;,
+                    &quot;tipoArmazenamento&quot;:&quot;interno&quot;
+                  },{
+                     &quot;link&quot;: &quot;http://teste05.s3.amazonaws.com/10b19a1b6dfd022cfaa65172dab740ba/774ba89cbea1fdfc7e4442f9306f2136?AWSAccessKeyId=AKIAIRKPH2R4VDLL422A&amp;Expires=1506023235&amp;Signature=3otgTawOYy8wiwUH0sDKX2Ipcvc%3D&quot;,
+                     &quot;validade&quot;: &quot;S/ Validade&quot;,
+                     &quot;tipoArmazenamento&quot;:&quot;externo&quot;
+                  }],
+               &quot;produtoLoja&quot;: {
+                        &quot;preco&quot;: {
+                            &quot;preco&quot;: 105.00,
+                            &quot;precoPromocional&quot;: 95.00
+                        },
+                        &quot;categoria&quot;: [
+                            {
+                                &quot;id&quot;: &quot;10&quot;,
+                                &quot;descricao&quot;: &quot;Móveis&quot;,
+                                &quot;idCategoriaPai&quot;: &quot;0&quot;
+                            },
+                            {
+                                &quot;id&quot;: &quot;102&quot;,
+                                &quot;descricao&quot;: &quot;Cadeiras&quot;,
+                                &quot;idCategoriaPai&quot;: &quot;10&quot;
+                            },
+                            {
+                                &quot;id&quot;: &quot;684&quot;,
+                                &quot;descricao&quot;: &quot;Cadeiras executivas&quot;,
+                                &quot;idCategoriaPai&quot;: &quot;102&quot;
+                            }
+                        ]
+                    },
+               &quot;codigopai&quot;:&quot;CAD&quot;,
+               &quot;estoqueAtual&quot;:24,
+               &quot;depositos&quot;:[  
+                  {  
+                     &quot;deposito&quot;:{  
+                        &quot;id&quot;:&quot;51212592&quot;,
+                        &quot;nome&quot;:&quot;Geral&quot;,
+                        &quot;saldo&quot;:&quot;24.0000&quot;
+                     }
+                  }
+               ]
+            }
+         }
+      ]
+   }
+}</pre>
+</div></div><p /><p><u>Contas a pagar: </u></p><p>Busca todas as contas a pagar que o cliente registrou, com os seguintes dados</p><p>-Status do pagamento (em aberto, pago, atrasado, cancelado, parcialmente pago..)</p><p>-Valor</p><p>-Data de emissão / vencimento</p><p>-Indentificação do fornecedor</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/1813053443/1813381128.png" data-image-src="attachments/1813053443/1813381128.png" data-height="114" data-width="686" data-unresolved-comment-count="0" data-linked-resource-id="1813381128" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20211004-204159.png" data-base-url="https://a55tech.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1813053443" data-linked-resource-container-version="1" data-media-id="33e67e7c-2177-41c9-99e3-4dfac9c9d034" data-media-type="file"></span><p /><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+     &quot;retorno&quot;: {
+          &quot;contaspagar&quot;: [{
+               &quot;contapagar&quot;: {
+                    &quot;id&quot;: 12345678,
+                    &quot;situacao&quot;: &quot;aberto&quot;, 
+                    &quot;dataEmissao&quot;: &quot;2017-04-13&quot;,
+                    &quot;vencimentoOriginal&quot;: &quot;2017-04-20&quot;,
+                    &quot;vencimento&quot;: &quot;2017-04-20&quot;,
+                    &quot;competencia&quot;:&quot;2017-04-01&quot;,
+                    &quot;nroDocumento&quot;: &quot;0123456&quot;,
+                    &quot;valor&quot;: 15.00,
+                    &quot;saldo&quot;: 0.00,
+                    &quot;historico&quot;: &quot;Boleto referente nf 01&quot;,  
+                    &quot;categoria&quot;: &quot;Vendas&quot;,
+                    &quot;portador&quot;: &quot;CEF&quot;,
+                    &quot;pagamento&quot;: {
+                         &quot;totalPago&quot;: 15.00,
+                         &quot;totalJuro&quot;: 0,
+                         &quot;totalDesconto&quot;: 0,
+                         &quot;totalAcrescimo&quot;: 0,
+                         &quot;totalTarifa&quot;: 0,
+                         &quot;data&quot;: &quot;2017-04-20&quot;
+                    },
+                    &quot;ocorrencia&quot;: &quot;Unica&quot;,
+                    &quot;fornecedor&quot;: {
+                        &quot;nome&quot;: &quot;Organisys Software&quot;,
+                        &quot;cpf_cnpj&quot;: &quot;00.000.000/0000-1&quot;,
+                        &quot;ie_rg&quot;: &quot;0000000000&quot;,
+                        &quot;endereco&quot;: &quot;Rua Visconde de São Gabriel&quot;,
+                        &quot;numero&quot;: &quot;000&quot;,
+                        &quot;complemento&quot;: &quot;Sala 000&quot;,
+                        &quot;cidade&quot;: &quot;Bento Gonçalves&quot;,
+                        &quot;bairro&quot;: &quot;Cidade Alta&quot;,
+                        &quot;cep&quot;: &quot;95.700-000&quot;,
+                        &quot;uf&quot;: &quot;RS&quot;,
+                        &quot;email&quot;: &quot;teste@organisys.com.br&quot;
+                    },
+               }
+          }]
+     }
+}
+</pre>
+</div></div><p>*desenvolver end-point já com filtros por Data de emissão /  Data de vencimento /  Status pagamento / CNPJ fornecedor</p><p><u>Contas a receber:</u></p><p>Busca todos os eventos de cobrança registrados pelo cliente, com os seguintes dados sobre cadas cobrança:</p><p>-Status do pagamento</p><p>-CNPJ sacado (cliente do cliente)</p><p>-Data da emissão / vencimento / pagamento</p><p>-Valor</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/1813053443/1813250057.png" data-image-src="attachments/1813053443/1813250057.png" data-height="150" data-width="734" data-unresolved-comment-count="0" data-linked-resource-id="1813250057" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20211004-201256.png" data-base-url="https://a55tech.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1813053443" data-linked-resource-container-version="1" data-media-id="b706088a-57a3-4dfd-a036-e07b69258dad" data-media-type="file"></span><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{  
+   &quot;retorno&quot;:{  
+      &quot;contasreceber&quot;:[  
+         {  
+            &quot;contareceber&quot;:{  
+               &quot;id&quot;:&quot;13123121&quot;,
+               &quot;situacao&quot;: &quot;aberto&quot;, 
+               &quot;dataEmissao&quot;:&quot;2017-03-09&quot;,
+               &quot;vencimentoOriginal&quot;:&quot;2017-03-09&quot;,
+               &quot;vencimento&quot;:&quot;2017-03-09&quot;,
+               &quot;competencia&quot;:&quot;2017-03-01&quot;,
+               &quot;nroDocumento&quot;:&quot;0123456&quot;,
+               &quot;valor&quot;:15.00,
+               &quot;saldo&quot;:0.00,
+               &quot;historico&quot;:&quot;Referente ao pedido de venda nº 423&quot;,
+               &quot;categoria&quot;:&quot;Vendas&quot;,
+               &quot;idFormaPagamento&quot;: &quot;123&quot;,
+               &quot;portador&quot;:&quot;CEF&quot;,
+               &quot;nroNoBanco&quot;:&quot;00100358-56&quot;,
+               &quot;vendedor&quot;:&quot;Vendedor exemplo&quot;,
+               &quot;pagamento&quot;: {
+                    &quot;totalPago&quot;: 15.00,
+                    &quot;totalJuro&quot;: 0,
+                    &quot;totalDesconto&quot;: 0,
+                    &quot;totalAcrescimo&quot;: 0,
+                    &quot;totalTarifa&quot;: 0,
+                    &quot;data&quot;: &quot;2017-03-09&quot;
+               },
+               &quot;ocorrencia&quot;:&quot;Unica&quot;,
+               &quot;linkBoleto&quot;:&quot;https://www.bling.com.br/doc.view.php?132&quot;,
+               &quot;cliente&quot;:{  
+                  &quot;nome&quot;:&quot;Organisys Software&quot;,
+                  &quot;cpf_cnpj&quot;:&quot;00.000.000/0000-1&quot;,
+                  &quot;tipoPessoa&quot;:&quot;J&quot;,
+                  &quot;ie_rg&quot;:&quot;0000000000&quot;,
+                  &quot;endereco&quot;:&quot;Rua Barão do Rio Branco&quot;,
+                  &quot;numero&quot;:&quot;000&quot;,
+                  &quot;complemento&quot;:&quot;Sala 000&quot;,
+                  &quot;cidade&quot;:&quot;Bento Gonçalves&quot;,
+                  &quot;bairro&quot;:&quot;Centro&quot;,
+                  &quot;cep&quot;:&quot;00.000-000&quot;,
+                  &quot;uf&quot;:&quot;RS&quot;,
+                  &quot;email&quot;:&quot;teste@organisys.com.br&quot;
+               }
+            }
+         }
+      ]
+   }
+}</pre>
+</div></div><p>**desenvolver end-point já com filtros por Data de emissão /  Data de vencimento /  Status pagamento / CNPJ do sacado</p><p><u>Gestão de notas fiscais:</u></p><p>Busca todas as notas fiscais emitidas pelo cliente no ERP, com os seguintes detalhes:</p><p>-Status da nota (emitida, pendente, cancelada, rejeitada, autorizada….)</p><p>-Data de emissão</p><p>-Tipo de nota (entrada / saída)</p><p>-Valor</p><p>-CNPJ sacado</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{  
+   &quot;retorno&quot;:{  
+      &quot;notasfiscais&quot;:[  
+         {  
+            &quot;notafiscal&quot;:{  
+               &quot;serie&quot;:&quot;1&quot;,
+               &quot;numero&quot;:&quot;000003&quot;,
+               &quot;numeroPedidoLoja&quot;:&quot;100000002&quot;,
+               &quot;loja&quot;:0,
+               &quot;tipo&quot;:&quot;S&quot;,
+               &quot;situacao&quot;:&quot;Rejeitada&quot;,
+               &quot;contato&quot;:&quot;Organisys Software&quot;,
+               &quot;cliente&quot;:{  
+                  &quot;nome&quot;:&quot;Organisys Software&quot;,
+                  &quot;cnpj&quot;:&quot;00.000.000/0000-1&quot;,
+                  &quot;ie&quot;:&quot;0000000000&quot;,
+                  &quot;rg&quot;:&quot;162788484&quot;,
+                  &quot;endereco&quot;:&quot;Rua Visconde de São Gabriel&quot;,
+                  &quot;numero&quot;:&quot;000&quot;,
+                  &quot;complemento&quot;:&quot;Sala 000&quot;,
+                  &quot;cidade&quot;:&quot;Bento Gonçalves&quot;,
+                  &quot;bairro&quot;:&quot;Cidade Alta&quot;,
+                  &quot;cep&quot;:&quot;95.700-000&quot;,
+                  &quot;uf&quot;:&quot;RS&quot;,
+                  &quot;email&quot;:&quot;teste@organisys.com.br&quot;,
+                  &quot;fone&quot;:&quot;(21) 96858-0182&quot;
+               },
+               &quot;cnpj&quot;:&quot;99999999000199&quot;,
+               &quot;vendedor&quot;:&quot;&quot;,
+               &quot;dataEmissao&quot;:&quot;2009-09-25 00:00:00&quot;,
+               &quot;valorNota&quot;:0.00,
+               &quot;chaveAcesso&quot;:&quot;35200112340001560123456000031234567890&quot;,
+               &quot;xml&quot;:&quot;https://bling.com.br/relatórios/nfe.xml.php?s&amp;chaveAcesso=35200112340001560123456000031234567890&quot;,
+               &quot;linkDanfe&quot;:&quot;https://bling.com.br/doc.view.php?id=c=352b112cb0001dbba45a0067890&quot;,
+               &quot;tipoIntegracao&quot;:&quot;Magento&quot;,
+               &quot;cfops&quot;:[  
+                  5102
+               ],
+               &quot;transporte&quot;:{  
+                  &quot;transportadora&quot;:&quot;Transportadora&quot;,
+                  &quot;cnpj&quot;:&quot;00.000.000/0000-1&quot;,
+                  &quot;tipo_frete&quot;:&quot;R&quot;,
+                  &quot;volumes&quot;:[  
+                     {  
+                        &quot;volume&quot;:{  
+                           &quot;id&quot;: &quot;6423805580&quot;,
+                           &quot;idServico&quot;: &quot;4627&quot;,
+                           &quot;servico&quot;:&quot;PAC Faixa&quot;,
+                           &quot;codigoServico&quot;:&quot;04669&quot;,
+                           &quot;codigoRastreamento&quot;:&quot;PI000000014BR&quot;,
+                           &quot;dataSaida&quot;:&quot;2015-11-04&quot;,
+                           &quot;prazoEntregaPrevisto&quot;:13,
+                           &quot;valorFretePrevisto&quot;:27.50,
+                           &quot;valorDeclarado&quot;: &quot;80.50&quot;,
+                           &quot;remessa&quot;:{  
+                              &quot;numero&quot;:&quot;12345AAA&quot;,
+                              &quot;dataCriacao&quot;:&quot;2017-10-17&quot;
+                           },
+                           &quot;dimensoes&quot;:{  
+                              &quot;peso&quot;:&quot;5.000&quot;,
+                              &quot;altura&quot;:&quot;15&quot;,
+                              &quot;largura&quot;:&quot;15&quot;,
+                              &quot;comprimento&quot;:&quot;15&quot;,
+                              &quot;diametro&quot;:&quot;0&quot;
+                           }
+                        }
+                     },
+                     {  
+                        &quot;volume&quot;:{  
+                           &quot;id&quot;: &quot;6423805635&quot;,
+                           &quot;idServico&quot;:&quot;1231293&quot;,
+                           &quot;servico&quot;:&quot;SEDEX 10&quot;,
+                           &quot;codigoServico&quot;:&quot;03158&quot;,
+                           &quot;codigoRastreamento&quot;:&quot;SX052413651BR&quot;,
+                           &quot;dataSaida&quot;:&quot;2017-07-28&quot;,
+                           &quot;prazoEntregaPrevisto&quot;:&quot;5&quot;,
+                           &quot;valorFretePrevisto&quot;:&quot;47.30&quot;,
+                           &quot;valorDeclarado&quot;: &quot;0.00&quot;,
+                           &quot;remessa&quot;:null,
+                           &quot;dimensoes&quot;:{  
+                              &quot;peso&quot;:&quot;3.500&quot;,
+                              &quot;altura&quot;:&quot;35&quot;,
+                              &quot;largura&quot;:&quot;25&quot;,
+                              &quot;comprimento&quot;:&quot;10&quot;,
+                              &quot;diametro&quot;:&quot;0&quot;
+                           }
+                        }
+                     }
+                  ],
+                  &quot;enderecoEntrega&quot;:{  
+                     &quot;nome&quot;:&quot;Organisys Software Entrega&quot;,
+                     &quot;endereco&quot;:&quot;Rua Assis Brasil&quot;,
+                     &quot;numero&quot;:&quot;222&quot;,
+                     &quot;complemento&quot;:&quot;&quot;,
+                     &quot;cidade&quot;:&quot;Bento Gonçalves&quot;,
+                     &quot;bairro&quot;:&quot;Centro&quot;,
+                     &quot;cep&quot;:&quot;95.700-000&quot;,
+                     &quot;uf&quot;:&quot;RS&quot;
+                  }
+               }
+            }
+         }
+      ]
+   }
+}</pre>
+</div></div><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1813053443/1813250057.png">image-20211004-201256.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1813053443/1813381128.png">image-20211004-204159.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1813053443/1812922373.png">image-20211004-210311.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Dec 29, 2022 17:44</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

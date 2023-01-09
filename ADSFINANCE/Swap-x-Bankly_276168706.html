@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Adsfinance : Swap x Bankly</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Adsfinance</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Adsfinance_115998722.html">Adsfinance</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Tech_216334702.html">Tech</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="228393004.html">Integrações</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Adsfinance : Swap x Bankly
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Douglas Wille</span>, last modified on Jul 30, 2020
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <div class="table-wrap"><table data-layout="default" class="confluenceTable"><colgroup><col style="width: 204.0px;"/><col style="width: 476.0px;"/></colgroup><tbody><tr><th class="confluenceTh"><p><strong>Competitor</strong></p></th><td class="confluenceTd"><p>Bankly x Swap</p></td></tr><tr><th class="confluenceTh"><p><strong>Date created</strong></p></th><td class="confluenceTd"><p><time datetime="2020-07-29" class="date-past">29 Jul 2020</time></p></td></tr><tr><th class="confluenceTh"><p><strong>Analysis by</strong></p></th><td class="confluenceTd"><p><a class="confluence-userlink user-mention" data-username="5ef9fc1cdeb6ca0baa1aea93" data-account-id="5ef9fc1cdeb6ca0baa1aea93" href="https://a55tech.atlassian.net/wiki/people/5ef9fc1cdeb6ca0baa1aea93?ref=confluence" target="_blank" data-base-url="https://a55tech.atlassian.net/wiki">Douglas Wille (Unlicensed)</a> </p></td></tr></tbody></table></div><h1 id="SwapxBankly-TechnicalEvaluation">Technical Evaluation</h1><div class="table-wrap"><table data-layout="wide" class="confluenceTable"><colgroup><col style="width: 250.0px;"/><col style="width: 336.0px;"/><col style="width: 374.0px;"/></colgroup><tbody><tr><th class="confluenceTh"><p /></th><th class="confluenceTh"><p><strong>Bankly</strong></p></th><th class="confluenceTh"><p><strong>Swap</strong></p></th></tr><tr><th class="confluenceTh"><p><strong>Authentication</strong></p></th><td class="confluenceTd"><p>OAuth2</p></td><td class="confluenceTd"><p>OAuth2</p></td></tr><tr><th class="confluenceTh"><p><strong>Type</strong></p></th><td class="confluenceTd"><p>Token</p></td><td class="confluenceTd"><p>Token</p></td></tr><tr><th class="confluenceTh"><p><strong>Duration</strong></p></th><td class="confluenceTd"><p>One hour</p></td><td class="confluenceTd"><p>30 minutes</p></td></tr><tr><th class="confluenceTh"><p><strong>Documentation</strong></p></th><td class="confluenceTd"><p><a class="external-link" href="https://bankly.readme.io/reference#authentication" rel="nofollow">https://bankly.readme.io/reference#authentication</a></p></td><td class="confluenceTd"><p><a class="external-link" href="https://docs.contaswap.com/reference/authentication-4" rel="nofollow">https://docs.contaswap.com/reference/authentication-4</a></p></td></tr></tbody></table></div><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><h5 id="SwapxBankly-Paraautenticar(conseguirmanipular,criarcartão,etc)naAPIdaBanklyprecisadousuárioesenhadocliente."><em>Para autenticar (conseguir manipular, criar cartão, etc) na API da Bankly precisa do usuário e senha do cliente. </em> </h5></div></div><h1 id="SwapxBankly-OverflowDisbursement">Overflow Disbursement</h1><div class="table-wrap"><table data-layout="wide" class="confluenceTable"><colgroup><col style="width: 241.0px;"/><col style="width: 719.0px;"/></colgroup><tbody><tr><th class="confluenceTh"><p><strong>Bankly</strong></p></th><th class="confluenceTh"><p /></th></tr><tr><td data-highlight-colour="#f4f5f7" class="confluenceTd"><p><strong>Step</strong></p></td><td data-highlight-colour="#f4f5f7" class="confluenceTd"><p><strong>Path</strong></p></td></tr><tr><td class="confluenceTd"><p>Authentication</p></td><td class="confluenceTd"><p>POST <a class="external-link" href="https://login.acessobank-stg.com.br/connect/token" rel="nofollow">https://login.acessobank-stg.com.br/connect/token</a></p></td></tr><tr><td class="confluenceTd"><p>Create Account  <strong><span style="color: rgb(255,86,48);">*</span></strong></p></td><td class="confluenceTd"><p>POST <a class="external-link" href="https://api.sandbox.bankly.com.br/baas/account-opening/personal" rel="nofollow">https://api.sandbox.bankly.com.br/baas/account-opening/personal</a></p></td></tr><tr><td class="confluenceTd"><p>Create Virtual Card</p></td><td class="confluenceTd"><p>POST <a class="external-link" href="https://api.sandbox.bankly.com.br/baas/card/virtual" rel="nofollow">https://api.sandbox.bankly.com.br/baas/card/virtual</a></p></td></tr></tbody></table></div><ul><li><p><strong><span style="color: rgb(255,86,48);">*</span></strong> <em>Entra em período de avaliação.</em></p></li></ul><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><h5 id="SwapxBankly-NãoencontradonadocumentaçãodaBanklyofluxoparaestabeleceraspolíticasdeutilizaçãodocartãodecrédito."><em>Não encontrado na documentação da Bankly o fluxo para estabelecer as políticas de utilização do cartão de crédito.</em></h5></div></div><div class="table-wrap"><table data-layout="wide" class="confluenceTable"><colgroup><col style="width: 226.0px;"/><col style="width: 734.0px;"/></colgroup><tbody><tr><th class="confluenceTh"><p><strong>Swap</strong></p></th><th class="confluenceTh"><p /></th></tr><tr><td data-highlight-colour="#f4f5f7" class="confluenceTd"><p><strong>Step</strong></p></td><td data-highlight-colour="#f4f5f7" class="confluenceTd"><p><strong>Path</strong></p></td></tr><tr><td data-highlight-colour="#ffffff" class="confluenceTd"><p>Authentication</p></td><td data-highlight-colour="#ffffff" class="confluenceTd"><p>POST <a class="external-link" href="https://api-dev.contaswap.com/v1/access_token" rel="nofollow">https://api-dev.contaswap.com/v1/access_token</a></p></td></tr><tr><td data-highlight-colour="#ffffff" class="confluenceTd"><p>Create Business</p></td><td data-highlight-colour="#ffffff" class="confluenceTd"><p>POST <a class="external-link" href="https://api.staging.swapcards.com.br/beta_v1/businesses" rel="nofollow">https://api.staging.swapcards.com.br/beta_v1/businesses</a></p></td></tr><tr><td data-highlight-colour="#ffffff" class="confluenceTd"><p>Create Treasury Account</p></td><td data-highlight-colour="#ffffff" class="confluenceTd"><p>POST <a class="external-link" href="https://api.staging.swapcards.com.br/beta_v1/treasury_accounts/business_id" rel="nofollow">https://api.staging.swapcards.com.br/beta_v1/treasury_accounts/business_id</a></p></td></tr><tr><td data-highlight-colour="#ffffff" class="confluenceTd"><p>Create Balance Group Account <strong><span style="color: rgb(255,86,48);">*</span></strong></p></td><td data-highlight-colour="#ffffff" class="confluenceTd"><p>POST <a class="external-link" href="https://api.staging.swapcards.com.br/beta_v1/balance_account_groups" rel="nofollow">https://api.staging.swapcards.com.br/beta_v1/balance_account_groups</a></p></td></tr><tr><td data-highlight-colour="#ffffff" class="confluenceTd"><p>Issue Card</p></td><td data-highlight-colour="#ffffff" class="confluenceTd"><p>POST <a class="external-link" href="https://api.staging.swapcards.com.br/beta_v1/cards/business_id/account_holder_id/balance_account_group_id/issue_card" rel="nofollow">https://api.staging.swapcards.com.br/beta_v1/cards/business_id/account_holder_id/balance_account_group_id/issue_card</a></p></td></tr><tr><td data-highlight-colour="#ffffff" class="confluenceTd"><p>Create Transfer</p></td><td data-highlight-colour="#ffffff" class="confluenceTd"><p>POST <a class="external-link" href="https://api.staging.swapcards.com.br/beta_v1/transfers/treasury_accounts" rel="nofollow">https://api.staging.swapcards.com.br/beta_v1/transfers/treasury_accounts</a></p></td></tr></tbody></table></div><ul><li><p><em><strong><span style="color: rgb(255,86,48);">*</span></strong> Precisa ser criado o <strong>ProductId</strong> que será vinculado ao cartão com as políticas de uso (estabelecimento permitidos, etc).</em></p></li></ul>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Dec 29, 2022 17:36</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

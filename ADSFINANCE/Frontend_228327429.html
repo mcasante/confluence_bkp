@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Adsfinance : Frontend</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Adsfinance</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Adsfinance_115998722.html">Adsfinance</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Tech_216334702.html">Tech</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Onboarding_228294671.html">Onboarding</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Adsfinance : Frontend
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Douglas Wille</span>, last modified by <span class='editor'> Felipe Carvalho</span> on Nov 21, 2020
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h1 id="Frontend-Goal"> <strong>Goal</strong></h1><h2 id="Frontend-Essaseçãodocumentaaconfiguraçãodosambientesfrontendsobresponsabilidadedotime."><em>Essa seção documenta a configuração dos ambientes frontend sob responsabilidade do time.</em></h2><hr/><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1672335408941 {padding: 0px;}
+div.rbtoc1672335408941 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1672335408941 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1672335408941'>
+<ul class='toc-indentation'>
+<li><a href='#Frontend-Goal'>Goal</a>
+<ul class='toc-indentation'>
+<li><a href='#Frontend-Essaseçãodocumentaaconfiguraçãodosambientesfrontendsobresponsabilidadedotime.'>Essa seção documenta a configuração dos ambientes frontend sob responsabilidade do time.</a></li>
+</ul>
+</li>
+<li><a href='#Frontend-LandingPage'>Landing Page</a>
+<ul class='toc-indentation'>
+<li><a href='#Frontend-Wordpress'>Wordpress</a>
+<ul class='toc-indentation'>
+<li><a href='#Frontend-Requerimentos'>Requerimentos</a></li>
+<li><a href='#Frontend-Instalação'>Instalação</a></li>
+<li><a href='#Frontend-Acessos'>Acessos</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div><hr/><h1 id="Frontend-LandingPage"><strong>Landing Page</strong></h1><h2 id="Frontend-Wordpress"><strong>Wordpress</strong></h2><p>Passo a passo com o setup da configuração do wordpress para desenvolvimento na Landing Page.</p><hr/><h3 id="Frontend-Requerimentos"><strong>Requerimentos</strong></h3><ul><li><p><strong>Arquivos</strong></p><ul><li><p>.htaccess</p></li><li><p>.env</p></li><li><p>.pem</p></li><li><p>.sql (dump)</p></li></ul></li><li><p><strong>Pacotes</strong></p><ul><li><p>PHP 7.2.31</p></li><li><p><a href="https://a55tech.atlassian.net/wiki/spaces/~631806308/pages/485130438/Meeting+notes" rel="nofollow">Composer</a> 1.10.8</p></li><li><p>Node</p></li><li><p>Yarn</p></li><li><p>Servidor PHP (Apache, NGINX ou XAMPP)</p></li><li><p>Banco de dados mySQL</p></li></ul></li></ul><hr/><h3 id="Frontend-Instalação"><strong>Instalação</strong></h3><ul><li><p><strong>Configurar o banco de dados mySQL local</strong></p></li></ul><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">mysql -u root -p</pre>
+</div></div><p>→ Em caso de erro no sock, crie um link simbólico com o caminho do sock:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">sudo ln -s /Applications/XAMPP/xamppfiles/var/mysql/mysql.sock /tmp/mysql.sock)</pre>
+</div></div><p>→ Crie o banco de dados de acordo com as informações de ambiente especificadas no arquivo .env.</p><p>→ Para conectar no servidor você deve possuir o arquivo com a chave de conexão (.pem).</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence"># Conectar no servidor (deve estar no mesmo diretório da chave)
+ssh -i a55_br.pem ubuntu@18.229.98.188
+
+# Ganhar privilégios de superuser
+sudo su
+
+# Criar arquivo .sql no servidor
+cd /home/ubuntu
+mysqldump wp &gt; db_backup.sql
+
+# Copiar do servidor para local o arquivo .sql
+scp -r -i a55_br.pem ubuntu@18.229.98.188:/home/ubuntu/db_backup.sql /</pre>
+</div></div><p>→ Importar arquivo gerado para dentro do banco previamente criado (phpMyAdmin).</p><ul><li><p><strong>Clonar o projeto do site-institucional dentro do diretório do servidor PHP local</strong></p></li></ul><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">git@github.com:access55/site-institucional.git</pre>
+</div></div><ul><li><p><strong>Instalar as dependências da raiz do projeto</strong></p></li></ul><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">composer install</pre>
+</div></div><ul><li><p><strong>Instalar as dependências do tema</strong></p></li></ul><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">cd /web/app/themes/a55-theme
+composer install
+yarn install
+yarn build</pre>
+</div></div><ul><li><p><strong>Colocar o arquivo .htaccess no diretório web</strong></p></li><li><p><strong>Copiar o diretório com as imagens (uploads) do servidor para local</strong></p></li></ul><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">scp -r -i a55_br.pem ubuntu@18.229.98.188:/var/www/html/source_code/web/app/uploads var/www/html/source_code/web/app/uploads</pre>
+</div></div><ul><li><p><strong>Permissão no diretório de uploads</strong></p></li></ul><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">chmod -R 777 web/app/uploads</pre>
+</div></div><hr/><h3 id="Frontend-Acessos"><strong>Acessos</strong></h3><ul><li><p><strong>Para acessar a Landing Page</strong></p></li></ul><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">http://localhost/a55/site-institucional/web/</pre>
+</div></div><ul><li><p><strong>Para acessar o ambiente WP Admin</strong></p></li></ul><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">http://localhost/a55/site-institucional/web/wp/wp-admin/</pre>
+</div></div><ul><li><p><strong>Solicitar usuário com acesso ao WP Admin</strong></p></li></ul>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Dec 29, 2022 17:36</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

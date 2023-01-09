@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Plataforma a55 : Hubspot-manager: Documentation</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Plataforma a55</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Plataforma-a55_208765064.html">Plataforma a55</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="1763541012.html">Documentação sobre micro-serviços a55</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Plataforma a55 : Hubspot-manager: Documentation
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Tech A55</span>, last modified on Aug 10, 2021
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p /><p><strong>Purpose of the feature:</strong></p><p>The purpose of the service is to collect the information sent by our leads when registering on the platform (plataforma.a55.tech/cadastro) and send this data-set to the Hubspot-api (external service).</p><p>The hubspot-api allocates this set of data to specific properties of Deal, company and contact of hubspot. </p><p>In order for this data to be allocated, the service (hubspot API) also creates the Deal, company and contact records where these properties are allocated, right after the client's registration</p><p>In addition, hubspot-manager is also responsible for triggering the following services:</p><ol><li><p>Auth-api (internal) : Receives data from hubspot-manager in order to validate if the user already exists in our Data-base. If the user does not exist, a new user is created in our data-base (name, e-mail, password, tax id). </p></li><li><p>Client Manager (internal): Receives data from hubspot-manager in order to validate if the company already exists in our Data-base. If the company does not exists, a new client is created in our data-base (tax id, company name, origination source - google Analytics UTMs, website, phone etc). </p></li><li><p>Data-cube (external service): Validates if the Tax-id is in fact valid and active and also collects the following additional information to allocate in our database / hubspot: (fantasy_name, company formal name, legal_nature, if the company is MEI, opening_date, main_activity etc)</p></li></ol><p /><p><strong>How-it-works:</strong></p><p>Once our lead finishes filling out the registration form (plataforma.a55.tech/cadastro), and clicks on the button &quot;Cadastrar”:</p><span class="confluence-embedded-file-wrapper image-left-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-left" width="278" loading="lazy" src="attachments/1748598787/1748926472.png?width=278" data-image-src="attachments/1748598787/1748926472.png" data-height="716" data-width="501" data-unresolved-comment-count="0" data-linked-resource-id="1748926472" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20210810-165026.png" data-base-url="https://a55tech.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1748598787" data-linked-resource-container-version="5" data-media-id="88ad77e2-6664-4aeb-ba58-f939b93e0431" data-media-type="file"></span><p>the hubspot-manager is triggered, as below: </p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/1748598787/1748566023.png" data-image-src="attachments/1748598787/1748566023.png" data-height="1416" data-width="3696" data-unresolved-comment-count="0" data-linked-resource-id="1748566023" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="new-bpmn-diagram.png" data-base-url="https://a55tech.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1748598787" data-linked-resource-container-version="5" data-media-id="52c6309c-84bb-47d7-9402-560177baa326" data-media-type="file"></span><p /><p><strong>Which data?</strong></p><p>Data received during clients registration (plataforma.a55.tech/cadastro), and sent to both, Hubspot and our DataBase</p><ul><li><p>Postman:<a class="external-link" href="https://access55.postman.co/workspace/A55~52bd350f-8563-4c0b-8f54-5c738652e0b8/request/11372441-b5665eef-5e71-449c-9da5-e076662efa55" rel="nofollow">https://access55.postman.co/workspace/A55~52bd350f-8563-4c0b-8f54-5c738652e0b8/request/11372441-b5665eef-5e71-449c-9da5-e076662efa55</a></p></li><li><p>Endpoint: <a class="external-link" href="https://hubspot-manager-api-staging.a55.tech/v1/deal" rel="nofollow">https://hubspot-manager-api-staging.a55.tech/v1/deal</a></p></li><li><p>Method: POST</p></li><li><p>Body:</p></li></ul><p>    {</p><p>        &quot;tax_id_company&quot;:&quot;46694147000120&quot;,(mandatory)</p><p>        &quot;locale&quot;:&quot;pt-br&quot;,(mandatory)</p><p>        &quot;product&quot;:&quot;asr&quot;,(mandatory)</p><p>        &quot;origination&quot;:&quot;Plataforma a55&quot;,</p><p>        &quot;email&quot;:&quot;jadson.monteiro+teste100721@a55.tech&quot;,(mandatory)</p><p>        &quot;first_name&quot;:&quot;Bruno e Marrone&quot;,(mandatory)</p><p>        &quot;last_name&quot;:&quot;Porto&quot;,(mandatory)</p><p>        &quot;password&quot;:&quot;123456789&quot;,(mandatory)</p><p>        &quot;mobilephone&quot;:&quot;(34) 39925-775&quot;,</p><p>        &quot;mean_monthly_revenue&quot;:10000,</p><p>        &quot;segment&quot;:&quot;&quot;,</p><p>        &quot;mean_monthly_revenue&quot;:10000,</p><p>        &quot;amount_digital_marketing_investment&quot;:10000,</p><p>        &quot;requested_loan_amount&quot;:20000,</p><p>        &quot;money_purpose&quot;:&quot;&quot;,</p><p>        &quot;website&quot;:&quot;<a class="external-link" data-card-appearance="inline" href="http://www.teste.com.br" rel="nofollow">http://www.teste.com.br</a> &quot;,</p><p>        &quot;categoria_de_empresa_parceira&quot;: &quot;teste&quot;,(mandatory)</p><p>        &quot;domain&quot;: &quot;teste&quot;,(mandatory)</p><p>        &quot;role&quot;: &quot;teste&quot;,(mandatory)</p><p>        &quot;company_payment_method&quot;: &quot;teste&quot;(mandatory),</p><p>        &quot;utm_source&quot;: &quot;teste&quot;,</p><p>        &quot;utm_medium&quot;: &quot;teste&quot;,</p><p>        &quot;utm_campaign&quot;: &quot;teste&quot;,</p><p>        &quot;utm_content&quot;: &quot;teste&quot;</p><p>    }</p><ul><li><p>Response:</p></li></ul><p>    201: Success</p><p>    400: Validation error</p><p>    404: Route not found</p><p>    500: Internal error</p><p><strong>Programming lenguage</strong></p><p>Back-end: Python v3.</p><p>Frame-work: Django Rest for apis</p><p>Front-end: View-JS &amp; TypeScript</p><p>For mobile: Flatur </p><p>Infrastructure: AWS</p><p>BR Data-base: PostGreSQL</p><p /><p><strong>Hubspot data-sets:</strong></p><p><em>All of them are linked through a common key, which is the companies tax ID</em></p><ol><li><p>Contact: Receives contact data of the user who performed the registration, such as telephone, email, name, preferred service channel (whatsapp, email or telephone), in addition to the tax id of that user's company </p></li><li><p>Company: Receives data of the company which applied for the loan, such as tax ID, web-site, CNAE, if the company is MEI, if the company has less than 6 months of existence, etc</p></li><li><p>Deal: Receive that specifically regarding the credit request, such as how the credit line will be used, the requested amount, and also data about the lead origination (which channel, campaign, media)</p></li></ol><p><br/></p><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1748598787/1748926472.png">image-20210810-165026.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1748598787/1748566023.png">new-bpmn-diagram.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Dec 29, 2022 17:43</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

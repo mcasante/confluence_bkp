@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Adsfinance : Mercado Pago - Task Integração</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Adsfinance</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Adsfinance_115998722.html">Adsfinance</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Tech_216334702.html">Tech</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="228393004.html">Integrações</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Adsfinance : Mercado Pago - Task Integração
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Rodrigo Gardim (Unlicensed)</span> on Jul 21, 2020
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <div class="confluence-information-macro confluence-information-macro-warning"><span class="aui-icon aui-icon-small aui-iconfont-error confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p><strong>NO GO </strong>- Temporariamente não avançaremos com Mercado Pago, não houve acordo com a parceria comercial.</p></div></div><p>Credenciais de teste</p><p>Contas de usuário teste, onde utiliza-se como se fosse uma conta de produção com as credencias de produção:</p><p>Usuario Principal (Simular A55):</p><p>Payer Test:</p><h2 id="MercadoPago-TaskIntegração-Oquedevesertestado:">O que deve ser testado:</h2><p><strong>1 - Solicitar permissão ao Pagador/Tomador</strong><br/>Obter acesso à conta dele.</p><p><a class="external-link" href="https://www.mercadopago.com.br/developers/pt/guides/payments/advanced-payments/wallet-payer-permissions" rel="nofollow">https://www.mercadopago.com.br/developers/pt/guides/payments/advanced-payments/wallet-payer-permissions</a></p><p><strong>2 - Captura de pagamentos / Gerar uma cobrança para o Pagador/tomador</strong><br/><a class="external-link" href="https://www.mercadopago.com.br/developers/pt/guides/payments/advanced-payments/wallet-process-payments" rel="nofollow">https://www.mercadopago.com.br/developers/pt/guides/payments/advanced-payments/wallet-process-payments</a></p><p>Testar se conseguimos fazer um pagamento direto na conta que recebemos e devemos conseguir uma transação aprovada.</p><p><strong>3 - Obter um pagamento existente / Verificar se a cobrança realmente foi realizada</strong><br/><a class="external-link" href="https://www.mercadopago.com.br/developers/pt/guides/payments/advanced-payments/wallet-get-wallet-payment" rel="nofollow">https://www.mercadopago.com.br/developers/pt/guides/payments/advanced-payments/wallet-get-wallet-payment</a></p><p><strong>4 - Relatorio de movimentacao financeira (conta MP)</strong><br/><a class="external-link" href="https://www.mercadopago.com.br/developers/pt/guides/reports/available-money/introduction/" rel="nofollow">https://www.mercadopago.com.br/developers/pt/guides/reports/available-money/introduction/</a></p><p><strong>5 - Relatorio de transações de venda</strong><br/><a class="external-link" href="https://www.mercadopago.com.br/developers/pt/guides/reports/account-money/introduction/" rel="nofollow">https://www.mercadopago.com.br/developers/pt/guides/reports/account-money/introduction/</a></p><h2 id="MercadoPago-TaskIntegração-OrientaçãodopessoaldoMercadoLivre"><strong><span style="color: rgb(0,184,217);">Orientação do pessoal do Mercado Livre</span></strong></h2><p>No fluxo para Wallet Payment, existe uma etapa de capturar os dados de dispositivo(fingerprint) para enviar para MP que efetuara um vinculação afim de identificar cliente+dispositivo.<br/>Esse fluxo varia um pouco dependendo da opção de integração, mobile nativo ou web, onde:</p><ul><li><p><strong>Para web</strong><br/>Basta usar o JS descrito na etapa <strong>&quot;Device web&quot;</strong>, pois o mesmo ja efetua esse vinculo e retorna o ID necessário para enviar no HEADER da transação de pagamento, não necessitando seguir a etapa <strong>&quot;Vincular access token do pagador com o dispositivo utilizado&quot;</strong>.</p></li><li><p><strong>Para mobile</strong><br/>Devido a ausência do JS é necessário capturar manualmente as informações de fingerprint e enviar para API para cadastro de vinculo do pagador com dispositivo conforme mostra na etapa <strong>&quot;Vincular access token do pagador com o dispositivo utilizado&quot;</strong>.<br/>Depois do cadastro efetua-se a chamada para obter o ID que sera usado para enviar no HEADER da transação, conforme mostra na etapa: <strong>&quot;Device Nativo Mobile”</strong>.</p></li></ul><p><strong>Vídeo</strong> explicando o fluxo e alguns passo do wallet Payment com base em Mobile:<br/><a class="external-link" href="https://www.youtube.com/watch?v=ImAO1uZvDYc" rel="nofollow">https://www.youtube.com/watch?v=ImAO1uZvDYc</a></p><hr/><p>0) Link do Manual não indexado</p><p><a class="external-link" href="https://www.mercadopago.com.br/developers/pt/guides/payments/advanced-payments/wallet-index-content" rel="nofollow">https://www.mercadopago.com.br/developers/pt/guides/payments/advanced-payments/wallet-index-content</a></p><h3 id="MercadoPago-TaskIntegração-0.1)Pegueascredencias(idesecret)daaplicaçãoA55-Aplication">0.1) Pegue as credencias (id e secret) da aplicação A55-Aplication</h3><p><a class="external-link" href="https://applications.mercadopago.com/" rel="nofollow">https://applications.mercadopago.com/</a></p><h3 id="MercadoPago-TaskIntegração-1)LinkdeRequisiçãodaspermissõesparaParceria(PegueioiddaAplicaçãoeaURLdeRetornoecoloqueinolink)">1) Link de Requisição das permissões para Parceria (Peguei o id da Aplicação e a URL de Retorno e coloquei no link)</h3><p><a class="external-link" href="https://auth.mercadopago.com.br/authorization?client_id=7133299869921986&amp;response_type=code&amp;platform_id=mp&amp;redirect_uri=https://www.mercadopago.com/mp&amp;scopes=read,write,offline_access,wallet-payments" rel="nofollow">https://auth.mercadopago.com.br/authorization?client_id=7133299869921986&amp;response_type=code&amp;platform_id=mp&amp;redirect_uri=https://www.mercadopago.com/mp&amp;scopes=read,write,offline_access,wallet-payments</a></p><h3 id="MercadoPago-TaskIntegração-1.1)LinkdeRetornoComaPermissão">1.1) Link de Retorno Com a Permissão</h3><p><a class="external-link" href="https://www.mercadopago.com/mp?code=TG-5eed58aed056340006ffa163-581520887" rel="nofollow">https://www.mercadopago.com/mp?code=TG-5eed58aed056340006ffa163-581520887</a></p><h3 id="MercadoPago-TaskIntegração-1.2)CadastrodoTokendoClientenoMarketPlacedaA55(pegarocodedolinkacimaecolocarnocodedocurlabaixo)">1.2) Cadastro do Token do Cliente no MarketPlace da A55 (pegar o code do link acima e colocar no code do curl abaixo)</h3><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">curl -X POST \
+     -H &#39;Accept: application/json&#39; \
+     -H &#39;Content-Type: application/x-www-form-urlencoded&#39; \
+     &#39;https://api.mercadopago.com/oauth/token&#39; \
+     -d &#39;client_id=7133299869921986&#39; \
+     -d &#39;client_secret=y0oeEa9BQ2ogdNwGHDDRonUKmwIJnskq&#39; \
+     -d &#39;grant_type=authorization_code&#39; \
+     -d &#39;code=TG-5eed58aed056340006ffa163-581520887&#39; \
+     -d &#39;redirect_uri=https://www.mercadopago.com/mp&#39;
+</pre>
+</div></div><h3 id="MercadoPago-TaskIntegração-1.3)RetornodoCadastro">1.3) Retorno do Cadastro</h3><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+&quot;access_token&quot;:&quot;APP_USR-7133299869921986-062000-adf164babdfd73572bdd9a5e783c510f-581520887&quot;,
+&quot;token_type&quot;:&quot;bearer&quot;,
+&quot;expires_in&quot;:15552000,
+&quot;scope&quot;:&quot;offline_access payments read wallet-payments write&quot;,
+&quot;user_id&quot;:581520887,
+&quot;refresh_token&quot;:&quot;TG-5eed58e97e51e100061ede1a-581520887&quot;,
+&quot;public_key&quot;:&quot;APP_USR-ccd22423-17bb-44db-8530-e9db0e7eeff3&quot;,
+&quot;live_mode&quot;:true
+}</pre>
+</div></div><p> </p><h3 id="MercadoPago-TaskIntegração-2)DeviceWeb">2) Device Web</h3><p>Pegar o Device Id</p><p><a class="external-link" href="https://www.mercadopago.com.br/developers/pt/guides/payments/advanced-payments/wallet-device-web" rel="nofollow">https://www.mercadopago.com.br/developers/pt/guides/payments/advanced-payments/wallet-device-web</a></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">&lt;script
+src=&quot;https://http2.mlstatic.com/storage/bmsdk/js/dml-0.0.5.min.js&quot;&gt;&lt;/script&gt;
+
+&lt;script&gt;
+  new DMLSDK({
+    publicKey: &quot;APP_USR-ccd22423-17bb-44db-8530-e9db0e7eeff3&quot;,
+    authenticated: true,
+  });
+&lt;/script&gt;</pre>
+</div></div><p>Pegar a variável (mp) no console</p><p><code>X-Device-Session-Id:</code>7C97551DE2F71AA701ABE5D352807EE10B5A2EA4CD4FF28712C40E6F5B15E443</p><p> </p><h3 id="MercadoPago-TaskIntegração-VincularWebID">Vincular Web ID</h3><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">curl -X POST \
+  &#39;https://api.mercadopago.com/v1/device_sessions/login_web_device?access_token=APP_USR-7133299869921986-062000-adf164babdfd73572bdd9a5e783c510f-581520887&#39; \
+  -H &#39;Content-Type: application/json&#39; \
+  -d &#39;{
+          &quot;device_id&quot;: &quot;7C97551DE2F71AA701ABE5D352807EE10B5A2EA4CD4FF28712C40E6F5B15E443&quot;
+      }&#39;</pre>
+</div></div><p>{&quot;status&quot;:&quot;OK&quot;}</p><h3 id="MercadoPago-TaskIntegração-3)Capturadepagamentos/GerarumacobrançaparaoPagador/tomador">3) <strong>Captura de pagamentos / Gerar uma cobrança para o Pagador/tomador</strong></h3><p><a class="external-link" href="https://www.mercadopago.com.br/developers/pt/guides/payments/advanced-payments/wallet-process-payments" rel="nofollow">https://www.mercadopago.com.br/developers/pt/guides/payments/advanced-payments/wallet-process-payments</a></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">curl -X POST \
+    -H &#39;Accept: application/json&#39; \
+    -H &#39;Content-Type: application/json&#39; \
+    -H &#39;X-Device-Session-Id:7C97551DE2F71AA701ABE5D352807EE10B5A2EA4CD4FF28712C40E6F5B15E443&#39; \
+    &#39;https://api.mercadopago.com/v1/advanced_payments?access_token=APP_USR-7133299869921986-060818-079a3ecfb9d2b9c7212bc94f25c848d7-581494490&#39; \
+    -d &#39;{
+   &quot;wallet_payment&quot;:{
+      &quot;transaction_amount&quot;:5.3,
+      &quot;description&quot;:&quot;Payment&quot;,
+      &quot;external_reference&quot;:&quot;Pago_123&quot;,
+      &quot;access_token&quot;:&quot;APP_USR-7133299869921986-062000-adf164babdfd73572bdd9a5e783c510f-581520887&quot;      
+   }
+}&#39;</pre>
+</div></div><h3 id="MercadoPago-TaskIntegração-3.1)Retorno">3.1) Retorno</h3><p> </p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{&quot;id&quot;:163330450,
+&quot;status&quot;:&quot;approved&quot;,
+&quot;marketplace&quot;:null,
+&quot;sponsor_id&quot;:null,
+&quot;payments&quot;:[{&quot;id&quot;:7159996518,
+&quot;status&quot;:&quot;approved&quot;,
+&quot;status_detail&quot;:&quot;accredited&quot;,
+&quot;payment_type_id&quot;:&quot;credit_card&quot;,
+&quot;payment_method_id&quot;:&quot;master&quot;,
+&quot;token&quot;:null,&quot;transaction_amount&quot;:5.3,
+&quot;installments&quot;:1,
+&quot;processing_mode&quot;:&quot;aggregator&quot;,
+&quot;issuer_id&quot;:&quot;24&quot;,
+&quot;coupon_amount&quot;:null,
+&quot;campaign_id&quot;:null,
+&quot;coupon_code&quot;:null,
+&quot;description&quot;:&quot;Payment&quot;,
+&quot;external_reference&quot;:&quot;Pago_123&quot;,
+&quot;statement_descriptor&quot;:&quot;MERCPAGO-TESTTEST&quot;,
+&quot;date_of_expiration&quot;:null,
+&quot;merchant_account_id&quot;:null,
+&quot;payment_method_option_id&quot;:null,
+&quot;additional_info&quot;:null,
+&quot;transaction_details&quot;:null,
+&quot;net_amount&quot;:null,&quot;taxes&quot;:null}],
+&quot;disbursements&quot;:null,
+&quot;payer&quot;:{&quot;id&quot;:&quot;581520887&quot;,
+&quot;email&quot;:&quot;test_user_87022422@testuser.com&quot;,
+&quot;address&quot;:null,
+&quot;identification&quot;:null,
+&quot;first_name&quot;:null,
+&quot;last_name&quot;:null,
+&quot;phone&quot;:null,
+&quot;token&quot;:null},
+&quot;external_reference&quot;:null,
+&quot;description&quot;:null,
+&quot;binary_mode&quot;:false,
+&quot;capture&quot;:true,
+&quot;date_created&quot;:&quot;2020-06-19T20:37:25.228-04:00&quot;,
+&quot;date_last_updated&quot;:&quot;2020-06-19T20:37:26.423-04:00&quot;,
+&quot;metadata&quot;:null,&quot;additional_info&quot;:null,
+&quot;wallet_payment&quot;:{&quot;transaction_amount&quot;:5.3,
+&quot;description&quot;:&quot;Payment&quot;,
+&quot;external_reference&quot;:&quot;Pago_123&quot;},
+&quot;pos_id&quot;:null,&quot;store_id&quot;:null}</pre>
+</div></div><h3 id="MercadoPago-TaskIntegração-4)SaldoDoLojista:">4) Saldo Do Lojista:</h3><p><a class="external-link" href="https://www.mercadopago.com.br/developers/pt/reference/" rel="nofollow">https://www.mercadopago.com.br/developers/pt/reference/</a></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">curl -X GET \
+    -H &#39;Accept: application/json&#39; \
+    -H &#39;Content-Type: application/json&#39; \
+    &#39;https://api.mercadopago.com/users/581520887/mercadopago_account/balance?access_token=APP_USR-7133299869921986-062000-adf164babdfd73572bdd9a5e783c510f-581520887&#39;</pre>
+</div></div><h3 id="MercadoPago-TaskIntegração-4.1)Retorno">4.1) Retorno</h3><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{&quot;last_modified&quot;:&quot;2020-06-19T20:37:31-04:00&quot;,
+&quot;user_id&quot;:581520887,
+&quot;total_amount&quot;:0,
+&quot;pending_to_review&quot;:0,
+&quot;available_balance&quot;:0,
+&quot;unavailable_balance&quot;:0,
+&quot;currency_id&quot;:&quot;BRL&quot;,
+&quot;tags&quot;:[],
+&quot;block_reason&quot;:null,
+&quot;unavailable_balance_by_reason&quot;:[],
+&quot;available_balance_by_transaction_type&quot;:[{&quot;transaction_type&quot;:&quot;payment&quot;,
+&quot;amount&quot;:0},
+{&quot;transaction_type&quot;:&quot;label_purchase&quot;,
+&quot;amount&quot;:0},
+{&quot;transaction_type&quot;:&quot;withdrawal&quot;,
+&quot;amount&quot;:0},
+{&quot;transaction_type&quot;:&quot;transfer&quot;,
+&quot;amount&quot;:0}]}</pre>
+</div></div><p />
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Dec 29, 2022 17:36</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

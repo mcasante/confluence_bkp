@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Backend Space : Proposals API</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Backend Space</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Tech-Space_1159299332.html">Tech Space</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Backend Space : Proposals API
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Eduardo Cavalcanti</span>, last modified on Sep 23, 2021
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h1 id="ProposalsAPI-Documentaçãoregradenegócio-Proposals">Documentação regra de negócio - Proposals</h1><p>Api Endpoints Map Documentation</p><h3 id="ProposalsAPI-/proposals">/proposals</h3><p>GET: list - lista todas as propostas</p><p>POST: create - criar uma proposta quando já se possui os dados da oferta</p><h3 id="ProposalsAPI-/proposals/update/int:id">/proposals/update/int:id</h3><p>UPDATE: partial_update - atualiza uma proposta pelo ID</p><h3 id="ProposalsAPI-/proposals/str:id">/proposals/str:id</h3><p>GET: retrieve - retorna todos os dados de uma proposta pelo seu ID: Proposal, ProposalRequest e Rates</p><h3 id="ProposalsAPI-/proposals/delete/str:id">/proposals/delete/str:id</h3><p>DELETE: delete - deleta proposta pelo ID</p><h2 id="ProposalsAPI-ProposalSimulationViewSet">ProposalSimulationViewSet</h2><h3 id="ProposalsAPI-/proposals/with-simulation/str:cnpj">/proposals/with-simulation/str:cnpj</h3><p>GET: retrieve - caso o cnpj tenha uma proposta aprovada, gera uma simulação de proposta consultando a QITECH. Se houver mais de um Rate é realizada uma simulação para cada Rate</p><h2 id="ProposalsAPI-RefuseProposalViewSet">RefuseProposalViewSet</h2><h3 id="ProposalsAPI-/proposals/refuse/str:id">/proposals/refuse/str:id</h3><p>PATCH: partial_update - usada para recusar a proposta a qualquer momento do seu ciclo de vida</p><h2 id="ProposalsAPI-ProposalWithoutVehicleViewSet">ProposalWithoutVehicleViewSet</h2><h3 id="ProposalsAPI-/proposals/without-vehicle">/proposals/without-vehicle</h3><p>GET: list - retona uma lista de propostas com a seguinte função: para cada proposta com pending alocation, retorna proposta com maior valor e parcelas possível</p><h2 id="ProposalsAPI-RatesUpdateViewSet">RatesUpdateViewSet</h2><h3 id="ProposalsAPI-/rates/int:id">/rates/int:id</h3><p>PATCH: partial_update - atualizar as taxas de uma determinada proposta. É necessário ter o ID do Rate</p><h2 id="ProposalsAPI-OperationViewSet">OperationViewSet</h2><h3 id="ProposalsAPI-/operations/register">/operations/register</h3><p>POST: create - usada na hora do aceite de uma proposta. Primeiro ela verifica se a proposta não esta expirada. Consulta client-manager, escreve no underwriting, etc</p><h2 id="ProposalsAPI-SimulationQiTechViewSet">SimulationQiTechViewSet</h2><h3 id="ProposalsAPI-/qitech">/qitech</h3><p>POST: simulate-qitech - rota de teste para visualizar o que a qitech disponibiliza como resposta</p><h2 id="ProposalsAPI-FeedbackViewSet">FeedbackViewSet</h2><h3 id="ProposalsAPI-/feedbacks">/feedbacks</h3><p>GET: list - lista todos os feedbacks</p><p>POST: create - cria feedback de cliente</p><h3 id="ProposalsAPI-/feedbacks/int:id">/feedbacks/int:id</h3><p>GET: retrieve - recupera um feedback pelo seu ID</p><p>PATCH: partial_update - modifica um feedback pelo seu ID</p><h2 id="ProposalsAPI-LeadsViewSet">LeadsViewSet</h2><h3 id="ProposalsAPI-/leads">/leads</h3><p>POST: cria um lead</p><h2 id="ProposalsAPI-ProposalRequestViewSet">ProposalRequestViewSet</h2><h3 id="ProposalsAPI-/offer/request">/offer/request</h3><p>POST: cria uma entidade Proposal e uma entidade ProposalResquest e envia um pedido assincrono de calculo de oferta (Rate) para o OfertaMaker</p><h3 id="ProposalsAPI-/receive/offer/request">/receive/offer/request</h3><p>PATCH: recebe o calculo de oferta do OfertaMaker, cria Rates e atualiza Proposal</p><h1 id="ProposalsAPI-Diagramas">Diagramas</h1><h2 id="ProposalsAPI-Diagramadesequência">Diagrama de sequência</h2><p>Este diagrama mostra o fluxo de uma proposta desde o pedido até a entrega</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/1795653635/1796505611" data-image-src="attachments/1795653635/1796505611" data-height="607" data-width="865" data-unresolved-comment-count="0" data-linked-resource-id="1796505611" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="NnTjsBHpt_huO2PMN4x-NA5D1IcnaaWuRiyjL_bkqJ1HBNa58RfkqZaIvchM2KsDGz5D52K-f3VZD9n-6RFJVfNT-Z1RKPm9aGrgLA-lRAoIRcscJ5Hbq9KIjBu1mABJKxVFp8yc=s0" data-base-url="https://a55tech.atlassian.net/wiki" data-linked-resource-content-type="image/jpeg" data-linked-resource-container-id="1795653635" data-linked-resource-container-version="5" data-media-id="b668dad3-247d-4f67-83ff-be63f8b22d45" data-media-type="file"></span><h2 id="ProposalsAPI-DiagramadeClasse">Diagrama de Classe</h2><p>Este diagrama mostra a relação entre as classes de propostas</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/1795653635/1796505618" data-image-src="attachments/1795653635/1796505618" data-height="572" data-width="1124" data-unresolved-comment-count="0" data-linked-resource-id="1796505618" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="NoG6J5KnMP3mChxH8Egh8SaZkAFJ3Lza9wY4tOhIzb-XmCWsV-ywTMSEQJenwk1_7ORYkiM_XBbk34n2ASHqTcjbCe3Y9s_L-UAiFBAaHhkHlA78mFUwhCcj39toUDnxZKSU8UWU=s0" data-base-url="https://a55tech.atlassian.net/wiki" data-linked-resource-content-type="image/jpeg" data-linked-resource-container-id="1795653635" data-linked-resource-container-version="5" data-media-id="7046e575-04ed-47d7-b409-b65998ef38b5" data-media-type="file"></span><h3 id="ProposalsAPI-ProjectLinks">Project Links</h3><p>The links below works when you're running the App via docker. For Django based authentication, please define your local superuser using the <a class="external-link" href="https://docs.djangoproject.com/en/2.2/intro/tutorial02/" rel="nofollow">createsuperuser</a> command.</p><div class="table-wrap"><table data-layout="default" data-local-id="2b5791b0-f80b-466b-87c2-003021f83fb9" class="confluenceTable"><colgroup><col style="width: 170.0px;"/><col style="width: 170.0px;"/><col style="width: 170.0px;"/><col style="width: 170.0px;"/></colgroup><tbody><tr><td data-highlight-colour="#ffffff" class="confluenceTd"><p>Page</p></td><td data-highlight-colour="#ffffff" class="confluenceTd"><p>Address</p></td><td data-highlight-colour="#ffffff" class="confluenceTd"><p>Use</p></td><td data-highlight-colour="#ffffff" class="confluenceTd"><p>Authenticated</p></td></tr><tr><td data-highlight-colour="#ffffff" class="confluenceTd"><p>Swagger UI</p></td><td data-highlight-colour="#ffffff" class="confluenceTd"><p><a class="external-link" href="http://localhost:8396/api/swagger" rel="nofollow">http://localhost:8396/api/swagger</a></p></td><td data-highlight-colour="#ffffff" class="confluenceTd"><p>API Documentation (Swagger)</p></td><td data-highlight-colour="#ffffff" class="confluenceTd"><p>Yes (Django)</p></td></tr><tr><td data-highlight-colour="#ffffff" class="confluenceTd"><p>Redoc UI</p></td><td data-highlight-colour="#ffffff" class="confluenceTd"><p><a class="external-link" href="http://localhost:8396/api/redoc" rel="nofollow">http://localhost:8396/api/redoc</a></p></td><td data-highlight-colour="#ffffff" class="confluenceTd"><p>API Documentation (Redoc)</p></td><td data-highlight-colour="#ffffff" class="confluenceTd"><p>Yes (Django)</p></td></tr><tr><td data-highlight-colour="#ffffff" class="confluenceTd"><p>DRF Browser Example</p></td><td data-highlight-colour="#ffffff" class="confluenceTd"><p><a class="external-link" href="http://localhost:8396/api/health" rel="nofollow">http://localhost:8396/api/health</a></p></td><td data-highlight-colour="#ffffff" class="confluenceTd"><p>DRF Documentation</p></td><td data-highlight-colour="#ffffff" class="confluenceTd"><p>No</p></td></tr><tr><td data-highlight-colour="#ffffff" class="confluenceTd"><p>Django Admin</p></td><td data-highlight-colour="#ffffff" class="confluenceTd"><p><a class="external-link" href="http://localhost:8396/admin" rel="nofollow">http://localhost:8396/admin</a></p></td><td data-highlight-colour="#ffffff" class="confluenceTd"><p>Django Admin</p></td><td data-highlight-colour="#ffffff" class="confluenceTd"><p>Yes (Django)</p></td></tr></tbody></table></div><p><br/></p><p>Link GitHub <a class="external-link" data-card-appearance="inline" href="https://github.com/access55/proposals_api" rel="nofollow">https://github.com/access55/proposals_api</a> </p>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1795653635/1796505611">NnTjsBHpt_huO2PMN4x-NA5D1IcnaaWuRiyjL_bkqJ1HBNa58RfkqZaIvchM2KsDGz5D52K-f3VZD9n-6RFJVfNT-Z1RKPm9aGrgLA-lRAoIRcscJ5Hbq9KIjBu1mABJKxVFp8yc=s0</a> (image/jpeg)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1795653635/1796505618">NoG6J5KnMP3mChxH8Egh8SaZkAFJ3Lza9wY4tOhIzb-XmCWsV-ywTMSEQJenwk1_7ORYkiM_XBbk34n2ASHqTcjbCe3Y9s_L-UAiFBAaHhkHlA78mFUwhCcj39toUDnxZKSU8UWU=s0</a> (image/jpeg)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Dec 29, 2022 17:37</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

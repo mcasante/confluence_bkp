@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Plataforma a55 : Implementação Pluggy</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Plataforma a55</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Plataforma-a55_208765064.html">Plataforma a55</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="1225064523.html">SQUAD CONVERSÃO</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="1243512846.html">Iniciativas - Conversão</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Plataforma a55 : Implementação Pluggy
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Tech A55</span>, last modified on Apr 27, 2021
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h2 id="ImplementaçãoPluggy-Históricodainiciativa">Histórico da iniciativa</h2><div class="table-wrap"><table data-layout="wide" class="confluenceTable"><colgroup><col style="width: 170.0px;"/><col style="width: 170.0px;"/><col style="width: 170.0px;"/><col style="width: 170.0px;"/></colgroup><tbody><tr><th class="confluenceTh"><p><strong>Data</strong></p></th><th class="confluenceTh"><p><strong>Modificação</strong></p></th><th class="confluenceTh"><p><strong>Por quem?</strong></p></th><th class="confluenceTh"><p><strong>Status</strong></p></th></tr><tr><td class="confluenceTd"><p><time datetime="2021-04-27" class="date-past">27 Apr 2021</time> </p></td><td class="confluenceTd"><p /></td><td class="confluenceTd"><p /></td><td class="confluenceTd"><p><span class="status-macro aui-lozenge aui-lozenge-current">N&Atilde;O INICIADA</span> </p></td></tr><tr><td class="confluenceTd"><p /></td><td class="confluenceTd"><p /></td><td class="confluenceTd"><p /></td><td class="confluenceTd"><p><span class="status-macro aui-lozenge aui-lozenge-complete">EM ANDAMENTO</span> </p></td></tr><tr><td class="confluenceTd"><p /></td><td class="confluenceTd"><p /></td><td class="confluenceTd"><p /></td><td class="confluenceTd"><p><span class="status-macro aui-lozenge aui-lozenge-error">DESPRIORIZADA</span> </p></td></tr><tr><td class="confluenceTd"><p /></td><td class="confluenceTd"><p /></td><td class="confluenceTd"><p /></td><td class="confluenceTd"><p><span class="status-macro aui-lozenge aui-lozenge-success">CONCLU&Iacute;DA</span> </p></td></tr><tr><td class="confluenceTd"><p /></td><td class="confluenceTd"><p /></td><td class="confluenceTd"><p /></td><td class="confluenceTd"><p><span class="status-macro aui-lozenge aui-lozenge-current">BLOQUEADA</span> </p></td></tr></tbody></table></div><p /><h2 id="ImplementaçãoPluggy-LeanProductCanvas">Lean Product Canvas</h2><div class="table-wrap"><table data-layout="wide" class="confluenceTable"><colgroup><col style="width: 178.0px;"/><col style="width: 134.0px;"/><col style="width: 96.0px;"/><col style="width: 136.0px;"/><col style="width: 136.0px;"/></colgroup><tbody><tr><td rowspan="2" class="confluenceTd"><h5 id="ImplementaçãoPluggy-Problema"><strong>Problema</strong></h5><p>Maior dificuldade relatada pelo nosso time de CX/Sales que nossos clientes possuem no processo de envio de dados para analise, é a etapa na qual realizam o <strong>cadastro de suas contas bancárias</strong></p><p>Isso porque:</p><p>-Integração da conta depende da criação de um perfil de usuário específico (de visualização) na própria plataforma dos bancos, que é um processo que gera inúmeras dúvidas</p><p>-Hoje só estamos integrados com:</p><p>SICREDI, ARBI, ITAÚ, BRADESCO, BCO PAULISTA, SANTANDER ASAAS, GRAFENO</p><p>Logo não contemplamos os principais players do mercado.</p><p>-A única alternativa que temos para a integração bancária é o upload de um arquivo OFX, que é um formato que nem todos os bancos atendem e que muitos dos nossos clientes desconhecem</p><p>-A manutenção das contas bancárias de nossos clientes acaba sendo extremamente honerosa para nosso time, que precisa dedicar um desenvolvedor full-time nesse tipo de gestão</p></td><td class="confluenceTd"><h5 id="ImplementaçãoPluggy-Solução"><strong>Solução</strong></h5><p>Integração com algum empresa (Pluggy) que disponibilize o serviço de extração dos dados bancários via API, via usuário Master (sem que cliente precise criar um perfil de visualização em seu banco).</p><p>Essa solução deve consistir em uma API única, que recebe os dados de login do usuário e já retorna com um JSON, com os dados do extrato da conta, dos últimos 6 meses (histórico mínimo)</p></td><td rowspan="2" class="confluenceTd"><h5 id="ImplementaçãoPluggy-Propostadevalorúnica"><strong>Proposta de valor única</strong></h5><p>Proposta única de valor é a possibilidade dos clientes enviarem os dados para analise de crédito em poucos clieques (apenas com a conexão de seu banco)</p></td><td class="confluenceTd"><h5 id="ImplementaçãoPluggy-Vantagemcompetitiva"><strong>Vantagem competitiva</strong></h5><p>Seremos o único player do mercado para financiamento de PJs capaz de realizar analise de crédito sem necessidade alguma de upload de arquivos, em um processo extremamente simples de cadastro de credenciais do banco (input de somente dois campos: login e senha/token)</p></td><td rowspan="2" class="confluenceTd"><h5 id="ImplementaçãoPluggy-Seguimentodeclientes"><strong>Seguimento de clientes</strong></h5><p>Clientes dentro do nosso ICP (E-commerces e Saas), que faturem ao menos 50k e desejem ao menos 20k de empréstimo</p></td></tr><tr><td class="confluenceTd"><h5 id="ImplementaçãoPluggy-Métricas-chave"><strong>Métricas-chave</strong></h5><p>Aumento da conversão do estágio de “aguardando dados”, para o estágio de “analise”</p></td><td class="confluenceTd"><h5 id="ImplementaçãoPluggy-Canais"><strong>Canais</strong></h5><p>Plataforma a55</p></td></tr><tr><td colspan="3" class="confluenceTd"><h5 id="ImplementaçãoPluggy-Estruturadecusto"><strong>Estrutura de custo</strong></h5><p>O custo consistiria em 10k para implementação + 5k de manutenção, por mes.</p><p>Contudo, de acordo com nosso líder técnico, a cada novas 1000 contas cadastradas, nosso custo adicional seria reduzido em 2k.</p><p>Além desses custos, teríamos que considerar um costo adicional de 18k, para dedicar um UX, um front-end e um back-end por pelo menos um sprint cada, a fim de entregar a solução.</p></td><td colspan="2" class="confluenceTd"><h5 id="ImplementaçãoPluggy-Fontesdereceita"><strong>Fontes de receita</strong></h5><p>TAC dos desembolsos realizados para clientes que realizaram analise de crédito via conexão bancária</p></td></tr></tbody></table></div><h2 id="ImplementaçãoPluggy-Queproblema(s)estamosresolvendo?">Que problema(s) estamos resolvendo?</h2><p>Maior dificuldade relatada pelo nosso time de CX/Sales que nossos clientes possuem no processo de envio de dados para analise, é a etapa na qual realizam o cadastro de suas contas bancárias</p><p>Racional:</p><p>-Integração da conta depende da criação de um perfil de usuário específico (de visualização) na própria plataforma dos bancos, que é um processo que gera inúmeras dúvidas</p><p>-Hoje só estamos integrados com:</p><p>SICREDI, ARBI, ITAÚ, BRADESCO, BCO PAULISTA, SANTANDER ASAAS, GRAFENO</p><p>Logo não contemplamos os principais players do mercado.</p><p>-A única alternativa que temos para a integração bancária é o upload de um arquivo OFX, que é um formato que nem todos os bancos atendem e que muitos dos nossos clientes desconhecem</p><p>-A manutenção das contas bancárias de nossos clientes acaba sendo extremamente honerosa para nosso time, que precisa dedicar um desenvolvedor full-time nesse tipo de gestão</p><h2 id="ImplementaçãoPluggy-Porquêagora?">Por quê agora?</h2><p>Depois que qualificamos os nossos clientes, apenas 18,85 % deles realizam a etapa de cadastro de contas, que é justamente a etapa essencial para seguimento da analise de crédito (Dado de Março/Abril)</p><p>Trata-se da etapa na qual temos a maior perda de conversão após a qualificação. Precisamos melhorá-la com urgencia, uma vez que a meta para esse S1 é de 30% dos clientes qualificados, cadastrando suas contas bancárias.</p><h2 id="ImplementaçãoPluggy-Objetivosestratégicos">Objetivos estratégicos</h2><p>Principal KPI:</p><p>-30% das empresas qualificadas com analise de crédito feita (conta cadastrada)</p><h2 id="ImplementaçãoPluggy-Oquedefineosucessodessainiciativa?">O que define o sucesso dessa iniciativa?</h2><p>Resultado quantitativo:</p><p>-Atingimento da meta das 30% das empresas qualificadas com conta cadastrada, ao final de S1</p><p>-Redução de 50% dos tickets de suporte, atrelados ao cadastro de contas bancárias</p><h2 id="ImplementaçãoPluggy-Comomensuramososresultados">Como mensuramos os resultados </h2><p>% de clientes qualificados (clientes nos pipes de produtos dos hubspots), que passam para etapa seguinte (analise)</p><h2 id="ImplementaçãoPluggy-DocumentaçãoPluggy:">Documentação Pluggy:</h2><p><a class="external-link" data-card-appearance="inline" href="https://docs.pluggy.ai/#welcome-to-pluggy" rel="nofollow">https://docs.pluggy.ai/#welcome-to-pluggy</a> </p><p />
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Dec 29, 2022 17:43</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

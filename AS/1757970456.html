@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Plataforma a55 : Proposals: Documentação</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Plataforma a55</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Plataforma-a55_208765064.html">Plataforma a55</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="1763541012.html">Documentação sobre micro-serviços a55</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Plataforma a55 : Proposals: Documentação
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Antonio Rugain</span>, last modified on Aug 19, 2021
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <div class="contentLayout2">
+<div class="columnLayout fixed-width" data-layout="fixed-width">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p /><h2 id="Proposals:Documentação-PropostadaFeature:"><strong>Proposta da Feature:</strong></h2><p>O propósito geral é o de realizar a comunicação entre front (usuário) e plataforma, após a análise de crédito. Havendo ou não uma proposta, o usuário é comunicado.</p><p /><h2 id="Proposals:Documentação-Endpoints:"><strong>Endpoints:</strong></h2><p><strong><span style="color: rgb(255,153,31);">POST    </span>Create</strong></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: plain; gutter: false; theme: Confluence" data-theme="Confluence">{{proposalsUrl}}/api/proposals</pre>
+</div></div></div>
+</div>
+</div>
+<div class="columnLayout three-equal" data-layout="three-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h6 id="Proposals:Documentação-Bodyraw(json)"><strong>Body</strong> raw (json)</h6></div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h6 id="Proposals:Documentação-Response">Response</h6></div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h6 id="Proposals:Documentação-StatusCode">Status Code</h6></div>
+</div>
+</div>
+<div class="columnLayout three-equal" data-layout="three-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+  &quot;cnpj&quot;: &quot;30288456000160&quot;,
+  &quot;product_id&quot;: 4,
+  &quot;status&quot;: &quot;pending allocation&quot;,
+  &quot;rates&quot;: [
+    {
+      &quot;tac&quot;: &quot;2.9&quot;,
+      &quot;grace&quot;: &quot;0&quot;,
+      &quot;rate&quot;: &quot;2.2&quot;,
+      &quot;prepayment_fee&quot;: &quot;0&quot;,
+      &quot;amount&quot;: &quot;50000&quot;,
+      &quot;number_installments&quot;: &quot;12&quot;
+    }
+  ]
+}</pre>
+</div></div><p /></div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p /><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+  &quot;cnpj&quot;: &quot;40087325000178&quot;,
+  &quot;product_id&quot;: 4,
+  &quot;status&quot;: &quot;pending allocation&quot;,
+  &quot;rates&quot;: [
+    {
+      &quot;tac&quot;: 2.9,
+      &quot;grace&quot;: 0,
+      &quot;rate&quot;: 2.2,
+      &quot;prepayment_fee&quot;: 0,
+      &quot;amount&quot;: 50000,
+      &quot;number_installments&quot;: 12
+    }
+  ]
+}</pre>
+</div></div></div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+  201: Created,
+  400: Bad Request,
+  403: Not Authorized,
+  504: Gateway Timeout,
+}</pre>
+</div></div><p /></div>
+</div>
+</div>
+<div class="columnLayout two-equal" data-layout="two-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h6 id="Proposals:Documentação-RequestHeaders"><strong>Request Headers</strong></h6><blockquote><p><strong>Authorization</strong>    ApiKey {{token}}</p></blockquote></div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h6 id="Proposals:Documentação-RequestParams"><strong>Request Params</strong></h6><p /></div>
+</div>
+</div>
+<div class="columnLayout fixed-width" data-layout="fixed-width">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h6 id="Proposals:Documentação-RequestExample"><strong>Request Example</strong></h6><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence" data-theme="Confluence">curl --location -g --request POST &#39;{{proposalsUrl}}/api/proposals&#39; \
+--header &#39;Authorization: 3957d9d6-5af0-4b54-a62e-1fe334fb224d&#39; \
+--data-raw &#39;{
+    &quot;cnpj&quot;: &quot;40087325000178&quot;,
+    &quot;product_id&quot;: 4,
+    &quot;status&quot;: &quot;pending allocation&quot;,
+    &quot;rates&quot;: [
+        {
+            &quot;tac&quot;: &quot;2.9&quot;,
+            &quot;grace&quot;: &quot;0&quot;,
+            &quot;rate&quot;: &quot;2.2&quot;,
+            &quot;prepayment_fee&quot;: &quot;0&quot;,
+            &quot;amount&quot;: &quot;50000&quot;,
+            &quot;number_installments&quot;: &quot;12&quot;
+        }
+    ]
+}&#39;</pre>
+</div></div><p /><p><strong><span style="color: rgb(54,179,126);">GET</span><span style="color: rgb(255,153,31);">    </span>List</strong></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: plain; gutter: false; theme: Confluence" data-theme="Confluence">{{proposalsUrl}}/api/proposals</pre>
+</div></div></div>
+</div>
+</div>
+<div class="columnLayout three-equal" data-layout="three-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h6 id="Proposals:Documentação-Bodyraw(json).1"><strong>Body</strong> raw (json)</h6><p /></div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h6 id="Proposals:Documentação-Response.1">Response</h6><p /><p /><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+    &quot;cnpj&quot;: &quot;40087325000178&quot;,
+    &quot;product_id&quot;: 4,
+    &quot;status&quot;: &quot;approved&quot;,
+    &quot;reason&quot;: null,
+    &quot;vehicle_id&quot;: null,
+    &quot;rates&quot;: [
+        {
+            &quot;id&quot;: 2,
+            &quot;tac&quot;: 2.9,
+            &quot;grace&quot;: 0,
+            &quot;rate&quot;: 2.2,
+            &quot;prepayment_fee&quot;: 0,
+            &quot;amount&quot;: 50000,
+            &quot;number_installments&quot;: 12
+        }
+    ]
+}</pre>
+</div></div></div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h6 id="Proposals:Documentação-StatusCode.1">Status Code</h6><p /><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+  200: OK,
+  403: Forbidden,
+  504: Gateway Timeout,
+}</pre>
+</div></div><p /></div>
+</div>
+</div>
+<div class="columnLayout two-equal" data-layout="two-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h6 id="Proposals:Documentação-RequestHeaders.1"><strong>Request Headers</strong></h6><blockquote><p><strong>Authorization</strong>    ApiKey {{token}}</p></blockquote></div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h6 id="Proposals:Documentação-RequestParams.1"><strong>Request Params</strong></h6><p /></div>
+</div>
+</div>
+<div class="columnLayout fixed-width" data-layout="fixed-width">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h6 id="Proposals:Documentação-RequestExample.1"><strong>Request Example</strong></h6><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence" data-theme="Confluence">curl --location -g --request GET &#39;{{proposalsUrl}}/api/proposals&#39; \
+--header &#39;Authorization: ApiKey {{token}}&#39;</pre>
+</div></div><p /><p><strong><span style="color: rgb(54,179,126);">GET</span><span style="color: rgb(255,153,31);">    </span>Retrieve</strong></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: plain; gutter: false; theme: Confluence" data-theme="Confluence">{{proposalsUrl}}/api/proposals/7/30288456000160</pre>
+</div></div></div>
+</div>
+</div>
+<div class="columnLayout three-equal" data-layout="three-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h6 id="Proposals:Documentação-Bodyraw(json).2"><strong>Body</strong> raw (json)</h6></div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h6 id="Proposals:Documentação-Response.2"><strong>Response</strong></h6></div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h6 id="Proposals:Documentação-StatusCode.2">Status Code</h6></div>
+</div>
+</div>
+<div class="columnLayout three-equal" data-layout="three-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{&quot;cnpj&quot;:[&quot;10&quot;]}</pre>
+</div></div><p /></div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p /><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+    &quot;cnpj&quot;: &quot;40087325000178&quot;,
+    &quot;product_id&quot;: 4,
+    &quot;status&quot;: &quot;approved&quot;,
+    &quot;reason&quot;: null,
+    &quot;vehicle_id&quot;: null,
+    &quot;rates&quot;: [
+        {
+            &quot;id&quot;: 2,
+            &quot;tac&quot;: 2.9,
+            &quot;grace&quot;: 0,
+            &quot;rate&quot;: 2.2,
+            &quot;prepayment_fee&quot;: 0,
+            &quot;amount&quot;: 50000,
+            &quot;number_installments&quot;: 12
+        }
+    ]
+}</pre>
+</div></div></div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+  200: OK,
+  403: Forbidden,
+  404: Not Found,
+  504: Gateway Timeout,
+}</pre>
+</div></div><p /></div>
+</div>
+</div>
+<div class="columnLayout two-equal" data-layout="two-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h6 id="Proposals:Documentação-RequestHeaders.2"><strong>Request Headers</strong></h6><blockquote><p><strong>Authorization</strong>    ApiKey {{token}}</p></blockquote></div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h6 id="Proposals:Documentação-RequestParams.2"><strong>Request Params</strong></h6><p /></div>
+</div>
+</div>
+<div class="columnLayout fixed-width" data-layout="fixed-width">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h6 id="Proposals:Documentação-RequestExample.2"><strong>Request Example</strong></h6><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence" data-theme="Confluence">curl --location -g --request GET &#39;{{proposalsUrl}}/api/proposals/2/40087325000178&#39; \
+--header &#39;Authorization: ApiKey {{token}}&#39;</pre>
+</div></div><p /><p><strong><span style="color: rgb(54,179,126);">GET</span><span style="color: rgb(255,153,31);">    </span>Filter</strong></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: plain; gutter: false; theme: Confluence" data-theme="Confluence">{{proposalsUrl}}/api/proposals</pre>
+</div></div></div>
+</div>
+</div>
+<div class="columnLayout three-equal" data-layout="three-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h6 id="Proposals:Documentação-Bodyraw(json).3"><strong>Body</strong> raw (json)</h6></div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h6 id="Proposals:Documentação-Response.3">Response</h6></div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h6 id="Proposals:Documentação-StatusCode.3">Status Code</h6></div>
+</div>
+</div>
+<div class="columnLayout three-equal" data-layout="three-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p /></div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p /><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+    &quot;count&quot;: 1,
+    &quot;next&quot;: null,
+    &quot;previous&quot;: null,
+    &quot;results&quot;: [
+        {
+            &quot;cnpj&quot;: &quot;40087325000178&quot;,
+            &quot;product_id&quot;: 4,
+            &quot;status&quot;: &quot;accepted&quot;,
+            &quot;reason&quot;: null,
+            &quot;vehicle_id&quot;: &quot;VmVoaWNsZU5vZGU6MQ&quot;,
+            &quot;rates&quot;: [
+                {
+                    &quot;id&quot;: 3,
+                    &quot;tac&quot;: 10.1,
+                    &quot;grace&quot;: 0,
+                    &quot;rate&quot;: 2.2,
+                    &quot;prepayment_fee&quot;: 0,
+                    &quot;amount&quot;: 50000,
+                    &quot;number_installments&quot;: 11
+                }
+            ]
+        }
+    ]
+}</pre>
+</div></div></div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p /></div>
+</div>
+</div>
+<div class="columnLayout two-equal" data-layout="two-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h6 id="Proposals:Documentação-RequestHeaders.3"><strong>Request Headers</strong></h6><blockquote><p><strong>Authorization</strong>    ApiKey {{token}}</p></blockquote></div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h6 id="Proposals:Documentação-RequestParams.3"><strong>Request Params</strong></h6><blockquote><p><strong>cnpj</strong>    764260570001270</p><p><strong>status    </strong>accepted</p></blockquote></div>
+</div>
+</div>
+<div class="columnLayout fixed-width" data-layout="fixed-width">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h6 id="Proposals:Documentação-RequestExample.3"><strong>Request Example</strong></h6><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence" data-theme="Confluence">curl --location -g --request GET &#39;{{proposalsUrl}}/api/proposals?status=accepted&#39; \
+--header &#39;Authorization: ApiKey {{token}}&#39;</pre>
+</div></div><p /><p><strong>PATCH<span style="color: rgb(255,153,31);">    </span>Update</strong></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: plain; gutter: false; theme: Confluence" data-theme="Confluence">{{proposalsUrl}}/api/proposals/update/7</pre>
+</div></div></div>
+</div>
+</div>
+<div class="columnLayout three-equal" data-layout="three-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h6 id="Proposals:Documentação-Bodyraw(json).4"><strong>Body</strong> raw (json)</h6></div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h6 id="Proposals:Documentação-Response.4">Response</h6></div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h6 id="Proposals:Documentação-StatusCode.4">Status Code</h6></div>
+</div>
+</div>
+<div class="columnLayout three-equal" data-layout="three-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+    &quot;status&quot;: &quot;accepted&quot;,
+    &quot;vehicle_id&quot;: &quot;VmVoaWNsZU5vZGU6MQ&quot;
+}</pre>
+</div></div><p /></div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p /><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+    &quot;cnpj&quot;: &quot;40087325000178&quot;,
+    &quot;product_id&quot;: 4,
+    &quot;status&quot;: &quot;accepted&quot;,
+    &quot;reason&quot;: null,
+    &quot;vehicle_id&quot;: &quot;VmVoaWNsZU5vZGU6MQ&quot;
+}</pre>
+</div></div></div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+  200: OK,
+  400: Bad Request,
+  403: Not Authorized,
+  504: Gateway Timeout,
+}</pre>
+</div></div><p /></div>
+</div>
+</div>
+<div class="columnLayout two-equal" data-layout="two-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h6 id="Proposals:Documentação-RequestHeaders.4"><strong>Request Headers</strong></h6><blockquote><p><strong>Authorization</strong>    ApiKey {{token}}</p></blockquote></div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h6 id="Proposals:Documentação-RequestParams.4"><strong>Request Params</strong></h6><p /></div>
+</div>
+</div>
+<div class="columnLayout fixed-width" data-layout="fixed-width">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h6 id="Proposals:Documentação-RequestExample.4"><strong>Request Example</strong></h6><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence" data-theme="Confluence">curl --location -g --request PATCH &#39;{{proposalsUrl}}/api/proposals/update/3&#39; \
+--header &#39;Authorization: ApiKey {{token}}&#39; \
+--data-raw &#39;{
+    &quot;status&quot;: &quot;accepted&quot;,
+    &quot;vehicle_id&quot;: &quot;VmVoaWNsZU5vZGU6MQ&quot;
+}&#39;</pre>
+</div></div><p /><p><strong><span style="color: rgb(191,38,0);">DEL</span><span style="color: rgb(255,153,31);">    </span>Delete</strong></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: plain; gutter: false; theme: Confluence" data-theme="Confluence">{{proposalsUrl}}/api/proposals/delete/1/
+</pre>
+</div></div></div>
+</div>
+</div>
+<div class="columnLayout three-equal" data-layout="three-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h6 id="Proposals:Documentação-Bodyraw(json).5"><strong>Body</strong> raw (json)</h6></div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h6 id="Proposals:Documentação-Response.5">Response</h6></div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h6 id="Proposals:Documentação-StatusCode.5">Status Code</h6></div>
+</div>
+</div>
+<div class="columnLayout three-equal" data-layout="three-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p /></div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p /></div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+  204: No Content,
+  403: Not Authorized,
+  404: Not Found,
+  504: Gateway Timeout,
+}</pre>
+</div></div><p /></div>
+</div>
+</div>
+<div class="columnLayout two-equal" data-layout="two-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h6 id="Proposals:Documentação-RequestHeaders.5"><strong>Request Headers</strong></h6><blockquote><p><strong>Authorization</strong>    ApiKey {{token}}</p></blockquote></div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h6 id="Proposals:Documentação-RequestParams.5"><strong>Request Params</strong></h6><p /></div>
+</div>
+</div>
+<div class="columnLayout fixed-width" data-layout="fixed-width">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h6 id="Proposals:Documentação-RequestExample.5"><strong>Request Example</strong></h6><p /><p><strong><span style="color: rgb(54,179,126);">GET</span><span style="color: rgb(255,153,31);">    </span>Proposals Simulated</strong></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: plain; gutter: false; theme: Confluence" data-theme="Confluence">{{proposalsUrl}}/api/proposals/with-simulation/40087325000178/</pre>
+</div></div></div>
+</div>
+</div>
+<div class="columnLayout three-equal" data-layout="three-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h6 id="Proposals:Documentação-Bodyraw(json).6"><strong>Body</strong> raw (json)</h6></div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h6 id="Proposals:Documentação-Response.6">Response</h6><p /><p /></div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h6 id="Proposals:Documentação-StatusCode.6">Status Code</h6></div>
+</div>
+</div>
+<div class="columnLayout two-equal" data-layout="two-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h6 id="Proposals:Documentação-RequestHeaders.6"><strong>Request Headers</strong></h6><blockquote><p><strong>Authorization</strong>    ApiKey {{token}}</p></blockquote></div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h6 id="Proposals:Documentação-RequestParams.6"><strong>Request Params</strong></h6><p /></div>
+</div>
+</div>
+<div class="columnLayout fixed-width" data-layout="fixed-width">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h6 id="Proposals:Documentação-RequestExample.6"><strong>Request Example</strong></h6><p /><p><strong><span style="color: rgb(54,179,126);">GET</span><span style="color: rgb(255,153,31);">    </span>Simulate Without Vehicle</strong></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: plain; gutter: false; theme: Confluence" data-theme="Confluence">{{proposalsUrl}}/api/proposals/without-vehicle</pre>
+</div></div></div>
+</div>
+</div>
+<div class="columnLayout three-equal" data-layout="three-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h6 id="Proposals:Documentação-Bodyraw(json).7"><strong>Body</strong> raw (json)</h6></div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h6 id="Proposals:Documentação-Response.7">Response</h6></div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h6 id="Proposals:Documentação-StatusCode.7">Status Code</h6></div>
+</div>
+</div>
+<div class="columnLayout two-equal" data-layout="two-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p /></div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p /><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">[
+    {
+        &quot;cnpj&quot;: &quot;40087325000178&quot;,
+        &quot;proposalId&quot;: 4,
+        &quot;status&quot;: &quot;pending allocation&quot;,
+        &quot;rates&quot;: {
+            &quot;valueMax&quot;: 50000,
+            &quot;termOperation&quot;: 12
+        }
+    }
+]</pre>
+</div></div></div>
+</div>
+</div>
+<div class="columnLayout two-equal" data-layout="two-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h6 id="Proposals:Documentação-RequestHeaders.7"><strong>Request Headers</strong></h6><blockquote><p><strong>Authorization</strong>    ApiKey {{token}}</p></blockquote></div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h6 id="Proposals:Documentação-RequestParams.7"><strong>Request Params</strong></h6><p /></div>
+</div>
+</div>
+<div class="columnLayout fixed-width" data-layout="fixed-width">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h6 id="Proposals:Documentação-RequestExample.7"><strong>Request Example</strong></h6><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence" data-theme="Confluence">curl --location -g --request GET &#39;{{proposalsUrl}}/api/proposals/without-vehicle&#39;</pre>
+</div></div><p /><p><strong><span style="color: rgb(255,153,31);">POST    </span>Simulation QiTech</strong></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: plain; gutter: false; theme: Confluence" data-theme="Confluence">{{proposalsUrl}}/api/qitech</pre>
+</div></div></div>
+</div>
+</div>
+<div class="columnLayout three-equal" data-layout="three-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h6 id="Proposals:Documentação-Bodyraw(json).8"><strong>Body</strong> raw (json)</h6></div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h6 id="Proposals:Documentação-Response.8">Response</h6></div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h6 id="Proposals:Documentação-StatusCode.8">Status Code</h6></div>
+</div>
+</div>
+<div class="columnLayout two-equal" data-layout="two-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+    &quot;amount&quot;: 20000,
+    &quot;rate&quot;: 1,
+    &quot;grace&quot;: 1,
+    &quot;number_installments&quot;: 12
+}</pre>
+</div></div><p /></div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p /><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+    &quot;data&quot;: {
+        &quot;annual_cet&quot;: 139.06919925228192,
+        &quot;assignment_amount&quot;: 20000,
+        &quot;cet&quot;: 0.5096,
+        &quot;contract_fee_amount&quot;: 0,
+        &quot;contract_fees&quot;: [],
+        &quot;credit_operation_type&quot;: &quot;ccb&quot;,
+        &quot;disbursed_issue_amount&quot;: 19168.02,
+        &quot;disbursement_date&quot;: &quot;2021-08-17&quot;,
+        &quot;external_contract_fee_amount&quot;: 0,
+        &quot;external_contract_fees&quot;: [
+            {
+                &quot;amount&quot;: 0,
+                &quot;amount_type&quot;: &quot;absolute&quot;,
+                &quot;fee_amount&quot;: 0,
+                &quot;fee_type&quot;: &quot;tac&quot;,
+                &quot;net_fee_amount&quot;: 0,
+                &quot;tax_amount&quot;: 0
+            }
+        ],
+        &quot;installments&quot;: [
+            {
+                &quot;business_due_date&quot;: &quot;2021-10-18&quot;,
+                &quot;calendar_days&quot;: 62,
+                &quot;due_date&quot;: &quot;2021-10-18&quot;,
+                &quot;due_principal&quot;: 29943.105,
+                &quot;has_interest&quot;: true,
+                &quot;installment_number&quot;: 1,
+                &quot;post_fixed_amount&quot;: 0,
+                &quot;pre_fixed_amount&quot;: 14886.37,
+                &quot;principal_amortization_amount&quot;: 177.83,
+                &quot;tax_amount&quot;: 0.90408772,
+                &quot;total_amount&quot;: 15064.2,
+                &quot;workdays&quot;: 42
+            },
+        
+        ],
+        &quot;interest_grace_period&quot;: 1,
+        &quot;interest_payment_month_period&quot;: 1,
+        &quot;interest_type&quot;: &quot;pre_price&quot;,
+        &quot;iof_amount&quot;: 831.98,
+        &quot;issue_amount&quot;: 20000,
+        &quot;issue_date&quot;: &quot;2021-08-17&quot;,
+        &quot;net_external_contract_fee_amount&quot;: 0,
+        &quot;number_of_installments&quot;: 12,
+        &quot;operation_type&quot;: &quot;structured_operation&quot;,
+        &quot;post_fixed_interest_base&quot;: &quot;workdays&quot;,
+        &quot;post_fixed_interest_rate&quot;: null,
+        &quot;prefixed_interest_rate&quot;: {
+            &quot;annual_rate&quot;: 125.82417946,
+            &quot;daily_rate&quot;: 0.01354312,
+            &quot;interest_base&quot;: &quot;calendar_days&quot;,
+            &quot;monthly_rate&quot;: 0.49715525
+        },
+        &quot;principal_amortization_month_period&quot;: 1,
+        &quot;principal_grace_period&quot;: 1,
+        &quot;total_pre_fixed_amount&quot;: 135763.55
+    },
+    &quot;event_datetime&quot;: &quot;2021-08-12 09:59:39&quot;,
+    &quot;key&quot;: &quot;3f120343-4f49-4fbd-a643-e6095a308963&quot;,
+    &quot;status&quot;: &quot;finished&quot;,
+    &quot;type&quot;: &quot;debt&quot;
+}</pre>
+</div></div></div>
+</div>
+</div>
+<div class="columnLayout two-equal" data-layout="two-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h6 id="Proposals:Documentação-RequestHeaders.8"><strong>Request Headers</strong></h6><blockquote><p><strong>Authorization</strong>    ApiKey {{token}}</p></blockquote></div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h6 id="Proposals:Documentação-RequestParams.8"><strong>Request Params</strong></h6><p /></div>
+</div>
+</div>
+<div class="columnLayout fixed-width" data-layout="fixed-width">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h6 id="Proposals:Documentação-RequestExample.8"><strong>Request Example</strong></h6><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence" data-theme="Confluence">curl --location -g --request POST &#39;{{proposalsUrl}}/api/simulation&#39; \
+--data-raw &#39;{
+    &quot;amount&quot;: 20000,
+    &quot;rate&quot;: 2,
+    &quot;grace&quot;: 50,
+    &quot;number_installments&quot;: 12
+}&#39;</pre>
+</div></div><p /><p><strong>PATCH    Update Rate</strong></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: plain; gutter: false; theme: Confluence" data-theme="Confluence">{{proposalsUrl}}/api/rates/3</pre>
+</div></div></div>
+</div>
+</div>
+<div class="columnLayout three-equal" data-layout="three-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h6 id="Proposals:Documentação-Bodyraw(json).9"><strong>Body</strong> raw (json)</h6></div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h6 id="Proposals:Documentação-Response.9">Response</h6></div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h6 id="Proposals:Documentação-StatusCode.9">Status Code</h6></div>
+</div>
+</div>
+<div class="columnLayout two-equal" data-layout="two-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+    &quot;tac&quot;:10.1
+}</pre>
+</div></div><p /></div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p /><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+    &quot;tac&quot;: 10.1,
+    &quot;grace&quot;: 0,
+    &quot;rate&quot;: &quot;2.2&quot;,
+    &quot;prepayment_fee&quot;: 0,
+    &quot;amount&quot;: 50000,
+    &quot;number_installments&quot;: 11,
+    &quot;proposal&quot;: 3
+}</pre>
+</div></div></div>
+</div>
+</div>
+<div class="columnLayout two-equal" data-layout="two-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h6 id="Proposals:Documentação-RequestHeaders.9"><strong>Request Headers</strong></h6><blockquote><p><strong>Authorization</strong>    ApiKey {{token}}</p></blockquote></div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h6 id="Proposals:Documentação-RequestParams.9"><strong>Request Params</strong></h6><p /></div>
+</div>
+</div>
+<div class="columnLayout fixed-width" data-layout="fixed-width">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h6 id="Proposals:Documentação-RequestExample.9"><strong>Request Example</strong></h6><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: bash; gutter: false; theme: Confluence" data-theme="Confluence">curl --location -g --request PUT &#39;{{proposalsUrl}}/api/rates/3&#39; \
+--header &#39;Authorization: ApiKey {{token}}&#39; \
+--data-raw &#39;{
+    &quot;tac&quot;:10.1
+}&#39;</pre>
+</div></div><p /><p><strong><span style="color: rgb(255,153,31);">POST    </span>Create Operation</strong></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: plain; gutter: false; theme: Confluence" data-theme="Confluence">{{proposalsUrl}}/api/operations/register</pre>
+</div></div></div>
+</div>
+</div>
+<div class="columnLayout three-equal" data-layout="three-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h6 id="Proposals:Documentação-Bodyraw(json).10"><strong>Body</strong> raw (json)</h6></div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h6 id="Proposals:Documentação-Response.10">Response</h6></div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h6 id="Proposals:Documentação-StatusCode.10">Status Code</h6></div>
+</div>
+</div>
+<div class="columnLayout two-equal" data-layout="two-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence">{
+    &quot;disbursementDate&quot;:&quot;2021-08-21&quot;,
+	&quot;bankName&quot;: &quot;1&quot;,
+	&quot;bankAgency&quot;: &quot;2&quot;,
+	&quot;bankAgencyDigit&quot;: &quot;3&quot;,
+	&quot;bankAccount&quot;: &quot;4&quot;,
+	&quot;bankAccountDigit&quot;: &quot;5&quot;,
+	&quot;rateId&quot;: &quot;2&quot;,
+	&quot;vehicleId&quot;: &quot;VmVoaWNsZU5vZGU6MQ==&quot;,
+	&quot;guarantors&quot;: [
+		{
+			&quot;cpf&quot;: &quot;40480241830&quot;,
+			&quot;name&quot;: &quot;Teste&quot;
+		}
+	],
+    &quot;productId&quot;: 4
+}</pre>
+</div></div><p /></div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<p /></div>
+</div>
+</div>
+<div class="columnLayout two-equal" data-layout="two-equal">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h6 id="Proposals:Documentação-RequestHeaders.10"><strong>Request Headers</strong></h6><blockquote><p><strong>Authorization</strong>    ApiKey {{token}}</p></blockquote></div>
+</div>
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h6 id="Proposals:Documentação-RequestParams.10"><strong>Request Params</strong></h6><p /></div>
+</div>
+</div>
+<div class="columnLayout fixed-width" data-layout="fixed-width">
+<div class="cell normal" data-type="normal">
+<div class="innerCell">
+<h6 id="Proposals:Documentação-RequestExample.10"><strong>Request Example</strong></h6><p /></div>
+</div>
+</div>
+</div>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Dec 29, 2022 17:43</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

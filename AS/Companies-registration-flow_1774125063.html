@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Plataforma a55 : Companies registration flow</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Plataforma a55</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Plataforma-a55_208765064.html">Plataforma a55</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="1763541012.html">Documentação sobre micro-serviços a55</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Plataforma a55 : Companies registration flow
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Tech A55</span> on Aug 31, 2021
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p><strong>Purpose of the feature:</strong></p><p>The purpose of this flow is to collect the data of the company that is applying for credit, which is received in the registration form (plataforma.a55.tech/cadastro) and create the record of that company in our database.</p><p><em>Data obtained throughout form registration:</em></p><p>-TaxId</p><p>-Average monthly revenue</p><p>-Contact data</p><p>It is noteworthy that this process does not only use the data provided by the customer, but also consultations with external services that provide additional data about the company, using their tax-id as input.</p><p><em>Data obtained throughout external API</em> (BigDataCorp: <a class="external-link" data-card-appearance="inline" href="https://bigdatacorp.com.br/" rel="nofollow">https://bigdatacorp.com.br/</a> )</p><p>-Naic code</p><p>-Foundation date</p><p>-Corporate name</p><p>-Fantasy name</p><p>-Address </p><p>-Social Capital</p><p>-TaxRegime</p><p><strong>How-it-works: </strong></p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/1774125063/1774157850.png" data-image-src="attachments/1774125063/1774157850.png" data-height="351" data-width="663" data-unresolved-comment-count="0" data-linked-resource-id="1774157850" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20210831-202254.png" data-base-url="https://a55tech.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1774125063" data-linked-resource-container-version="1" data-media-id="12a65597-ee69-4c0d-bd98-849276aeeff5" data-media-type="file"></span><p /><p><strong>Technical documentation:</strong></p><p><strong>client-manager</strong><br/>method: POST<br/>body:<br/>{<br/>&quot;cnpj&quot;: &quot;07900208007704&quot;,<br/>&quot;name&quot;: &quot;&quot;,<br/>&quot;email&quot;: &quot;<a class="external-link" href="mailto:pamg@mail.com" rel="nofollow">pamg@mail.com</a>&quot;,<br/>&quot;phone&quot;: &quot;979522487&quot;<br/>}<br/>status_code:<br/>201 - Criado com sucesso<br/>404 - Not found<br/>400 - Validation error<br/>500 - Internal error</p><p><strong>bigdatacorp</strong><br/>method: GET<br/>body: Querystring - url?tax_id=TAX_ID<br/>status_code:<br/>200 - Sucesso<br/>404 - Not found<br/>500 - Internal error</p><p><strong>auth:</strong><br/>method: POST<br/>body:<br/>{<br/>&quot;first_name&quot;: &quot;HubSpot&quot;,<br/>&quot;last_name&quot;: &quot;Manager&quot;,<br/>&quot;email&quot;: &quot;hubspot-manager-api@a55.tech&quot;,<br/>&quot;password&quot;: &quot;c9211f19-8fad-4772-a8ee-72a39be93240&quot;,<br/>&quot;cnpj&quot;: &quot;39817616000195&quot;,<br/>&quot;operation_type&quot;: 4<br/>}<br/>status_code:<br/>201 - Criado com sucesso<br/>404 - Not found<br/>400 - Validation error<br/>500 - Internal error<br/> </p><p><strong>Programming lenguage</strong></p><p>Back-end: Python v3.</p><p>Frame-work: Django Rest for apis</p><p>Front-end: View-JS &amp; TypeScript</p><p>For mobile: Flatur</p><p>Infrastructure: AWS</p><p>BR Data-base: PostGreSQL</p><p> </p><p /><p><br/></p>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1774125063/1773797387.png">image-20210810-165026.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1774125063/1773797394.png">new-bpmn-diagram.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1774125063/1774157850.png">image-20210831-202254.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Dec 29, 2022 17:43</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

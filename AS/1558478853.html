@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Plataforma a55 : Atualização do simulador de crédito</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Plataforma a55</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Plataforma-a55_208765064.html">Plataforma a55</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Plataforma a55 : Atualização do simulador de crédito
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Daniel de Almeida</span>, last modified on Aug 03, 2021
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>O simulador pricing do site a55.tech foi atualizado com o objetivo de corrigir as altas taxas de juros para prazos e alavancagens altas. Basicamente foram propostas duas modificações:</p><p><strong>1- </strong>Não serão simulados empréstimos com alavancagem (valor que o cliente gostaria / faturamento) maior do que 5 vezes, de modo que se o cliente selecionar uma alavancagem maior do que esse limite, iremos travar o valor emprestado como 5 vezes o faturamento mensal médio nos últimos três meses.</p><p><strong>2-</strong> A taxa de juros calculada no nosso pricing final depende basicamente do rating e do prazo, sendo os valores médios reportados na Tabela 1.</p><p /><p>Tabela 1: Valores médios da taxa de juros dado o prazo e o rating do cliente.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/1558478853/1559003152.png" data-image-src="attachments/1558478853/1559003152.png" data-height="207" data-width="810" data-unresolved-comment-count="0" data-linked-resource-id="1559003152" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20210610-203156.png" data-base-url="https://a55tech.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1558478853" data-linked-resource-container-version="4" data-media-id="ec34393e-a9c3-408b-a7d5-999c70b7aa63" data-media-type="file"></span><p>Como no momento em que o cliente está fazendo a simulação não há nenhuma informação além da sua receita média nos últimos 3 meses e o valor que deseja contratar, o rating é estimado por uma combinação de receita e alavancagem, segundo proposto na Tabela 2.</p><p /><p>Tabela 2: Estimativa do rating pela receita e alavancagem.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/1558478853/1735852033.png" data-image-src="attachments/1558478853/1735852033.png" data-height="209" data-width="566" data-unresolved-comment-count="0" data-linked-resource-id="1735852033" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20210803-194244.png" data-base-url="https://a55tech.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1558478853" data-linked-resource-container-version="4" data-media-id="43f714da-3c47-4ed7-bf01-2f94652d7408" data-media-type="file"></span><p>Portanto, dado a receita do cliente e o valor desejado, obtém-se o rating pela Tabela 2. Uma vez disponíveis o rating e o prazo, encontra-se a taxa de juros pela Tabela 1. Finalmente, o valor da parcela (P), a ser pago pelo cliente, segue a mesma fórmula da versão anterior</p><span class="confluence-embedded-file-wrapper image-center-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image image-center" width="204" loading="lazy" src="attachments/1558478853/1558806536.png?width=204" data-image-src="attachments/1558478853/1558806536.png" data-height="154" data-width="390" data-unresolved-comment-count="0" data-linked-resource-id="1558806536" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20210610-183920.png" data-base-url="https://a55tech.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1558478853" data-linked-resource-container-version="4" data-media-id="8ff9c6a4-c3bb-47d2-a6ae-712efa4e9bbb" data-media-type="file"></span><p>onde PV é o valor emprestado, n é o prazo e i é o juros.<br/></p><p><strong>Obs.:</strong> Foi considerado criar um intervalo de confiança para a taxa de juros. Por exemplo, se o simulador estima 1,3% de juros, o juros poderia ser entre 0,7% e 1,6%. No entanto, é possível que o risco do cliente seja bem maior depois de analisado seu perfil e o juros acabe sendo 4%, por exemplo. Nesse caso, o cliente esperaria pagar no máximo 1,6% e a proposta final seria 4%, frustrando suas expectativas. Por isso, foi decidido não seguir com uma previsão intervalar.</p><p>A tabela 3 ilustra alguns exemplos de simulações de empréstimo.</p><p /><p>Tabela 3: Exemplo de simulações.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/1558478853/1559035905.png" data-image-src="attachments/1558478853/1559035905.png" data-height="197" data-width="917" data-unresolved-comment-count="0" data-linked-resource-id="1559035905" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="image-20210610-183951.png" data-base-url="https://a55tech.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1558478853" data-linked-resource-container-version="4" data-media-id="f652a7ff-2e33-429d-bd40-f12ec802ab7e" data-media-type="file"></span><p><br/>O repositório utilizado para implantar o simulador pode ser acessado pelo link:</p><p><a class="external-link" href="https://www.google.com/url?q=https://codepen.io/a55-tech/pen/3beecce82a5eee578452a71d1a68a09e&amp;sa=D&amp;source=hangouts&amp;ust=1623436076911000&amp;usg=AFQjCNHHbGCPxxTtpnxTPA3daFKvQMkyMw" rel="nofollow">https://codepen.io/a55-tech/pen/3beecce82a5eee578452a71d1a68a09e</a></p>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1558478853/1558937601.png">image-20210610-183828.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1558478853/1559003137.png">image-20210610-183857.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1558478853/1558806536.png">image-20210610-183920.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1558478853/1559035905.png">image-20210610-183951.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1558478853/1558970373.png">image-20210610-203134.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1558478853/1559003152.png">image-20210610-203156.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1558478853/1735852033.png">image-20210803-194244.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Dec 29, 2022 17:44</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>
