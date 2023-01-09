@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pricing : Integrações</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Pricing</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Pricing_871628936.html">Pricing</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Pricing : Integrações
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Felipe Lima</span>, last modified by <span class='editor'> Helena Leite</span> on Mar 12, 2021
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <ul><li><p><strong>O que temos HOJE em termos de análise</strong></p></li></ul><p><br/></p><ul><li><p><strong>Como analisamos o Comportamento da Receita:</strong></p></li></ul><ul><li><p><strong>Estabilidade da receita</strong>: Averiguar a presença de sazonalidade no negócio.</p></li><li><p><strong>Recorrência da base de cliente</strong>: Verificar a probabilidade de um cliente voltar a comprar daquela empresa após a primeira experiência (recorrência estatística).</p></li><li><p><strong>Evolução da Frequência de Vendas:</strong> Verificar o quão rápido o negócio está crescendo, no que tange a captação de clientes, ou seja, a cadência da recorrência.</p></li><li><p><strong>Crescimento do Faturamento: </strong>Verificar o quão rápido o negócio está crescendo financeiramente.</p></li><li><p><strong>Concentração de clientes: </strong>Verificar a concentração da base de clientes na receita da empresa</p></li></ul><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/914358276/1107951632" data-image-src="attachments/914358276/1107951632" data-height="542" data-width="242" data-unresolved-comment-count="0" data-linked-resource-id="1107951632" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="i62NIQmoBiaT3LlT3CwL1C0GfUSc_bgLlTntDC0xZE7cdcrqkHxCIi_4fcXNo9pNkt1E250jnA4X6xCPJWt23KfX3zIvlJWEDLQ3sRJ7bZ6Wtpsq0xHnwzGNmmVdbBiPnVPEsHeJ" data-base-url="https://a55tech.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="914358276" data-linked-resource-container-version="2" data-media-id="d70d43d8-b6ed-4f3a-b54f-8585093e4c0e" data-media-type="file"></span><p><br/></p><ul><li><p><strong>Quais são os Dados Transacionais que usamos ⇒ </strong> </p></li></ul><ul><li><p><strong>Porque usamos esse tipo de dado: </strong>temos uma <u>estratégia ativa</u> de aquisição de dados transacionais por meio de adquirentes, e tais players tem uma visão mais &quot;limitada&quot; das informações das empresas, se limitando aos dados transacionais financeiros </p></li><li><p><strong>E porque esse dataset:</strong> Selecionamos os dados ao lado pois são os que estão presente em todas as adquirentes que temos (e são os básicos), logo possamos usar esse modelo para todos os adquirentes</p></li><li><p><em><strong>PS: </strong>Dados Transacionais (na nossa visão atual) são os dados das transações de cartão de crédito, que mostram todas as vendas realizadas pela empresa, os valores, etc.</em> </p></li></ul><p><br/></p><ul><li><p><strong>E onde usamos/quem precificamos com esse modelo </strong></p></li></ul><ul><li><p>qualquer empresa que tivermos acesso a esse dataset mínimo, seja via integração direta na plataforma, ou via integração indireta via API de parceiros</p></li><li><p>se tivermos mais dados disponíveis, queremos usá-los para melhorar a análise, mas decidimos ter uma versão básica enquanto construímos isso</p></li></ul><p><br/></p><ul><li><p><strong>Onde queremos chegar e o que é importante</strong></p></li></ul><p><br/></p><ul><li><p><strong>Data lake &lt;&gt; dados, dados, e mais dados… </strong></p></li></ul><ul><li><p>para criarmos modelos estatísticos de comportamento e correlações, temos que ter volumes consideráveis de dados (mais dados, mais qualidade da análise) </p></li><li><p>quanto mais diverso são os datasets, mais análises podemos fazer, e gerar insights melhores</p><ul><li><p>modelos estatísticos não são baseados em regras de negócios, mas sim no comportamento e interação entre os dados, e elas podem ser das mais diversas possíveis! </p></li></ul></li><li><p><strong>Clusterização</strong>: juntar empresas baseadas nas suas características em comum nos permite comparar o comportamento delas, identificando padrões de comportamento, sejam eles de crescimento ou qual a probabilidade de uma empresa não pagar um empréstimo. Quanto maior a granularidade e a diversidade dos dados, melhor é a clusterização.</p></li><li><p><strong>Resumindo</strong>: como não sabemos o que pode ser uma correlação relevante, não podemos/devemos limitar nossos datasets.</p></li></ul><p><br/></p><ul><li><p><strong>Outros datasets que se mostram ser drivers da receita - os mais óbvios pelo menos =) </strong></p></li></ul><ul><li><p>quais os produtos que são vendidos (qts produtos, quais vendem mais, quando eles vendem)</p></li><li><p>quais os clientes que compram - onde moram, qual a recorrência, qual o ticket médio por cliente, etc</p></li><li><p>quais os canais que ele está presente - % vendas no site próprio, marketplace (quais estão), etc</p></li><li><p>como é a logística do seller - usa correios ou transportadora, qual o tempo médio de entrega, etc</p></li></ul><p><strong>Resumindo</strong>: quanto mais dados tivermos, melhor podemos entender como a receita se comporta, e precificar melhor a empresa</p><p /><p /><p />
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/914358276/1107951632">i62NIQmoBiaT3LlT3CwL1C0GfUSc_bgLlTntDC0xZE7cdcrqkHxCIi_4fcXNo9pNkt1E250jnA4X6xCPJWt23KfX3zIvlJWEDLQ3sRJ7bZ6Wtpsq0xHnwzGNmmVdbBiPnVPEsHeJ</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Dec 29, 2022 17:46</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>
