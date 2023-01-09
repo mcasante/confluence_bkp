@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Parcerias : Iugu</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Parcerias</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="903872576.html">Integração e e-commerce</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Arquivo-Morto-2022_1924005889.html">Arquivo Morto 2022</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Iniciativas-2021_1961427061.html">Iniciativas 2021</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Parceiros_903938063.html">Parceiros</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Projetos_1750728709.html">Projetos</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Parcerias : Iugu
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> andreia.brizolla</span>, last modified on Aug 17, 2021
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p><br/>A Iugu é uma fintech de meios de pagamento e plataforma de automação financeira para empresas. A primeira fase da parceria visa a realização de uma POC  para disponibilização de crédito para os clientes Iugu.</p><p>A a55 já possui um integração com a Iugu que permite os usuários vincularem a conta de adquirente da Iugu como fonte de dados para obtenção de crédito.</p><p><strong>Fluxo inicial proposto para a POC</strong></p><p><strong>Objetivo: </strong>Validar o potencial de disponibilizar um serviço de crédito na plataforma da Iugu.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image image-center" loading="lazy" src="attachments/1750761488/1758396425.png" data-image-src="attachments/1750761488/1758396425.png" data-height="573" data-width="855" data-unresolved-comment-count="0" data-linked-resource-id="1758396425" data-linked-resource-version="2" data-linked-resource-type="attachment" data-linked-resource-default-alias="A55-Fluxo_Iugu (1).png" data-base-url="https://a55tech.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="1750761488" data-linked-resource-container-version="5" data-media-id="c860a06a-cf0b-48e8-9895-37c20bad95cf" data-media-type="file"></span><p><br/>Onde:</p><ol><li><p>Através de um botão inserido no dashboard do cliente ele solicita o crédito.</p><ol><li><p>Deverá ser implementado um filtro que só possibilite a solicitação de crédito<br/>para clientes dentro do ICP da a55 (anexo)</p></li></ol></li><li><p>Iugu cria uma lista de solicitações do clientes;</p></li><li><p>Iugu envia para a55 as solicitações e dados para gerar as propostas. Os dados<br/>podem ser enviados em arquivos separados entre dados de cadastro e dados<br/>transacionais.</p><ol><li><p>Definir qual será a periodicidade de envio das listas;</p></li><li><p>Dados de cadastro dos usuário solicitantes (.csv)</p><ol><li><p>cnpj (CNpj da empresa)</p></li><li><p>email (e-mail do cliente)</p></li><li><p>resp_first_name (nome do responsável pelo pedido)</p></li><li><p>resp_last_name (sobrenome do responsável pelo pedido)</p></li><li><p>fantasy_name (nome fantasia da empresa)</p></li><li><p>telephone (telefone contato empresa)</p></li><li><p>telephone2 (telefone de contato empresa);</p></li></ol></li><li><p>Dados transacionais dos usuário solicitantes (.csv)</p><ol><li><p>cnpj (CNpj da empresa)</p></li><li><p>period (O período que as transações deverão ser enviadas é diário -<br/>valor consolidado/dia)</p></li><li><p>quantity (Quantidade de vendas dentro período enviado)</p></li><li><p>amount (Total de vendas dentro do período enviado);</p></li></ol></li></ol></li></ol><p /><p>Para garantir a geração de uma proposta final é indispensável que os dados apresentados<br/>sejam de no mínimo 06 meses contendo os valores diários das transações.<br/>Obs.: Certificar-se de que a política de uso de dados da Iugu permite o compartilhamento.</p><p>4. a55 gera as propostas;<br/>5. a55 cria o cadastros das empresas;<br/>6. a55 disponibiliza um arquivo com as propostas e um link de acesso que levará o<br/>usuário para o cadastro de senha e em seguida será inserido na etapa de aceitar a<br/>propostas e formalizar o crédito;<br/>7. Iugu envia por e-mail as propostas para os clientes;<br/>8. Cliente clica no link e é direcionado para cadastrar uma senha e acessar o aceite de<br/>proposta na plataforma da a55;<br/>9. Ao clicar no link o acesso do usuário é criado automaticamente, o usuário cria uma<br/>senha e acessa a etapa de aceite da proposta;<br/>10. O cliente segue a jornada para finalizar a tomada de crédito (enviar documentos,<br/>assinar contrato, desembolso).</p>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1750761488/1757839393.png">A55-Fluxo_Iugu (1).png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1750761488/1758396425.png">A55-Fluxo_Iugu (1).png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1750761488/1757806660.pdf">TARGET DE CLIENTES - A55  (1).pdf</a> (application/pdf)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1750761488/1758658626.pdf">TARGET DE CLIENTES - A55  (1).pdf</a> (application/pdf)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/1750761488/1758330953.pdf">TARGET DE CLIENTES - A55  (1).pdf</a> (application/pdf)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Dec 29, 2022 17:42</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

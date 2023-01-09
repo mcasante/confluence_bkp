@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Parcerias : Parcerias - Proposta unitária</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Parcerias</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="903872576.html">Integração e e-commerce</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Arquivo-Morto-2022_1924005889.html">Arquivo Morto 2022</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="Memos-Parcerias_1961721983.html">Memos Parcerias</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Parcerias : Parcerias - Proposta unitária
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Tamila Hohlenverger</span>, last modified on Jun 24, 2022
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>Com esta funcionalidade, seu cliente pode solicitar uma linha de crédito e obter uma proposta personalizada de forma fácil e rápida, baseada nos dados transacionais da sua base.</p><p>Criamos um layout personalizado seguindo todos os padrões da sua marca para que seu cliente possa ter uma proposta de crédito pré-aprovada em uma experiência integrada dentro da sua plataforma ( Para obter mais informações sobre layout personalizado entre em contato com <strong>integracao@a55.tech</strong>.</p><p>Nós cuidamos da complexidade e você impulsiona seu cliente!</p><blockquote><p>📘</p><p>Guia de Integração</p><p>Utilize o layout personalizado para incluir a solução no seu painel <strong>(entre em contato através do e-mail integracao@a55.tech e solicite seu layout)</strong>.</p></blockquote><p>A seguir estão descritos o status que serão retornados para cada ação do cliente ao acessar a área da a55. O endpoint poderá devolver os seguintes status &quot;NEW&quot; , &quot;ANALYSIS&quot; , &quot;SENT&quot; ,&quot;ONGOING&quot;, &quot;REJECTED&quot;. Cada status define a tela que o cliente será redirecionado.</p><p><strong>Status &quot;NEW&quot;:</strong></p><p>Cliente: Acessa a área da a55 na plataforma do parceiro.<br/>Parceiro: Verifica no endpoint o status do CNPJ <a class="external-link" href="https://docs.a55.tech/reference/verificar-status-do-cliente" rel="nofollow"><u>Verificar Status do Cliente</u></a> do cliente logado e exibe tela simulador de crédito disponível em <a class="external-link" href="https://codepen.io/a55-tech/pen/3beecce82a5eee578452a71d1a68a09e" rel="nofollow"><u>simulador de crédito</u></a>.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image confluence-external-resource image-center" src="https://files.readme.io/46ec5fe-status_1.png" data-image-src="https://files.readme.io/46ec5fe-status_1.png" loading="lazy"></span><p>Cliente: Simula as condições do credito desejado. O botão &quot;Quero uma proposta&quot; envia um pedido.<br/>Parceiro: Enviar no endpoint <a class="external-link" href="https://docs.a55.tech/reference/proposta-unit%C3%A1ria#solicitar-proposta" rel="nofollow"><u>Solicitar Proposta</u></a> a seguinte <a class="external-link" href="https://docs.a55.tech/reference/estrutura-de-dados" rel="nofollow"><u>Estrutura de dados</u></a>:</p><p>cnpj &gt; CNPJ do cliente.<br/>email &gt; E-mail do cliente<br/>resp_first_name &gt; Nome do responsável<br/>resp_last_name &gt; Sobrenome do responsável<br/>fantasy_name &gt; Nome fantasia do Cliente<br/>sim_amount &gt; Valor simulado<br/>sim_installments &gt; Quantidade de parcelas no simulador<br/>sim_avg_billing &gt; Media de faturamento no simulador<br/>sim_value_parcel &gt; Valor da parcela no simulador<br/>sim_value_parcel_total &gt; Valor total a pagar no simulador<br/>period_unit &gt; Tipo de período que as transações serão enviadas. Valores possíveis: &quot;d&quot; ,&quot;m&quot; (Diário ,Mensal)<br/>total_quantity &gt; Somatorio do campo &quot;quantity&quot; dentro das transações enviadas<br/>total_amount &gt; Somatorio do campo &quot;amount&quot; dentro das transações enviadas<br/>total_transaction &gt; Total de transações enviadas<br/>business_type &gt; Tipo de Negocio do cliente<br/>google_analytics &gt; ID do Google Analytics do cliente<br/>transactions &gt; Lista de objetos de transação</p><p>Após o envio do pedido cliente deverá ser redirecionado para a tela &quot;Resumo do Pedido&quot;</p><p><strong>Status &quot;ANALYSIS&quot;:</strong></p><p>Cliente: Acessa a área da a55 na plataforma do Parceiro.<br/>Parceiro: Consulta as informações do pedido disponíveis no endpoint<br/><a class="external-link" href="https://docs.a55.tech/reference/buscar-pedido-de-proposta" rel="nofollow"><u>Buscar Solicitação de Proposta</u></a> e exibe a tela resumo do pedido disponível em <a class="external-link" href="https://codepen.io/a55-tech/full/d2936174d82559ae76059165e5c6b5ca" rel="nofollow"><u>Resumo do Pedido</u></a>.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image confluence-external-resource image-center" src="https://files.readme.io/b2e6691-analysis1.JPG" data-image-src="https://files.readme.io/b2e6691-analysis1.JPG" loading="lazy"></span><p><strong>Status &quot;SENT&quot;</strong></p><p>Cliente: Acessa a área da a55 na plataforma do Parceiro.<br/>Parceiro: Consulta propostas no endpoint <a class="external-link" href="https://docs.a55.tech/reference/buscar-propostas-do-ultimo-pedido" rel="nofollow"><u>Buscar Propostas do Ultimo Pedido</u></a> e exibe a tela de propostas disponível em <a class="external-link" href="https://codepen.io/a55-tech/full/2afd9e799ac052dd77d48d4837d5dafc" rel="nofollow"><u>Propostas</u></a>.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image confluence-external-resource image-center" src="https://files.readme.io/01ebeb4-propostafirme1.JPG" data-image-src="https://files.readme.io/01ebeb4-propostafirme1.JPG" loading="lazy"></span><p>Ao clicar no botão &quot;Avançar com está proposta na a55&quot; cliente será redirecionado para finalizar o processo através do link disponível no endpoint <a class="external-link" href="https://docs.a55.tech/reference/buscar-pedido-de-proposta" rel="nofollow"><u>Buscar Solicitação de Proposta</u></a>.</p><p><strong>Status &quot;REJECTED&quot;:</strong></p><p>Cliente: Acessa a área da a55 na plataforma do Parceiro.<br/>Parceiro: Consulta propostas no endpoint <a class="external-link" href="https://docs.a55.tech/reference/buscar-propostas-do-ultimo-pedido" rel="nofollow"><u>Buscar Propostas do Ultimo Pedido</u></a> e exibe tela de proposta negada, disponível em <a class="external-link" href="https://codepen.io/a55-tech/full/2057bb849d1225ddf90e07556d5eea0d" rel="nofollow"><u>proposta negada</u></a>.</p><p>&quot;Acessar a a55&quot; redireciona o cliente para o blog com conteúdos de gestão financeira através do link que disponível no endpoint <a class="external-link" href="https://docs.a55.tech/reference/buscar-pedido-de-proposta" rel="nofollow"><u>Buscar Solicitação de Proposta</u></a></p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image confluence-external-resource image-center" src="https://files.readme.io/57a4ead-proposta_negada.jpg" data-image-src="https://files.readme.io/57a4ead-proposta_negada.jpg" loading="lazy"></span><p><strong>Status &quot;ONGOING&quot;</strong></p><p>Cliente: Acessa a área da a55 na plataforma do Parceiro.<br/>Parceiro: Busca propostas no endpoint <a class="external-link" href="https://docs.a55.tech/reference/buscar-propostas-do-ultimo-pedido" rel="nofollow"><u>Buscar Propostas do Ultimo Pedido</u></a> e exibe tela processo em andamento [Em andamento] <a class="external-link" data-card-appearance="inline" href="https://codepen.io/a55-tech/full/7e8d3dbf90962d0de5ef22ab54671e12" rel="nofollow">https://codepen.io/a55-tech/full/7e8d3dbf90962d0de5ef22ab54671e12</a> ).</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image confluence-external-resource image-center" src="https://files.readme.io/ac7c2fc-ongoing.JPG" data-image-src="https://files.readme.io/ac7c2fc-ongoing.JPG" loading="lazy"></span><p>Ao clicar no botão &quot;Acessar a plataforma a55&quot; cliente será redirecionado para logar na plataforma <a class="external-link" href="https://docs.a55.tech/reference/buscar-pedido-de-proposta" rel="nofollow"><u>Buscar Solicitação de Proposta</u></a></p><p>Em caso de erro &gt; Status &quot;ERRO &quot;exibe tela de erro disponível <a class="external-link" href="https://codepen.io/a55-tech/pen/71ea360f703477d84df8a6e6812d395b" rel="nofollow"><u>Erro</u></a>.</p><span class="confluence-embedded-file-wrapper image-center-wrapper"><img class="confluence-embedded-image confluence-external-resource image-center" src="https://files.readme.io/bc24e35-status_5.PNG" data-image-src="https://files.readme.io/bc24e35-status_5.PNG" loading="lazy"></span><p>Para entender melhor sobre os endpoints e requisições, acesse nossa <a class="external-link" href="https://docs.a55.tech/reference/introdu%C3%A7%C3%A3o" rel="nofollow"><u>API Reference</u></a>.</p>
+                    </div>
+
+                    
+                                                      
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on Dec 29, 2022 17:42</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>
