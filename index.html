@@ -1,40 +1,116 @@
 <h1>Índice</h1>
-<ul>
-  <li><a href="./61239ff945f7530069120b82"> 61239ff945f7530069120b82 </a></li>
-  <li><a href="./622602c4b7e7c70071591623/"> 622602c4b7e7c70071591623 </a></li>
-  <li><a href="./62682335d364ae0068095f04/"> 62682335d364ae0068095f04 </a></li>
-  <li><a href="./A55General/"> A55General </a></li>
-  <li><a href="./ADSFINANCE/"> ADSFINANCE </a></li>
-  <li><a href="./AS/"> AS </a></li>
-  <li><a href="./BS/"> BS </a></li>
-  <li><a href="./CRED/"> CRED </a></li>
-  <li><a href="./CX/"> CX </a></li>
-  <li><a href="./FOR/"> FOR </a></li>
-  <li><a href="./I/"> I </a></li>
-  <li><a href="./INT/"> INT </a></li>
-  <li><a href="./M/"> M </a></li>
-  <li><a href="./MAR/"> MAR </a></li>
-  <li><a href="./MDCEP/"> MDCEP </a></li>
-  <li><a href="./MXPLAT/"> MXPLAT </a></li>
-  <li><a href="./OP/"> OP </a></li>
-  <li><a href="./PDB/"> PDB </a></li>
-  <li><a href="./PDD/"> PDD </a></li>
-  <li><a href="./PDI/"> PDI </a></li>
-  <li><a href="./PLATPRIC/"> PLATPRIC </a></li>
-  <li><a href="./PM/"> PM </a></li>
-  <li><a href="./PRIC/"> PRIC </a></li>
-  <li><a href="./PROD/"> PROD </a></li>
-  <li><a href="./RH/"> RH </a></li>
-  <li><a href="./SAL/"> SAL </a></li>
-  <li><a href="./SM/"> SM </a></li>
-  <li><a href="./STAFF/"> STAFF </a></li>
-  <li><a href="./STPL/"> STPL </a></li>
-  <li><a href="./SUBSREVO/"> SUBSREVO </a></li>
-  <li><a href="./TBP/"> TBP </a></li>
-  <li><a href="./TIM/"> TIM </a></li>
-  <li><a href="./UX/"> UX </a></li>
-  <li><a href="./a55/"> a55 </a></li>
-  <li><a href="./datahub/"> datahub </a></li>
-  <li><a href="./oSeuCredito"> oSeuCredit </a></li>
-</ul>
+<ul id="summary"></ul>
 
+<script>
+const slugify = (string) => {
+  return string
+    .toString()
+    .trim()
+    .toLowerCase()
+    .replace(/\s+/g, '-')
+    .replace(/[^\w\-]+/g, '')
+    .replace(/\-\-+/g, '-')
+    .replace(/^-+/, '')
+    .replace(/-+$/, '');
+}
+
+  const pages = [
+    "Gabriel Sarmento Zamora",
+    "Guilherme Ferrari",
+    "Guilherme Pattene Dantas",
+    "a55 Company",
+    "Adsfinance",
+    "Plataforma a55",
+    "Backend Space",
+    "Credito",
+    "Project: CX",
+    "Formularios",
+    "Parcerias",
+    "Internacionalizacao",
+    "Mx Development",
+    "Marketing",
+    "Mercado de Capitais",
+    "MX Plataforma",
+    "Operations",
+    "Processo de Bugs",
+    "Plataforma de Dados",
+    "Portal do Investidor",
+    "Platform Credit e Pricing",
+    "Product MX",
+    "Pricing",
+    "Product Team",
+    "RH",
+    "Sales",
+    "Space Modelo",
+    "Staff",
+    "Strategic Planning",
+    "Subsystem: Revolving",
+    "Tech Backend Platform",
+    "Times",
+    "UX",
+    "Ecossistemas e Novos Negocios",
+    "DataHub",
+    "Digital",
+  ]
+
+const links = pages
+  .sort((a, b) => a.toLocaleLowerCase() > b.toLocaleLowerCase() ? 1 : -1)
+  .map(p => ({
+    label: p,
+    href: `./${slugify(p)}`
+  }))
+
+const createDomLink = (link) => {
+  const li = document.createElement('li')
+  const a = document.createElement('a')
+
+  a.setAttribute('href', link.href)
+  a.append(link.label)
+  li.appendChild(a)
+  return li
+}
+
+const chunks = links.reduce((obj, next) => {
+  const key = next.label[0].toLocaleLowerCase()
+  return {
+    ...obj,
+    [key]: [ ...(obj[key] || []), next ]
+  }
+}, {})
+
+window.addEventListener('load', () => {
+  const summary = document.getElementById('summary')
+  
+for(const key in chunks) {
+  const li = document.createElement('li')
+  li.append(`# ${key.toLocaleUpperCase()}`)
+  summary.appendChild(li)
+  const ul = document.createElement('ul')
+  const domLinks = chunks[key].map(createDomLink)
+
+  for(const element of domLinks) {
+    ul.appendChild(element)
+  }
+  summary.appendChild(ul)
+}
+
+  // for(const node of elements) {
+  //   summary.appendChild(node)
+  // }
+})
+
+</script>
+
+<style>
+  #summary > li {
+    font-weight: bold;
+  }
+
+  #summary > ul {
+    margin-bottom: 20px
+  }
+
+  #summary > ul li a {
+    line-height: 1.75;
+  }
+</style>
