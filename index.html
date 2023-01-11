@@ -57,7 +57,7 @@ const links = pages
   .sort((a, b) => a.toLocaleLowerCase() > b.toLocaleLowerCase() ? 1 : -1)
   .map(p => ({
     label: p,
-    href: `./${slugify(p)}`
+    href: `./${slugify(p)}/index.html`
   }))
 
 const createDomLink = (link) => {
@@ -93,10 +93,6 @@ for(const key in chunks) {
   }
   summary.appendChild(ul)
 }
-
-  // for(const node of elements) {
-  //   summary.appendChild(node)
-  // }
 })
 
 </script>
